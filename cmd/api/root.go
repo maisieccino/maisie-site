@@ -8,6 +8,7 @@ import (
 )
 
 func init() {
+	RootCmd.Flags().String("staticPath", ".", "path to static files to serve")
 }
 
 var RootCmd = &cobra.Command{

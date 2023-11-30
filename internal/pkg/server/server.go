@@ -28,8 +28,8 @@ type (
 )
 
 var routeMap = map[route]func(*Server) http.HandlerFunc{
-	{"/", "GET"}:  handleIndex,
-	{"/*", "GET"}: handleStatic,
+	{"/api", "GET"}: handleAPIIndex,
+	{"/*", "GET"}:   handleStatic,
 }
 
 func NewServer(cfg Config) *Server {
@@ -57,7 +57,7 @@ func (s *Server) Serve() {
 	http.ListenAndServe(addr, s.router)
 }
 
-func handleIndex(_ *Server) http.HandlerFunc {
+func handleAPIIndex(_ *Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, _ *http.Request) {
 		w.Write([]byte("{}"))
 	}
@@ -65,10 +65,14 @@ func handleIndex(_ *Server) http.HandlerFunc {
 
 func handleStatic(s *Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		path := s.conf.StaticPath + "/" + r.URL.EscapedPath()
+		path := r.URL.EscapedPath()[1:]
+		if path == "" {
+			path = "index.html"
+		}
+		filePath := s.conf.StaticPath + "/" + path
 		s.conf.Logger.Info("trying path for static file",
-			zap.String("path", path),
+			zap.String("path", filePath),
 		)
-		http.ServeFile(w, r, path)
+		http.ServeFile(w, r, filePath)
 	}
 }
