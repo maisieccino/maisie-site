@@ -37,7 +37,6 @@ var RootCmd = &cobra.Command{
 		if err = viper.Unmarshal(&cfg); err != nil {
 			panic("error unmarshalling config: " + err.Error())
 		}
-		viper.Debug()
 
 		s := server.NewServer(cfg)
 		s.Serve()
