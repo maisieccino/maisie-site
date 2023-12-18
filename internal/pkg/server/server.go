@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/hiMaisie/maisie-site/internal/pkg/coffee"
 	"github.com/hiMaisie/maisie-site/internal/pkg/middleware"
 	"go.uber.org/zap"
 )
@@ -28,8 +29,9 @@ type (
 )
 
 var routeMap = map[route]func(*Server) http.HandlerFunc{
-	{"/api", "GET"}: handleAPIIndex,
-	{"/*", "GET"}:   handleStatic,
+	{"/api/coffee", "*"}: handleCoffee,
+	{"/api", "GET"}:      handleAPIIndex,
+	{"/*", "GET"}:        handleStatic,
 }
 
 func NewServer(cfg Config) *Server {
@@ -42,6 +44,9 @@ func NewServer(cfg Config) *Server {
 	s.router.Use(middleware.NewLoggerMiddleware(s.conf.Logger))
 
 	for r, handler := range routeMap {
+		if r.method == "*" {
+			s.router.Mount(r.path, handler(s))
+		}
 		s.router.Method(r.method, r.path, handler(s))
 	}
 
@@ -74,5 +79,11 @@ func handleStatic(s *Server) http.HandlerFunc {
 			zap.String("path", filePath),
 		)
 		http.ServeFile(w, r, filePath)
+	}
+}
+
+func handleCoffee(s *Server) http.HandlerFunc {
+	// TODO: Add in the coffee map router
+	return func(w http.ResponseWriter, r *http.Request) {
 	}
 }

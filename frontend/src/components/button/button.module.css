@@ -1,0 +1,16 @@
+.button {
+    background-color: var(--var-yellow);
+    font-family: var(--var-font-family-header);
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid var(--var-pink);
+    border-width: 0 0.25rem 0.25rem 0 ;
+    line-height: 1rem;
+    cursor: pointer;
+    transition: border-width 0.1s ease-in-out
+}
+
+.button:active {
+    border-width: 0.25rem 0 0 0.25rem ;
+}
