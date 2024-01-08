@@ -1,0 +1,8 @@
+.logo {
+    --size: 3rem;
+    background: var(--var-gradient);
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+}

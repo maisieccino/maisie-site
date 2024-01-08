@@ -39,6 +39,6 @@ code {
   --var-blue: #83EAEA;
   --var-white: #ffffff;
   --var-black: #000000;
-  --var-gradient: linear-gradient(135deg, var(--var-yellow) 0%, var(--var-pink) 51.56%, var(--var-blue) 100%);
+  --var-gradient: linear-gradient(225deg, var(--var-yellow) 0%, var(--var-pink) 51.56%, var(--var-blue) 100%);
   --var-font-family-header: "AMono", source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
