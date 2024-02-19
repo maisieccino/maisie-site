@@ -1,11 +1,12 @@
 package coffee
 
 type MapItem struct {
-	ID        int
-	Name      string
-	Type      ItemType
-	ImageURL  string
-	ReviewURL string
+	ID         int      `db:"id"`
+	Name       string   `db:"name"`
+	Type       ItemType `db:"type"`
+	ImageURL   string   `db:"image_url" json:"image_url"`
+	ReviewURL  string   `db:"review_url" json:"review_url"`
+	LocationID int      `db:"location_id" json:"-"`
 	Location
 }
 
@@ -18,7 +19,7 @@ const (
 )
 
 type Location struct {
-	Address   string
-	Latitude  float32
-	Longitude float32
+	Address   string  `db:"address"`
+	Latitude  float32 `db:"latitude"`
+	Longitude float32 `db:"longitude"`
 }

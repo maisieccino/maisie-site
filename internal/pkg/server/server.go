@@ -28,6 +28,10 @@ type (
 	}
 )
 
+// routeMap is a mapping that provides a HTTP handler for a given tuple of
+// (path, method).
+// If "*" is given for method, the handler will match for any HTTP method for
+// the given path.
 var routeMap = map[route]func(*Server) http.HandlerFunc{
 	{"/api/coffee", "*"}: handleCoffee,
 	{"/api", "GET"}:      handleAPIIndex,

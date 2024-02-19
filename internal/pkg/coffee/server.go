@@ -32,6 +32,10 @@ type route struct {
 	method string
 }
 
+// routeMap is a mapping that provides a HTTP handler for a given tuple of
+// (path, method).
+// If "*" is given for method, the handler will match for any HTTP method for
+// the given path.
 var routeMap = map[route]func(*Server) http.HandlerFunc{
 	{"/places", "GET"}: handleListPlaces,
 }
@@ -57,12 +61,20 @@ func handleListPlaces(s *Server) http.HandlerFunc {
 }
 
 func New(store Store, logger *zap.Logger) *Server {
-	router := chi.NewRouter()
-	return &Server{
+	s := &Server{
 		store:  store,
-		Router: router,
+		Router: chi.NewRouter(),
 		logger: logger.With(zap.String("component", "coffee")),
 	}
+
+	// Set handlers.
+	for r, h := range routeMap {
+		if r.method == "*" {
+			s.Mount(r.path, h(s))
+		}
+		s.Method(r.method, r.path, h(s))
+	}
+	return s
 }
 
 func (s *Server) GetRouter() chi.Router {
