@@ -6,7 +6,9 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/maisieccino/maisie-site/internal/pkg/coffee"
 	"github.com/maisieccino/maisie-site/internal/pkg/middleware"
+	"github.com/maisieccino/maisie-site/internal/pkg/types"
 	"go.uber.org/zap"
 )
 
@@ -20,18 +22,19 @@ type (
 	Server struct {
 		router chi.Router
 		conf   Config
-	}
-	route struct {
-		path   string
-		method string
+		coffee coffee.Server
 	}
 )
+
+func (s *Server) GetRouter() chi.Router {
+	return s.router
+}
 
 // routeMap is a mapping that provides a HTTP handler for a given tuple of
 // (path, method).
 // If "*" is given for method, the handler will match for any HTTP method for
 // the given path.
-var routeMap = map[route]func(*Server) http.HandlerFunc{
+var routeMap = types.RouteMap[*Server]{
 	{"/api/coffee", "*"}: handleCoffee,
 	{"/api", "GET"}:      handleAPIIndex,
 	{"/*", "GET"}:        handleStatic,
@@ -41,18 +44,15 @@ func NewServer(cfg Config) *Server {
 	s := &Server{
 		router: chi.NewRouter(),
 		conf:   cfg,
+		coffee: *coffee.New(
+			coffee.NewMemoryStore(),
+			cfg.Logger.With(zap.String("component", "coffee")),
+		),
 	}
 
 	// Middleware
 	s.router.Use(middleware.NewLoggerMiddleware(s.conf.Logger))
-
-	for r, handler := range routeMap {
-		if r.method == "*" {
-			s.router.Mount(r.path, handler(s))
-		} else {
-			s.router.Method(r.method, r.path, handler(s))
-		}
-	}
+	routeMap.Build(s)
 
 	return s
 }
@@ -87,7 +87,5 @@ func handleStatic(s *Server) http.HandlerFunc {
 }
 
 func handleCoffee(s *Server) http.HandlerFunc {
-	// TODO: Add in the coffee map router
-	return func(w http.ResponseWriter, r *http.Request) {
-	}
+	return s.coffee.ServeHTTP
 }

@@ -1,7 +1,7 @@
 package coffee
 
 type MapItem struct {
-	ID         int      `db:"id"`
+	ID         string   `db:"id"`
 	Name       string   `db:"name"`
 	Type       ItemType `db:"type"`
 	ImageURL   string   `db:"image_url" json:"image_url"`

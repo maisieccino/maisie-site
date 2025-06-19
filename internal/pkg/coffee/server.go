@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/maisieccino/maisie-site/internal/pkg/types"
 	"go.uber.org/zap"
 )
 
@@ -27,17 +28,16 @@ type Server struct {
 	logger *zap.Logger
 }
 
-type route struct {
-	path   string
-	method string
+func (s *Server) GetRouter() chi.Router {
+	return s.Router
 }
 
 // routeMap is a mapping that provides a HTTP handler for a given tuple of
 // (path, method).
 // If "*" is given for method, the handler will match for any HTTP method for
 // the given path.
-var routeMap = map[route]func(*Server) http.HandlerFunc{
-	{"/places", "GET"}: handleListPlaces,
+var routeMap = types.RouteMap[*Server]{
+	{Path: "/places", Method: "GET"}: handleListPlaces,
 }
 
 func handleListPlaces(s *Server) http.HandlerFunc {
@@ -50,7 +50,9 @@ func handleListPlaces(s *Server) http.HandlerFunc {
 			writeError(w, s.logger, err, http.StatusInternalServerError)
 		}
 
-		resp := struct{ Items []MapItem }{Items: items}
+		resp := struct {
+			Items []MapItem `json:"items"`
+		}{Items: items}
 		enc := json.NewEncoder(w)
 		if encErr := enc.Encode(resp); encErr != nil {
 			s.logger.Error("error writing body", zap.Error(err))
@@ -68,15 +70,6 @@ func New(store Store, logger *zap.Logger) *Server {
 	}
 
 	// Set handlers.
-	for r, h := range routeMap {
-		if r.method == "*" {
-			s.Mount(r.path, h(s))
-		}
-		s.Method(r.method, r.path, h(s))
-	}
+	routeMap.Build(s)
 	return s
-}
-
-func (s *Server) GetRouter() chi.Router {
-	return s.Router
 }
