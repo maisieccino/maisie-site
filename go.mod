@@ -1,4 +1,4 @@
-module github.com/hiMaisie/maisie-site
+module github.com/maisieccino/maisie-site
 
 go 1.21.0
 

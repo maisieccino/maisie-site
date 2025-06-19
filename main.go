@@ -1,6 +1,6 @@
 package main
 
-import "github.com/hiMaisie/maisie-site/cmd/api"
+import "github.com/maisieccino/maisie-site/cmd/api"
 
 func main() {
 	api.RootCmd.Execute()

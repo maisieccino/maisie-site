@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
 @font-face {
   font-family: "A";
   font-weight: normal;
@@ -18,27 +19,39 @@
   font-weight: normal;
   src: url("./fonts/A-Mono.otf");
 }
+@font-face {
+  font-family: "Michroma";
+  font-weight: normal;
+  src: url("./fonts/Michroma-Regular.ttf");
+}
 
 body {
   margin: 0;
-  font-family: "A", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: "A", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 :root {
-  --var-pink: #FD98CE;
-  --var-yellow: #FFC700;
-  --var-blue: #83EAEA;
+  --var-pink: #fd98ce;
+  --var-yellow: #ffc700;
+  --var-blue: #83eaea;
   --var-white: #ffffff;
   --var-black: #000000;
-  --var-gradient: linear-gradient(225deg, var(--var-yellow) 0%, var(--var-pink) 51.56%, var(--var-blue) 100%);
-  --var-font-family-header: "AMono", source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --var-bg: #efefeb;
+  --var-gradient: linear-gradient(
+    225deg,
+    var(--var-yellow) 0%,
+    var(--var-pink) 51.56%,
+    var(--var-blue) 100%
+  );
+  --var-font-family-header: "Michroma", source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
 }

@@ -1,18 +1,21 @@
 package api
 
 import (
-	"github.com/hiMaisie/maisie-site/internal/pkg/server"
+	"github.com/maisieccino/maisie-site/internal/pkg/server"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 )
 
+var configFile string
+
 func init() {
 	RootCmd.Flags().String("staticPath", ".", "path to static files to serve")
+	RootCmd.Flags().StringVarP(&configFile, "config", "c", "", "path to a config file")
 }
 
 var RootCmd = &cobra.Command{
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *cobra.Command, _ []string) {
 		logger, err := zap.NewProduction()
 		if err != nil {
 			panic(err)
@@ -24,6 +27,10 @@ var RootCmd = &cobra.Command{
 		}
 
 		viper.AddConfigPath(".")
+		viper.AddConfigPath(configFile)
+		if configFile != "" {
+			viper.SetConfigFile(configFile)
+		}
 		viper.SetEnvPrefix("api")
 		viper.AutomaticEnv()
 		viper.BindPFlags(cmd.Flags())

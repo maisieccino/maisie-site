@@ -3,7 +3,7 @@ package music_test
 import (
 	"testing"
 
-	"github.com/hiMaisie/maisie-site/internal/pkg/music"
+	"github.com/maisieccino/maisie-site/internal/pkg/music"
 	"github.com/stretchr/testify/assert"
 )
 

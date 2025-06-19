@@ -1,0 +1,8 @@
+.container {
+  display: block;
+  background-color: var(--var-bg);
+  width: 60%;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 16px;
+}

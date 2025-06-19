@@ -1,18 +1,28 @@
-.h1 {
-    --size: 3rem;
-    font-size: var(--size);
-    line-height: var(--size);
-    vertical-align: middle;
-    font-family: var(--var-font-family-header);
+.h1,
+.h2,
+.h3 {
+  font-size: var(--size);
+  line-height: var(--size);
+  vertical-align: middle;
+  font-family: var(--var-font-family-header);
+  font-weight: 500;
 }
-.h1::before {
-    background: var(--var-gradient);
-    width: var(--size);
-    height: var(--size);
-    border-radius: var(--size);
-    display: inline-block;
-    position: relative;
-    top: 0.25rem;
-    margin-right: 0.5rem;
-    content: "";
+
+.h1 {
+  --size: 5rem;
+}
+
+.h2 {
+  --size: 3rem;
+}
+.h2::before {
+  background: var(--var-gradient);
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  display: inline-block;
+  position: relative;
+  top: 0.25rem;
+  margin-right: 0.5rem;
+  content: "";
 }

@@ -1,21 +1,26 @@
 .button {
-    --color-border: var(--var-pink);
-    --color-darkened-border: hsl(from var(--color-border) h calc(s - 20%) calc(l - 20%));
-    --border-width: 0.5rem;
-
-    background-color: var(--var-yellow);
-    font-family: var(--var-font-family-header);
-    font-size: 1rem;
-    padding: 1rem;
-    border-radius: 2rem;
-    line-height: 1rem;
-    cursor: pointer;
-    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
-    z-index: 0;
-    border:none;
-    box-shadow: 0.5rem 0.5rem var(--color-border);
+  --color: var(--var-black);
+  --color-border: var(--var-pink);
+  --color-darkened-border: hsl(
+    from var(--color-border) h calc(s - 20%) calc(l - 20%)
+  );
+  --border-width: 0.5rem;
+  /**/
+  color: var(--var-black);
+  background-color: var(--var-yellow);
+  font-family: var(--var-font-family-header);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 2rem;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+  z-index: 0;
+  border: none;
+  box-shadow: 0.5rem 0.5rem var(--color-border);
 }
 .button:active {
-    box-shadow: none;
-    transform: translateX(0.5rem) translateY(0.5rem);
+  box-shadow: none;
+  transform: translateX(0.5rem) translateY(0.5rem);
 }

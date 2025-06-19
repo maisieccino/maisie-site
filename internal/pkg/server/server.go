@@ -6,8 +6,7 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/hiMaisie/maisie-site/internal/pkg/coffee"
-	"github.com/hiMaisie/maisie-site/internal/pkg/middleware"
+	"github.com/maisieccino/maisie-site/internal/pkg/middleware"
 	"go.uber.org/zap"
 )
 
@@ -50,8 +49,9 @@ func NewServer(cfg Config) *Server {
 	for r, handler := range routeMap {
 		if r.method == "*" {
 			s.router.Mount(r.path, handler(s))
+		} else {
+			s.router.Method(r.method, r.path, handler(s))
 		}
-		s.router.Method(r.method, r.path, handler(s))
 	}
 
 	return s
