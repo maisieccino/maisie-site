@@ -1,3 +1,4 @@
+// Package server provides the root server for maisie's website.
 package server
 
 import (

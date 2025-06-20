@@ -3,6 +3,8 @@ package coffee
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"io"
 	"net/http"
 	"time"
 
@@ -37,7 +39,9 @@ func (s *Server) GetRouter() chi.Router {
 // If "*" is given for method, the handler will match for any HTTP method for
 // the given path.
 var routeMap = types.RouteMap[*Server]{
-	{Path: "/places", Method: "GET"}: handleListPlaces,
+	{Path: "/places", Method: "GET"}:       handleListPlaces,
+	{Path: "/places", Method: "PUT"}:       handleCreatePlace,
+	{Path: "/places/:id", Method: "PATCH"}: handleUpdatePlace,
 }
 
 func handleListPlaces(s *Server) http.HandlerFunc {
@@ -58,6 +62,51 @@ func handleListPlaces(s *Server) http.HandlerFunc {
 			s.logger.Error("error writing body", zap.Error(err))
 			writeError(w, s.logger, err, http.StatusInternalServerError)
 			return
+		}
+	}
+}
+
+func handleCreatePlace(s *Server) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := io.ReadAll(r.Body)
+		if err != nil {
+			writeError(w, s.logger, err, http.StatusBadRequest)
+			return
+		}
+		var place MapItem
+		if err := json.Unmarshal(body, &place); err != nil {
+			writeError(w, s.logger, fmt.Errorf("unmarshaling place: %w", err), http.StatusBadRequest)
+			return
+		}
+
+		if err := s.store.Create(r.Context(), place); err != nil {
+			writeError(w, s.logger, fmt.Errorf("storing place: %w", err), http.StatusBadRequest)
+			return
+		}
+
+		w.WriteHeader(http.StatusCreated)
+		w.Write([]byte(`{"status":"success"}`))
+	}
+}
+
+func handleUpdatePlace(s *Server) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		id := chi.URLParam(r, "id")
+
+		body, err := io.ReadAll(r.Body)
+		if err != nil {
+			writeError(w, s.logger, err, http.StatusBadRequest)
+			return
+		}
+
+		var newItem MapItem
+		if err := json.Unmarshal(body, &newItem); err != nil {
+			writeError(w, s.logger, err, http.StatusBadRequest)
+			return
+		}
+
+		if err := s.store.Update(r.Context(), id, newItem); err != nil {
+			writeError(w, s.logger, fmt.Errorf("updating place: %w", err), http.StatusInternalServerError)
 		}
 	}
 }
