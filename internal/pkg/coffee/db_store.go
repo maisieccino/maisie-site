@@ -2,23 +2,28 @@ package coffee
 
 import (
 	"context"
-	"database/sql"
-	"errors"
+	"fmt"
+
+	"github.com/maisieccino/maisie-site/internal/pkg/db"
 )
 
 type DBStore struct {
-	sql.DB
+	*db.Queries
 }
 
 func (s *DBStore) Get(ctx context.Context, id string) (MapItem, error) {
-	if id == "" {
-		return MapItem{}, errors.New("no id specified")
+	item, err := s.GetItem(ctx, id)
+	if err != nil {
+		return MapItem{}, fmt.Errorf("reading from DB: %w", err)
 	}
 
-	row := s.QueryRowContext(ctx, `SELECT * FROM coffee_map WHERE ID=$1`, id)
-	if row == nil {
-		return MapItem{}, errors.New("reading from database")
-	}
-
-	return MapItem{}, nil
+	return MapItem{
+		ID:         item.ID,
+		Name:       item.Name,
+		Type:       ItemType(item.ItemType.String),
+		ImageURL:   item.ImageUrl.String,
+		ReviewURL:  item.ReviewUrl.String,
+		LocationID: 0,
+		Location:   Location{},
+	}, err
 }

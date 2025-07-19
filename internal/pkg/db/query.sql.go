@@ -7,11 +7,49 @@ package db
 
 import (
 	"context"
+	"database/sql"
 )
+
+const createItem = `-- name: CreateItem :one
+INSERT INTO coffee_map_item (
+  id, name,
+  item_type, image_url, review_url
+) VALUES  (
+  $1, $2, $3, $4, $5
+) RETURNING id, name, item_type, image_url, review_url
+`
+
+type CreateItemParams struct {
+	ID        string
+	Name      string
+	ItemType  sql.NullString
+	ImageUrl  sql.NullString
+	ReviewUrl sql.NullString
+}
+
+func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeMapItem, error) {
+	row := q.db.QueryRowContext(ctx, createItem,
+		arg.ID,
+		arg.Name,
+		arg.ItemType,
+		arg.ImageUrl,
+		arg.ReviewUrl,
+	)
+	var i CoffeeMapItem
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.ItemType,
+		&i.ImageUrl,
+		&i.ReviewUrl,
+	)
+	return i, err
+}
 
 const getItem = `-- name: GetItem :one
 SELECT id, name, item_type, image_url, review_url FROM coffee_map_item
-WHERE id = $1 LIMIT 1
+WHERE id = $1
+LIMIT 1
 `
 
 func (q *Queries) GetItem(ctx context.Context, id string) (CoffeeMapItem, error) {
@@ -25,4 +63,38 @@ func (q *Queries) GetItem(ctx context.Context, id string) (CoffeeMapItem, error)
 		&i.ReviewUrl,
 	)
 	return i, err
+}
+
+const listItems = `-- name: ListItems :many
+SELECT id, name, item_type, image_url, review_url FROM coffee_map_item
+ORDER BY id
+`
+
+func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
+	rows, err := q.db.QueryContext(ctx, listItems)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []CoffeeMapItem
+	for rows.Next() {
+		var i CoffeeMapItem
+		if err := rows.Scan(
+			&i.ID,
+			&i.Name,
+			&i.ItemType,
+			&i.ImageUrl,
+			&i.ReviewUrl,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
