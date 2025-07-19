@@ -9,8 +9,13 @@ ORDER BY id;
 
 -- name: CreateItem :one
 INSERT INTO coffee_map_item (
-  id, name,
-  item_type, image_url, review_url
-) VALUES  (
-  $1, $2, $3, $4, $5
+    id,
+    item_name,
+    item_type,
+    image_url,
+    review_url,
+    description
+) VALUES (
+    gen_random_uuid(),
+    $1, $2, $3, $4, $5
 ) RETURNING *;

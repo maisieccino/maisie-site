@@ -4,11 +4,29 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/maisieccino/maisie-site/internal/pkg/db"
 )
 
 type DBStore struct {
 	*db.Queries
+}
+
+func NewDBStore(conn *pgx.Conn) Store {
+	queries := db.New(conn)
+	return &DBStore{queries}
+}
+
+func toMapItem(i db.CoffeeMapItem) MapItem {
+	return MapItem{
+		ID:         i.ID,
+		Name:       i.ItemName,
+		Type:       ItemType(i.ItemType.String),
+		ImageURL:   i.ImageUrl.String,
+		ReviewURL:  i.ReviewUrl.String,
+		LocationID: 0,
+		Location:   Location{},
+	}
 }
 
 func (s *DBStore) Get(ctx context.Context, id string) (MapItem, error) {
@@ -17,13 +35,29 @@ func (s *DBStore) Get(ctx context.Context, id string) (MapItem, error) {
 		return MapItem{}, fmt.Errorf("reading from DB: %w", err)
 	}
 
-	return MapItem{
-		ID:         item.ID,
-		Name:       item.Name,
-		Type:       ItemType(item.ItemType.String),
-		ImageURL:   item.ImageUrl.String,
-		ReviewURL:  item.ReviewUrl.String,
-		LocationID: 0,
-		Location:   Location{},
-	}, err
+	return toMapItem(item), err
+}
+
+func (s *DBStore) Create(context.Context, MapItem) error {
+	return nil
+}
+
+func (s *DBStore) Update(context.Context, string, MapItem) error {
+	return nil
+}
+
+func (s *DBStore) List(ctx context.Context) ([]MapItem, error) {
+	items, err := s.ListItems(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("reading from DB: %w", err)
+	}
+	result := []MapItem{}
+	for _, i := range items {
+		result = append(result, toMapItem(i))
+	}
+	return result, nil
+}
+
+func (s *DBStore) Delete(context.Context, string) error {
+	return nil
 }

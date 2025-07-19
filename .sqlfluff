@@ -1,2 +1,6 @@
 [sqlfluff]
 templater = placeholder
+dialect = postgres
+
+[sqlfluff:templater:placeholder]
+param_style = dollar

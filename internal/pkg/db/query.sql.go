@@ -7,71 +7,83 @@ package db
 
 import (
 	"context"
-	"database/sql"
+
+	"github.com/jackc/pgx/v5/pgtype"
 )
 
 const createItem = `-- name: CreateItem :one
 INSERT INTO coffee_map_item (
-  id, name,
-  item_type, image_url, review_url
-) VALUES  (
-  $1, $2, $3, $4, $5
-) RETURNING id, name, item_type, image_url, review_url
+    id,
+    item_name,
+    item_type,
+    image_url,
+    review_url,
+    description
+) VALUES (
+    gen_random_uuid(),
+    $1, $2, $3, $4, $5
+) RETURNING id, item_name, item_type, image_url, review_url, description, created_at, updated_at
 `
 
 type CreateItemParams struct {
-	ID        string
-	Name      string
-	ItemType  sql.NullString
-	ImageUrl  sql.NullString
-	ReviewUrl sql.NullString
+	ItemName    string
+	ItemType    pgtype.Text
+	ImageUrl    pgtype.Text
+	ReviewUrl   pgtype.Text
+	Description pgtype.Text
 }
 
 func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeMapItem, error) {
-	row := q.db.QueryRowContext(ctx, createItem,
-		arg.ID,
-		arg.Name,
+	row := q.db.QueryRow(ctx, createItem,
+		arg.ItemName,
 		arg.ItemType,
 		arg.ImageUrl,
 		arg.ReviewUrl,
+		arg.Description,
 	)
 	var i CoffeeMapItem
 	err := row.Scan(
 		&i.ID,
-		&i.Name,
+		&i.ItemName,
 		&i.ItemType,
 		&i.ImageUrl,
 		&i.ReviewUrl,
+		&i.Description,
+		&i.CreatedAt,
+		&i.UpdatedAt,
 	)
 	return i, err
 }
 
 const getItem = `-- name: GetItem :one
-SELECT id, name, item_type, image_url, review_url FROM coffee_map_item
+SELECT id, item_name, item_type, image_url, review_url, description, created_at, updated_at FROM coffee_map_item
 WHERE id = $1
 LIMIT 1
 `
 
 func (q *Queries) GetItem(ctx context.Context, id string) (CoffeeMapItem, error) {
-	row := q.db.QueryRowContext(ctx, getItem, id)
+	row := q.db.QueryRow(ctx, getItem, id)
 	var i CoffeeMapItem
 	err := row.Scan(
 		&i.ID,
-		&i.Name,
+		&i.ItemName,
 		&i.ItemType,
 		&i.ImageUrl,
 		&i.ReviewUrl,
+		&i.Description,
+		&i.CreatedAt,
+		&i.UpdatedAt,
 	)
 	return i, err
 }
 
 const listItems = `-- name: ListItems :many
-SELECT id, name, item_type, image_url, review_url FROM coffee_map_item
+SELECT id, item_name, item_type, image_url, review_url, description, created_at, updated_at FROM coffee_map_item
 ORDER BY id
 `
 
 func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
-	rows, err := q.db.QueryContext(ctx, listItems)
+	rows, err := q.db.Query(ctx, listItems)
 	if err != nil {
 		return nil, err
 	}
@@ -81,17 +93,17 @@ func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
 		var i CoffeeMapItem
 		if err := rows.Scan(
 			&i.ID,
-			&i.Name,
+			&i.ItemName,
 			&i.ItemType,
 			&i.ImageUrl,
 			&i.ReviewUrl,
+			&i.Description,
+			&i.CreatedAt,
+			&i.UpdatedAt,
 		); err != nil {
 			return nil, err
 		}
 		items = append(items, i)
-	}
-	if err := rows.Close(); err != nil {
-		return nil, err
 	}
 	if err := rows.Err(); err != nil {
 		return nil, err

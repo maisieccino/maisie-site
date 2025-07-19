@@ -5,13 +5,16 @@
 package db
 
 import (
-	"database/sql"
+	"github.com/jackc/pgx/v5/pgtype"
 )
 
 type CoffeeMapItem struct {
-	ID        string
-	Name      string
-	ItemType  sql.NullString
-	ImageUrl  sql.NullString
-	ReviewUrl sql.NullString
+	ID          string
+	ItemName    string
+	ItemType    pgtype.Text
+	ImageUrl    pgtype.Text
+	ReviewUrl   pgtype.Text
+	Description pgtype.Text
+	CreatedAt   pgtype.Timestamp
+	UpdatedAt   pgtype.Timestamp
 }

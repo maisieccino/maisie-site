@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/jackc/pgx/v5"
 	"github.com/maisieccino/maisie-site/internal/pkg/coffee"
 	"github.com/maisieccino/maisie-site/internal/pkg/middleware"
 	"github.com/maisieccino/maisie-site/internal/pkg/types"
@@ -14,11 +15,21 @@ import (
 )
 
 type (
+	DB struct {
+		Enabled  bool   `keyval:"enabled"`
+		Hostname string `keyval:"hostname"`
+		Port     int    `keyval:"port"`
+		User     string `keyval:"user"`
+		Password string `keyval:"password"`
+		Database string `keyval:"database"`
+		Conn     *pgx.Conn
+	}
 	Config struct {
 		Host       string `keyval:"host"`
 		Port       int    `keyval:"port"`
 		StaticPath string `keyval:"staticPath"`
 		Logger     *zap.Logger
+		DB         *DB `keyval:"db,omitempty"`
 	}
 	Server struct {
 		router chi.Router
@@ -42,11 +53,17 @@ var routeMap = types.RouteMap[*Server]{
 }
 
 func NewServer(cfg Config) *Server {
+	var coffeeStore coffee.Store
+	if cfg.DB.Enabled {
+		coffeeStore = coffee.NewDBStore(cfg.DB.Conn)
+	} else {
+		coffeeStore = coffee.NewMemoryStore()
+	}
 	s := &Server{
 		router: chi.NewRouter(),
 		conf:   cfg,
 		coffee: *coffee.New(
-			coffee.NewMemoryStore(),
+			coffeeStore,
 			cfg.Logger.With(zap.String("component", "coffee")),
 		),
 	}
