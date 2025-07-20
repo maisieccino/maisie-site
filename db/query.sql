@@ -14,7 +14,7 @@ INSERT INTO coffee_map_item (
     item_type,
     image_url,
     review_url,
-    description
+    summary
 ) VALUES (
     gen_random_uuid(),
     $1, $2, $3, $4, $5
