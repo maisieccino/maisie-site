@@ -21,7 +21,7 @@ INSERT INTO coffee_map_item (
     image_url,
     review_url,
     summary,
-  location
+    location
 ) VALUES (
     gen_random_uuid(),
     $1, $2, $3, $4, $5, $6
@@ -120,12 +120,12 @@ func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
 }
 
 const searchByArea = `-- name: SearchByArea :many
-SELECT i.id, i.item_name, i.item_type, i.image_url, i.review_url, i.summary, i.created_at, i.updated_at, i.location FROM
-coffee_map_item i
-WHERE ST_WITHIN(i.location, ST_GeomFromWKB($1::polygon))
+SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location FROM
+coffee_map_item
+WHERE ST_WITHIN(location, ST_GEOMFROMEWKB($1::bytea))
 `
 
-func (q *Queries) SearchByArea(ctx context.Context, dollar_1 geom.Polygon) ([]CoffeeMapItem, error) {
+func (q *Queries) SearchByArea(ctx context.Context, dollar_1 []byte) ([]CoffeeMapItem, error) {
 	rows, err := q.db.Query(ctx, searchByArea, dollar_1)
 	if err != nil {
 		return nil, err

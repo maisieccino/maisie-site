@@ -8,9 +8,9 @@ SELECT * FROM coffee_map_item
 ORDER BY id;
 
 -- name: SearchByArea :many
-SELECT i.* FROM
-coffee_map_item i
-WHERE ST_WITHIN(i.location, $1::geometry);
+SELECT * FROM
+coffee_map_item
+WHERE ST_WITHIN(location, ST_GEOMFROMEWKB($1::bytea));
 
 -- name: CreateItem :one
 INSERT INTO coffee_map_item (
@@ -20,7 +20,7 @@ INSERT INTO coffee_map_item (
     image_url,
     review_url,
     summary,
-  location
+    location
 ) VALUES (
     gen_random_uuid(),
     $1, $2, $3, $4, $5, $6

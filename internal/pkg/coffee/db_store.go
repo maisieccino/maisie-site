@@ -8,6 +8,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/maisieccino/maisie-site/internal/pkg/db"
 	"github.com/twpayne/go-geom"
+	"github.com/twpayne/go-geom/encoding/ewkb"
 )
 
 type DBStore struct {
@@ -70,21 +71,41 @@ func (s *DBStore) List(ctx context.Context) ([]MapItem, error) {
 }
 
 func (s *DBStore) SearchByArea(ctx context.Context, params SearchByAreaParams) ([]MapItem, error) {
-	coords := []float64{
-		params.X0,
-		params.Y0,
+	coords := []geom.Coord{
+		{
+			params.X0,
+			params.Y0,
+		},
 
-		params.X1,
-		params.Y0,
+		{
+			params.X1,
+			params.Y0,
+		},
 
-		params.X1,
-		params.Y1,
+		{
+			params.X1,
+			params.Y1,
+		},
 
-		params.X0,
-		params.Y1,
+		{
+			params.X0,
+			params.Y1,
+		},
+
+		{
+			params.X0,
+			params.Y0,
+		},
 	}
-	polygon := geom.NewPolygonFlat(geom.XY, coords, nil)
-	results, err := s.Queries.SearchByArea(ctx, *polygon)
+	p := geom.NewPolygon(geom.XY)
+	p.MustSetCoords([][]geom.Coord{coords})
+	p.SetSRID(4326)
+
+	enc, err := ewkb.Marshal(p, ewkb.NDR)
+	if err != nil {
+		return nil, fmt.Errorf("encoding input: %w", err)
+	}
+	results, err := s.Queries.SearchByArea(ctx, enc)
 	if err != nil {
 		return nil, fmt.Errorf("reading from DB: %w", err)
 	}
