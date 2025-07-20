@@ -13,3 +13,8 @@ sql:
             go_type:
               import: "github.com/google/uuid"
               type: "UUID"
+          - column: "coffee_map_item.location"
+            go_type: "github.com/twpayne/go-geom.Point"
+            nullable: true
+          - db_type: "polygon"
+            go_type: "github.com/twpayne/go-geom.Polygon"

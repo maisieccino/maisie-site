@@ -7,6 +7,7 @@ package db
 import (
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
+	"github.com/twpayne/go-geom"
 )
 
 type CoffeeMapItem struct {
@@ -18,4 +19,5 @@ type CoffeeMapItem struct {
 	Summary   pgtype.Text
 	CreatedAt pgtype.Timestamp
 	UpdatedAt pgtype.Timestamp
+	Location  geom.Point
 }

@@ -7,6 +7,11 @@ LIMIT 1;
 SELECT * FROM coffee_map_item
 ORDER BY id;
 
+-- name: SearchByArea :many
+SELECT * FROM
+coffee_map_item
+WHERE ST_WITHIN(location, ST_GEOMFROMEWKB($1::bytea));
+
 -- name: CreateItem :one
 INSERT INTO coffee_map_item (
     id,
@@ -14,8 +19,9 @@ INSERT INTO coffee_map_item (
     item_type,
     image_url,
     review_url,
-    summary
+    summary,
+    location
 ) VALUES (
     gen_random_uuid(),
-    $1, $2, $3, $4, $5
+    $1, $2, $3, $4, $5, $6
 ) RETURNING *;

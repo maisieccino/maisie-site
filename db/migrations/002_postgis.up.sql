@@ -1,0 +1,4 @@
+CREATE EXTENSION IF NOT EXISTS postgis;
+
+ALTER TABLE coffee_map_item
+ADD COLUMN IF NOT EXISTS location GEOMETRY(Point, 4326);

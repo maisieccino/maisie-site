@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/maisieccino/maisie-site/internal/pkg/coffee"
 	"github.com/maisieccino/maisie-site/internal/pkg/middleware"
 	"github.com/maisieccino/maisie-site/internal/pkg/types"
@@ -22,7 +22,7 @@ type (
 		User     string `keyval:"user"`
 		Password string `keyval:"password"`
 		Database string `keyval:"database"`
-		Conn     *pgx.Conn
+		Conn     *pgxpool.Pool
 	}
 	Config struct {
 		Host       string `keyval:"host"`

@@ -10,6 +10,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
+	"github.com/twpayne/go-geom"
 )
 
 const createItem = `-- name: CreateItem :one
@@ -19,11 +20,12 @@ INSERT INTO coffee_map_item (
     item_type,
     image_url,
     review_url,
-    summary
+    summary,
+    location
 ) VALUES (
     gen_random_uuid(),
-    $1, $2, $3, $4, $5
-) RETURNING id, item_name, item_type, image_url, review_url, summary, created_at, updated_at
+    $1, $2, $3, $4, $5, $6
+) RETURNING id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location
 `
 
 type CreateItemParams struct {
@@ -32,6 +34,7 @@ type CreateItemParams struct {
 	ImageUrl  pgtype.Text
 	ReviewUrl pgtype.Text
 	Summary   pgtype.Text
+	Location  geom.Point
 }
 
 func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeMapItem, error) {
@@ -41,6 +44,7 @@ func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeM
 		arg.ImageUrl,
 		arg.ReviewUrl,
 		arg.Summary,
+		arg.Location,
 	)
 	var i CoffeeMapItem
 	err := row.Scan(
@@ -52,12 +56,13 @@ func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeM
 		&i.Summary,
 		&i.CreatedAt,
 		&i.UpdatedAt,
+		&i.Location,
 	)
 	return i, err
 }
 
 const getItem = `-- name: GetItem :one
-SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at FROM coffee_map_item
+SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location FROM coffee_map_item
 WHERE id = $1
 LIMIT 1
 `
@@ -74,12 +79,13 @@ func (q *Queries) GetItem(ctx context.Context, id uuid.UUID) (CoffeeMapItem, err
 		&i.Summary,
 		&i.CreatedAt,
 		&i.UpdatedAt,
+		&i.Location,
 	)
 	return i, err
 }
 
 const listItems = `-- name: ListItems :many
-SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at FROM coffee_map_item
+SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location FROM coffee_map_item
 ORDER BY id
 `
 
@@ -101,6 +107,43 @@ func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
 			&i.Summary,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+			&i.Location,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const searchByArea = `-- name: SearchByArea :many
+SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location FROM
+coffee_map_item
+WHERE ST_WITHIN(location, ST_GEOMFROMEWKB($1::bytea))
+`
+
+func (q *Queries) SearchByArea(ctx context.Context, dollar_1 []byte) ([]CoffeeMapItem, error) {
+	rows, err := q.db.Query(ctx, searchByArea, dollar_1)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []CoffeeMapItem
+	for rows.Next() {
+		var i CoffeeMapItem
+		if err := rows.Scan(
+			&i.ID,
+			&i.ItemName,
+			&i.ItemType,
+			&i.ImageUrl,
+			&i.ReviewUrl,
+			&i.Summary,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+			&i.Location,
 		); err != nil {
 			return nil, err
 		}

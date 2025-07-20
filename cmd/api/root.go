@@ -5,9 +5,11 @@ import (
 	"fmt"
 
 	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/maisieccino/maisie-site/internal/pkg/server"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	pgxgeom "github.com/twpayne/pgx-geom"
 	"go.uber.org/zap"
 )
 
@@ -59,6 +61,7 @@ var RootCmd = &cobra.Command{
 		ctx := context.Background()
 
 		if cfg.DB != nil && cfg.DB.Enabled {
+
 			connStr := fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
 				cfg.DB.User,
 				cfg.DB.Password,
@@ -66,12 +69,22 @@ var RootCmd = &cobra.Command{
 				cfg.DB.Port,
 				cfg.DB.Database,
 			)
-			conn, err := pgx.Connect(ctx, connStr)
+			dbCfg, err := pgxpool.ParseConfig(connStr)
+			if err != nil {
+				panic("building connection config: " + err.Error())
+			}
+
+			dbCfg.AfterConnect = func(ctx context.Context, conn *pgx.Conn) error {
+				return pgxgeom.Register(ctx, conn)
+			}
+
+			pool, err := pgxpool.NewWithConfig(ctx, dbCfg)
 			if err != nil {
 				panic("error connecting to database: " + err.Error())
 			}
-			defer conn.Close(ctx)
-			cfg.DB.Conn = conn
+			defer pool.Close()
+
+			cfg.DB.Conn = pool
 			logger.Debug("DB connected")
 		}
 
