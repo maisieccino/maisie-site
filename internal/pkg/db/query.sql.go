@@ -23,7 +23,7 @@ INSERT INTO coffee_map_item (
 ) VALUES (
     gen_random_uuid(),
     $1, $2, $3, $4, $5
-) RETURNING id, item_name, item_type, image_url, review_url, summary, created_at, updated_at
+) RETURNING id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location
 `
 
 type CreateItemParams struct {
@@ -52,12 +52,13 @@ func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeM
 		&i.Summary,
 		&i.CreatedAt,
 		&i.UpdatedAt,
+		&i.Location,
 	)
 	return i, err
 }
 
 const getItem = `-- name: GetItem :one
-SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at FROM coffee_map_item
+SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location FROM coffee_map_item
 WHERE id = $1
 LIMIT 1
 `
@@ -74,12 +75,13 @@ func (q *Queries) GetItem(ctx context.Context, id uuid.UUID) (CoffeeMapItem, err
 		&i.Summary,
 		&i.CreatedAt,
 		&i.UpdatedAt,
+		&i.Location,
 	)
 	return i, err
 }
 
 const listItems = `-- name: ListItems :many
-SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at FROM coffee_map_item
+SELECT id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location FROM coffee_map_item
 ORDER BY id
 `
 
@@ -101,6 +103,7 @@ func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
 			&i.Summary,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+			&i.Location,
 		); err != nil {
 			return nil, err
 		}

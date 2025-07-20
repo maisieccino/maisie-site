@@ -14,6 +14,7 @@ sql:
               import: "github.com/google/uuid"
               type: "UUID"
           - db_type: "geometry"
-            go_type:
-              import: "github.com/twpayne/go-geom"
-              type: "Point"
+            go_type: "github.com/twpayne/go-geom.Point"
+          - db_type: "geometry"
+            go_type: "github.com/twpayne/go-geom.Point"
+            nullable: true

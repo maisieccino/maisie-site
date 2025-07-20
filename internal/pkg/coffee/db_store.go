@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/google/uuid"
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/maisieccino/maisie-site/internal/pkg/db"
 )
 
@@ -13,20 +13,25 @@ type DBStore struct {
 	*db.Queries
 }
 
-func NewDBStore(conn *pgx.Conn) Store {
+func NewDBStore(conn *pgxpool.Pool) Store {
 	queries := db.New(conn)
 	return &DBStore{queries}
 }
 
 func toMapItem(i db.CoffeeMapItem) MapItem {
+	var loc Location
+	if !i.Location.Empty() {
+		loc.Latitude = i.Location.X()
+		loc.Longitude = i.Location.Y()
+	}
+
 	return MapItem{
-		ID:         i.ID.String(),
-		Name:       i.ItemName,
-		Type:       ItemType(i.ItemType.String),
-		ImageURL:   i.ImageUrl.String,
-		ReviewURL:  i.ReviewUrl.String,
-		LocationID: 0,
-		Location:   Location{},
+		ID:        i.ID.String(),
+		Name:      i.ItemName,
+		Type:      ItemType(i.ItemType.String),
+		ImageURL:  i.ImageUrl.String,
+		ReviewURL: i.ReviewUrl.String,
+		Location:  loc,
 	}
 }
 
