@@ -10,12 +10,12 @@ import (
 )
 
 type CoffeeMapItem struct {
-	ID          uuid.UUID
-	ItemName    string
-	ItemType    pgtype.Text
-	ImageUrl    pgtype.Text
-	ReviewUrl   pgtype.Text
-	Description pgtype.Text
-	CreatedAt   pgtype.Timestamp
-	UpdatedAt   pgtype.Timestamp
+	ID        uuid.UUID
+	ItemName  string
+	ItemType  pgtype.Text
+	ImageUrl  pgtype.Text
+	ReviewUrl pgtype.Text
+	Summary   pgtype.Text
+	CreatedAt pgtype.Timestamp
+	UpdatedAt pgtype.Timestamp
 }
