@@ -5,11 +5,12 @@
 package db
 
 import (
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
 type CoffeeMapItem struct {
-	ID          string
+	ID          uuid.UUID
 	ItemName    string
 	ItemType    pgtype.Text
 	ImageUrl    pgtype.Text

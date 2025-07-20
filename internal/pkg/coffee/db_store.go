@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
 	"github.com/maisieccino/maisie-site/internal/pkg/db"
 )
@@ -19,7 +20,7 @@ func NewDBStore(conn *pgx.Conn) Store {
 
 func toMapItem(i db.CoffeeMapItem) MapItem {
 	return MapItem{
-		ID:         i.ID,
+		ID:         i.ID.String(),
 		Name:       i.ItemName,
 		Type:       ItemType(i.ItemType.String),
 		ImageURL:   i.ImageUrl.String,
@@ -30,7 +31,11 @@ func toMapItem(i db.CoffeeMapItem) MapItem {
 }
 
 func (s *DBStore) Get(ctx context.Context, id string) (MapItem, error) {
-	item, err := s.GetItem(ctx, id)
+	u, err := uuid.Parse(id)
+	if err != nil {
+		return MapItem{}, fmt.Errorf("parsing UUID: %w", err)
+	}
+	item, err := s.GetItem(ctx, u)
 	if err != nil {
 		return MapItem{}, fmt.Errorf("reading from DB: %w", err)
 	}

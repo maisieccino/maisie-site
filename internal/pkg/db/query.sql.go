@@ -8,6 +8,7 @@ package db
 import (
 	"context"
 
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
@@ -61,7 +62,7 @@ WHERE id = $1
 LIMIT 1
 `
 
-func (q *Queries) GetItem(ctx context.Context, id string) (CoffeeMapItem, error) {
+func (q *Queries) GetItem(ctx context.Context, id uuid.UUID) (CoffeeMapItem, error) {
 	row := q.db.QueryRow(ctx, getItem, id)
 	var i CoffeeMapItem
 	err := row.Scan(
