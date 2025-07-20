@@ -56,6 +56,8 @@ var RootCmd = &cobra.Command{
 			panic("error unmarshalling config: " + err.Error())
 		}
 
+		ctx := context.Background()
+
 		if cfg.DB != nil && cfg.DB.Enabled {
 			connStr := fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
 				cfg.DB.User,
@@ -64,10 +66,11 @@ var RootCmd = &cobra.Command{
 				cfg.DB.Port,
 				cfg.DB.Database,
 			)
-			conn, err := pgx.Connect(context.Background(), connStr)
+			conn, err := pgx.Connect(ctx, connStr)
 			if err != nil {
 				panic("error connecting to database: " + err.Error())
 			}
+			defer conn.Close(ctx)
 			cfg.DB.Conn = conn
 			logger.Debug("DB connected")
 		}
