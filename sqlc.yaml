@@ -18,3 +18,5 @@ sql:
           - db_type: "geometry"
             go_type: "github.com/twpayne/go-geom.Point"
             nullable: true
+          - db_type: "polygon"
+            go_type: "github.com/twpayne/go-geom.Polygon"

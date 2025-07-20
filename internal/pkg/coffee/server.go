@@ -39,9 +39,10 @@ func (s *Server) GetRouter() chi.Router {
 // If "*" is given for method, the handler will match for any HTTP method for
 // the given path.
 var routeMap = types.RouteMap[*Server]{
-	{Path: "/places", Method: "GET"}:       handleListPlaces,
-	{Path: "/places", Method: "PUT"}:       handleCreatePlace,
-	{Path: "/places/:id", Method: "PATCH"}: handleUpdatePlace,
+	{Path: "/places", Method: "GET"}:         handleListPlaces,
+	{Path: "/places", Method: "PUT"}:         handleCreatePlace,
+	{Path: "/places/:id", Method: "PATCH"}:   handleUpdatePlace,
+	{Path: "/places/by-area", Method: "PUT"}: handleSearchByArea,
 }
 
 func handleListPlaces(s *Server) http.HandlerFunc {
@@ -107,6 +108,37 @@ func handleUpdatePlace(s *Server) http.HandlerFunc {
 
 		if err := s.store.Update(r.Context(), id, newItem); err != nil {
 			writeError(w, s.logger, fmt.Errorf("updating place: %w", err), http.StatusInternalServerError)
+		}
+	}
+}
+
+func handleSearchByArea(s *Server) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := io.ReadAll(r.Body)
+		if err != nil {
+			writeError(w, s.logger, err, http.StatusBadRequest)
+			return
+		}
+		var params SearchByAreaParams
+		if err := json.Unmarshal(body, &params); err != nil {
+			writeError(w, s.logger, err, http.StatusBadRequest)
+			return
+		}
+
+		results, err := s.store.SearchByArea(r.Context(), params)
+		if err != nil {
+			writeError(w, s.logger, err, http.StatusInternalServerError)
+			return
+		}
+
+		resp := struct {
+			Items []MapItem `json:"items"`
+		}{Items: results}
+		enc := json.NewEncoder(w)
+		if encErr := enc.Encode(resp); encErr != nil {
+			s.logger.Error("error writing body", zap.Error(err))
+			writeError(w, s.logger, err, http.StatusInternalServerError)
+			return
 		}
 	}
 }

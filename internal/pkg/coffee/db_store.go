@@ -7,6 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/maisieccino/maisie-site/internal/pkg/db"
+	"github.com/twpayne/go-geom"
 )
 
 type DBStore struct {
@@ -66,6 +67,33 @@ func (s *DBStore) List(ctx context.Context) ([]MapItem, error) {
 		result = append(result, toMapItem(i))
 	}
 	return result, nil
+}
+
+func (s *DBStore) SearchByArea(ctx context.Context, params SearchByAreaParams) ([]MapItem, error) {
+	coords := []float64{
+		params.X0,
+		params.Y0,
+
+		params.X1,
+		params.Y0,
+
+		params.X1,
+		params.Y1,
+
+		params.X0,
+		params.Y1,
+	}
+	polygon := geom.NewPolygonFlat(geom.XY, coords, nil)
+	results, err := s.Queries.SearchByArea(ctx, *polygon)
+	if err != nil {
+		return nil, fmt.Errorf("reading from DB: %w", err)
+	}
+
+	items := []MapItem{}
+	for _, i := range results {
+		items = append(items, toMapItem(i))
+	}
+	return items, nil
 }
 
 func (s *DBStore) Delete(context.Context, string) error {

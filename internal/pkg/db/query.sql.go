@@ -10,6 +10,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
+	"github.com/twpayne/go-geom"
 )
 
 const createItem = `-- name: CreateItem :one
@@ -19,10 +20,11 @@ INSERT INTO coffee_map_item (
     item_type,
     image_url,
     review_url,
-    summary
+    summary,
+  location
 ) VALUES (
     gen_random_uuid(),
-    $1, $2, $3, $4, $5
+    $1, $2, $3, $4, $5, $6
 ) RETURNING id, item_name, item_type, image_url, review_url, summary, created_at, updated_at, location
 `
 
@@ -32,6 +34,7 @@ type CreateItemParams struct {
 	ImageUrl  pgtype.Text
 	ReviewUrl pgtype.Text
 	Summary   pgtype.Text
+	Location  geom.Point
 }
 
 func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeMapItem, error) {
@@ -41,6 +44,7 @@ func (q *Queries) CreateItem(ctx context.Context, arg CreateItemParams) (CoffeeM
 		arg.ImageUrl,
 		arg.ReviewUrl,
 		arg.Summary,
+		arg.Location,
 	)
 	var i CoffeeMapItem
 	err := row.Scan(
@@ -87,6 +91,42 @@ ORDER BY id
 
 func (q *Queries) ListItems(ctx context.Context) ([]CoffeeMapItem, error) {
 	rows, err := q.db.Query(ctx, listItems)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []CoffeeMapItem
+	for rows.Next() {
+		var i CoffeeMapItem
+		if err := rows.Scan(
+			&i.ID,
+			&i.ItemName,
+			&i.ItemType,
+			&i.ImageUrl,
+			&i.ReviewUrl,
+			&i.Summary,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+			&i.Location,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const searchByArea = `-- name: SearchByArea :many
+SELECT i.id, i.item_name, i.item_type, i.image_url, i.review_url, i.summary, i.created_at, i.updated_at, i.location FROM
+coffee_map_item i
+WHERE ST_WITHIN(i.location, ST_GeomFromWKB($1::polygon))
+`
+
+func (q *Queries) SearchByArea(ctx context.Context, dollar_1 geom.Polygon) ([]CoffeeMapItem, error) {
+	rows, err := q.db.Query(ctx, searchByArea, dollar_1)
 	if err != nil {
 		return nil, err
 	}
