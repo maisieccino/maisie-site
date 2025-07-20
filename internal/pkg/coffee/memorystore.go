@@ -5,6 +5,8 @@ import (
 	"errors"
 )
 
+// MemoryStore is an in-memory store of coffee map items. Ideal for unit
+// testing or just messing around without a database.
 type MemoryStore struct {
 	items map[string]MapItem
 }
