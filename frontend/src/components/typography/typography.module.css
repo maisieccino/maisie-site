@@ -15,6 +15,7 @@
 .h2 {
   --size: 3rem;
 }
+
 .h2::before {
   background: var(--var-gradient);
   width: var(--size);
@@ -25,4 +26,10 @@
   top: 0.25rem;
   margin-right: 0.5rem;
   content: "";
+}
+
+.body {
+  font-family: var(--var-font-family-body);
+  font-size: 1.2rem;
+  font-weight: 500;
 }

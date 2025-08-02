@@ -1,6 +1,7 @@
 .container {
   display: block;
-  background-color: var(--var-bg);
+  background-color: rgb(from var(--var-bg) r g b / 40%);
+  backdrop-filter: blur(20px);
   width: 60%;
   margin: 0 auto;
   padding: 2rem;
