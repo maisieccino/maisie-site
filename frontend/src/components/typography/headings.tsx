@@ -8,3 +8,7 @@ export class Props {
 export const Heading = (props: Props) => (
   <h2 className={styles.h2}>{props.children}</h2>
 );
+
+export const Subheading = ({ children }: Props) => (
+  <h3 className={styles.h3}>{children}</h3>
+)
