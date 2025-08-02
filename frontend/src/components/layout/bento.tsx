@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Heading, Subheading } from "../typography";
+import { Subheading } from "../typography";
 
 import styles from "./layout.module.css";
 
@@ -14,12 +14,14 @@ export interface BentoProps {
   wide?: boolean
 }
 
+// A container for 'bento-box' style containers of content, of varying sizes.
 export const BentoContainer = ({ children }: BentoContainerProps) => (
   <div className={styles.bentoContainer}>
     {children}
   </div>
 )
 
+// A colourful, rounded box highlighting some content.
 export const Bento = ({ children, title, color = "#ffc700", ...props }: BentoProps) => {
   let className = styles.bento
   if (props.wide) {
