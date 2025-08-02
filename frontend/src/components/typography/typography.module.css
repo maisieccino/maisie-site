@@ -6,15 +6,23 @@
   vertical-align: middle;
   font-family: var(--var-font-family-header);
   font-weight: 500;
+  text-transform: lowercase;
 }
 
 .h1 {
   --size: 5rem;
+  letter-spacing: 0.1ch;
 }
 
 .h2 {
   --size: 3rem;
 }
+
+.h3 {
+  --size: 2rem;
+  margin: 0.5rem 0;
+}
+
 .h2::before {
   background: var(--var-gradient);
   width: var(--size);
@@ -25,4 +33,10 @@
   top: 0.25rem;
   margin-right: 0.5rem;
   content: "";
+}
+
+.body {
+  font-family: var(--var-font-family-body);
+  font-size: 1.2rem;
+  font-weight: 500;
 }

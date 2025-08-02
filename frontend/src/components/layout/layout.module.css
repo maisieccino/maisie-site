@@ -1,8 +1,30 @@
 .container {
   display: block;
-  background-color: var(--var-bg);
+  background-color: rgb(from var(--var-bg) r g b / 40%);
+  backdrop-filter: blur(20px);
   width: 60%;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 16px;
+}
+
+.bentoContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bento {
+  height: 10rem;
+  background-color: var(--var-yellow);
+  border-radius: 16px;
+  padding: 2rem;
+  flex: 1 0 auto;
+  width: 33%;
+  margin: 0 0.75rem 0.75rem 0;
+  font-weight: bold;
+}
+
+.wideBento {
+  width: 66%;
 }
