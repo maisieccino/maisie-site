@@ -3,7 +3,6 @@
 
   --color: var(--var-black);
   --border-width: 0.5rem;
-
   font-weight: 700;
   border-radius: var(--var-corner-rounding);
   cursor: pointer;

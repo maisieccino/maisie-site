@@ -1,4 +1,5 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
+import type { MouseEventHandler } from "react";
 import styles from "./button.module.css";
 
 export class ButtonProps {

@@ -2,7 +2,6 @@ import type { Meta, StoryObj, Parameters } from "@storybook/react";
 
 import { Container, Heading, BentoContainer, Bento } from ".";
 import { P } from "../typography";
-import styles from "./layout.module.css";
 
 const meta: Meta<typeof Container> = {
   component: Container,

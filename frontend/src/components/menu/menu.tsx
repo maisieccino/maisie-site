@@ -9,7 +9,7 @@ export interface Props {
 export const Menu = ({ children }: Props) => (
   <>
     <button className={[buttonStyles.buttonShared, styles.menuButton].join(" ")}>Menu</button>
-    <nav>
+    <nav className={styles.menuNav}>
       {children}
     </nav>
   </>
