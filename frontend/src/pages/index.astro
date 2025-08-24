@@ -1,6 +1,7 @@
 ---
 import {Container, Heading, BentoContainer, Bento } from "../components/layout";
-import {Menu} from "../components/menu"
+// import {Menu} from "../components/menu"
+import Menu from "../components/menu/menu.astro";
 import "../index.css";
 import {Button} from "../components/button"
 ---
@@ -17,7 +18,10 @@ import {Button} from "../components/button"
     <Container>
       <Heading title="maisieccino">
         <Menu>
-          <a>One</a>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/coffee-map">Coffee Map</a>
+          <a href="/blog">Blog</a>
         </Menu>
       </Heading>
       <BentoContainer>
