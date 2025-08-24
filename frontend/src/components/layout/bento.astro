@@ -18,6 +18,18 @@ div.customColor {
 div.bgImage {
   background: var(--image);
   background-size: cover;
+  position: relative;
+}
+div.bgImage:before {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--var-gradient);
+  opacity: 0.4;
+  content: ''
 }
 </style>
 
