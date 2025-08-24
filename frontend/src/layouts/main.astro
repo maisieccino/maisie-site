@@ -1,6 +1,7 @@
 ---
 import {Container, Heading } from "../components/layout";
 import Menu from "../components/menu/menu.astro";
+import { ClientRouter } from "astro:transitions";
 import "../index.css";
 ---
 
@@ -11,10 +12,11 @@ import "../index.css";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+    <ClientRouter />
 	</head>
 	<body>
     <Container>
-      <Heading title="maisieccino">
+      <Heading title="maisieccino" transition:persist>
         <Menu>
           <a href="/">Home</a>
           <a href="/about">About</a>
@@ -23,7 +25,7 @@ import "../index.css";
           <a href="/blog">Blog</a>
         </Menu>
       </Heading>
-      <slot />
+      <slot transition:animate="slide"/>
     </Container>
 	</body>
 </html>
