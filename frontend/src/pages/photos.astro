@@ -1,0 +1,23 @@
+---
+import Main from "../layouts/main.astro";
+import { BentoContainer, Bento } from "../components/layout";
+
+let posts = Array();
+
+const rsp = await fetch("https://glass.photo/api/v3/users/maisie/posts?limit=10")
+const results = await rsp.json();
+  results.forEach(r => {
+    posts.push(r);
+  })
+
+---
+
+<Main>
+  <BentoContainer>
+    {posts.map(p => (
+<Bento><img src={p["image_widget_square"] }/></Bento>
+    ))}
+  </BentoContainer>
+</Main>
+
+
