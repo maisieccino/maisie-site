@@ -8,11 +8,19 @@
   transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
   background-color: color-mix(in srgb, var(--var-white) 60%, transparent);
   --var-corner-rounding: 3rem;
+  color: var(--var-black);
 }
 
 .menuButton:active {
   transform: translateX(var(--button-depth)) translateY(var(--button-depth));
   --button-depth: 0.1rem;
+}
+
+@media (max-width: 70rem) {
+  .menuButton {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
 }
 
 .menuNav {
@@ -39,6 +47,12 @@
 
   box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
+}
+
+@media (max-width: 70rem) {
+  .menuNav {
+    transform-origin: center top;
+  }
 }
 
 .menuNav.show {

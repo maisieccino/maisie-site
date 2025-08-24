@@ -8,7 +8,10 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     server: {
-      allowedHosts: ["maisie-desktop"]
+      allowedHosts: [
+        "maisie-desktop",
+        "maisie-desktop.local",
+      ]
     }
   }
 });
