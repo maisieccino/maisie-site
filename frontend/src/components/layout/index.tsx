@@ -2,7 +2,6 @@ import React from "react";
 
 import styles from "./layout.module.css";
 
-export { Bento, BentoContainer } from "./bento";
 export { Heading } from "./heading";
 
 export class ContainerProps {
