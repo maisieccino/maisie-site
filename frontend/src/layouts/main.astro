@@ -1,0 +1,33 @@
+---
+import Container from "../components/layout/container.astro"
+import Menu from "../components/menu/menu.astro";
+import Heading from "../components/layout/Heading.astro";
+import { ClientRouter } from "astro:transitions";
+import "../index.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+    <ClientRouter />
+	</head>
+	<body>
+    <Container>
+      <Heading title="maisieccino" transition:persist>
+        <Menu>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/coffee-map">Coffee Map</a>
+          <a href="/photos">Photos</a>
+          <a href="/blog">Blog</a>
+        </Menu>
+      </Heading>
+      <slot transition:animate="slide"/>
+    </Container>
+	</body>
+</html>
+

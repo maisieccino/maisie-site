@@ -1,0 +1,30 @@
+---
+import styles from "./menu.module.css";
+import buttonStyles from "../button/button.module.css";
+---
+<site-menu data-visibility-class={styles.show} class={styles.menu}>
+  <button class={[buttonStyles.buttonShared, styles.menuButton].join(" ")}>Menu</button>
+  <nav class={styles.menuNav}>
+    <slot />
+  </nav>
+</site-menu>
+<script>
+class SiteMenu extends HTMLElement {
+  connectedCallback() {
+    const button = this.querySelector('button')
+    const nav = this.querySelector('nav')
+    if (button === null || nav === null) {
+      return;
+    }
+
+    let clicked = false;
+
+    button.addEventListener('click', () => {
+      nav.classList.toggle(this.dataset.visibilityClass || "");
+      clicked = !clicked;
+    })
+  }
+}
+
+customElements.define('site-menu', SiteMenu)
+</script>

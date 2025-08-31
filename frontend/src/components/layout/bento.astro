@@ -1,0 +1,39 @@
+---
+// A colourful, rounded box highlighting some content.
+import styles from "./layout.module.css";
+
+const {
+  wide = false,
+  color,
+  title,
+  image = ""
+} = Astro.props;
+---
+
+<style define:vars={{ backgroundColor: color, image: `url("${image}")` }}>
+div.customColor {
+  background-color: var(--backgroundColor);
+}
+div.bgImage {
+  background: var(--image);
+  background-size: cover;
+  position: relative;
+  background-position: center;
+}
+div.bgImage:before {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--var-gradient);
+  opacity: 0.4;
+  content: ''
+}
+</style>
+
+<div class:list={[styles.bento, { wideBento: wide }, { "customColor": color, "bgImage": image }]}>
+  {title && <h3>{title}</h3>}
+  <slot />
+</div>

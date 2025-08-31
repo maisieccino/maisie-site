@@ -1,0 +1,9 @@
+---
+import styles from "./layout.module.css";
+import typographyStyles from "../typography/typography.module.css";
+const { title } = Astro.props;
+---
+<div class={styles.heading}>
+  <h1 class={typographyStyles.title}>{title}</h1>
+    <slot />
+</div>

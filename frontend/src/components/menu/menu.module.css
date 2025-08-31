@@ -7,10 +7,72 @@
   padding: 1rem 4rem;
   transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
   background-color: color-mix(in srgb, var(--var-white) 60%, transparent);
+  --var-corner-rounding: 3rem;
+  color: var(--var-black);
 }
 
 .menuButton:active {
-  /* box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.3); */
   transform: translateX(var(--button-depth)) translateY(var(--button-depth));
   --button-depth: 0.1rem;
+}
+
+@media (max-width: 70rem) {
+  .menuButton {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+}
+
+.menuNav {
+  opacity: 0;
+  transform: scale(0, 0);
+  transform-origin: 75% top;
+
+  flex-direction: column;
+  z-index: 3;
+  width: calc(100% - 1.5rem);
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-in-out;
+
+  background-color: rgb(from var(--var-bg) r g b / 70%);
+  top: calc(100% + 0.5rem);
+  right: 0;
+  border-radius: 2rem;
+  padding: 0.75rem;
+
+  align-items: center;
+
+  box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+@media (max-width: 70rem) {
+  .menuNav {
+    transform-origin: center top;
+  }
+}
+
+.menuNav.show {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+.menuNav a {
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0.25rem 0;
+  color: var(--var-black);
+  text-decoration: none;
+  transition: font-size 0.2s linear;
+}
+
+.menuNav a:hover {
+  font-size: 1.5rem;
+}
+
+.menu {
+  position: relative;
 }

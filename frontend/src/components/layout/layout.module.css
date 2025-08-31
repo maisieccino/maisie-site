@@ -1,21 +1,30 @@
 .container {
   display: block;
-  background-color: rgb(from var(--var-bg) r g b / 40%);
+  background-color: rgb(from var(--var-bg) r g b / 80%);
   backdrop-filter: blur(20px);
-  width: 60%;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 2rem 0.5rem 0 0.5rem;
   border-radius: 16px;
+  width: calc(100% - 3rem);
+  padding: 1rem;
+}
+
+@media (min-width: 70rem) {
+  .container {
+    margin: 2rem auto 0;
+    width: 60%;
+    padding: 2rem;
+  }
 }
 
 .bentoContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .bento {
-  height: 10rem;
+  min-height: 10rem;
   background-color: var(--var-yellow);
   border-radius: 16px;
   padding: 2rem;
@@ -23,8 +32,46 @@
   width: 33%;
   margin: 0 0.75rem 0.75rem 0;
   font-weight: bold;
+  font-size: 1.1rem;
+  background-size: cover;
+  overflow: hidden;
+}
+
+@media (max-width: 70rem) {
+  .bento {
+    flex-basis: 100%;
+    flex-shrink: 1;
+    padding: 1rem;
+  }
+}
+
+.bento :global(*) {
+  position: relative;
+  z-index: 2;
 }
 
 .wideBento {
   width: 66%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading h1 {
+  flex-grow: 1;
+}
+
+@media (max-width: 70rem) {
+  .heading {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+
+.bento p {
+  font-weight: bold;
 }
