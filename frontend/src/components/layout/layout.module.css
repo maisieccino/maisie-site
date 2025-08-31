@@ -8,6 +8,11 @@
   padding: 1rem;
 }
 
+.container img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media (min-width: 70rem) {
   .container {
     margin: 2rem auto 0;

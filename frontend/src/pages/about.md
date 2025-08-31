@@ -2,7 +2,7 @@
 layout: ../layouts/md.astro
 title: About me
 ---
-I'm a friendly nerd based in London, UK.
+I'm a nerdy woman based in London, UK.
 
 During weekdays, I'm a software engineer at Monzo Bank. I work on building
 tools, decisioning rules and interfaces to help customers recognise frauds and
