@@ -1,0 +1,9 @@
+---
+import styles  from "./button.module.css";
+const {
+  href = "/",
+}  = Astro.props
+---
+<a href={href} class:list={[styles.buttonShared, styles.button]}>
+  <slot />
+</a>
