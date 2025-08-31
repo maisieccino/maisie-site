@@ -3,7 +3,17 @@ import styles  from "./button.module.css";
 const {
   href = "/",
 }  = Astro.props
+
+const domain = import.meta.env.SITE;
+
+const isExternal = (url: String) => Boolean (
+  !url.includes(domain) &&
+    !url.startsWith("/") &&
+    !url.startsWith("#")
+)
+
+const target = isExternal(href) ? "_blank" : ""
 ---
-<a href={href} class:list={[styles.buttonShared, styles.button]}>
+<a href={href} class:list={[styles.buttonShared, styles.button]} target={target}>
   <slot />
 </a>

@@ -45,6 +45,14 @@
   }
 }
 
+.bento a {
+  border: 1px solid #000000;
+}
+
+.bento h3 {
+  padding: 0.0rem 0;
+}
+
 .bento :global(*) {
   position: relative;
   z-index: 2;
@@ -74,4 +82,13 @@
 
 .bento p {
   font-weight: bold;
+}
+
+.footer {
+  border-top: 1px solid var(--var-grey);
+}
+
+.footer p {
+  font-weight: bold;
+  text-align: center;
 }

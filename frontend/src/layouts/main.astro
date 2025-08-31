@@ -4,6 +4,7 @@ import Menu from "../components/menu/menu.astro";
 import Heading from "../components/layout/Heading.astro";
 import { ClientRouter } from "astro:transitions";
 import "../index.css";
+import Footer from "../components/layout/Footer.astro";
 ---
 
 <html lang="en">
@@ -27,6 +28,7 @@ import "../index.css";
         </Menu>
       </Heading>
       <slot transition:animate="slide"/>
+      <Footer />
     </Container>
 	</body>
 </html>
