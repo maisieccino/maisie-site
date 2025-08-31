@@ -1,6 +1,5 @@
 ---
-layout: ../layouts/main.astro
+layout: ../layouts/md.astro
+title: Coffee Map
 ---
-# Coming soon
-
 A map of the coffee places I love around the world.

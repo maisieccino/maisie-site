@@ -1,0 +1,10 @@
+---
+import Main from "./main.astro"
+
+const { title } = Astro.props.frontmatter || {}
+---
+<Main title={title}>
+  <h1>{title}</h1>
+  <slot />
+</Main>
+
