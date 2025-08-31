@@ -92,6 +92,7 @@ code {
   --var-white: #ffffff;
   --var-black: #000000;
   --var-bg: #efefeb;
+  --var-grey: #aaaaaa;
   --var-gradient: linear-gradient(225deg,
       var(--var-yellow) 0%,
       var(--var-pink) 51.56%,

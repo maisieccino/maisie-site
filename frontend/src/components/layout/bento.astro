@@ -3,11 +3,19 @@
 import styles from "./layout.module.css";
 
 const {
-  wide = false,
+  wide,
   color,
   title,
   image = ""
 } = Astro.props;
+
+const classList = [
+  styles.bento,
+  wide ? styles.wideBento : "",
+  { "customColor": color },
+  { "bgImage": image },
+];
+
 ---
 
 <style define:vars={{ backgroundColor: color, image: `url("${image}")` }}>
@@ -33,7 +41,7 @@ div.bgImage:before {
 }
 </style>
 
-<div class:list={[styles.bento, { wideBento: wide }, { "customColor": color, "bgImage": image }]}>
+<div class:list={classList}>
   {title && <h3>{title}</h3>}
   <slot />
 </div>

@@ -2,7 +2,6 @@
 import Main from "../layouts/main.astro";
 import Bento from "../components/layout/bento.astro"
 import BentoContainer from "../components/layout/bentoContainer.astro"
-import {Button} from "../components/button"
 import LinkButton from "../components/button/LinkButton.astro";
 
 import maisieImage from "../assets/img/maisie.jpeg";
@@ -10,16 +9,15 @@ import maisieImage from "../assets/img/maisie.jpeg";
 
 <Main>
    <BentoContainer>
-     <Bento>
+    <Bento>
       <p>Hello!</p>
       <p>I'm Maisie. Welcome to my little corner of the internet.</p>
-     </Bento>
+    </Bento>
     <Bento image={maisieImage.src}>
-     </Bento>
-     <Bento title="Data" wide>
-        <p>Maisie's datasets.</p>
-      <LinkButton href="/data">Show me</LinkButton>
-     </Bento>
+    </Bento>
+    <Bento title="Uses">
+       <p>The tools I use!</p>
+     <LinkButton href="/uses">Show me</LinkButton>
+    </Bento>
    </BentoContainer>
-   <Button>Tap for dopamine</Button>
 </Main>
