@@ -3,7 +3,6 @@ on:
   push:
     tags:
     - "v[0-9]+.[0-9]+.[0-9]+"
-    branches: [ main ]
 permissions:
   contents: read
   pages: write
@@ -14,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: corepack enable
       - name: astro build
-        uses: withastro/action@v3
+        uses: withastro/action@v4
         with:
           path: frontend
         env: {}
