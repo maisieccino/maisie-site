@@ -7,5 +7,5 @@ export class TextProps {
 }
 
 export const Title = (props: TextProps) => (
-  <h1 className={styles.h1}>{props.children}</h1>
+  <h1 className={[styles.h1, styles.title].join(" ")}>{props.children}</h1>
 );

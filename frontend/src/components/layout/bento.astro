@@ -1,6 +1,5 @@
 ---
 // A colourful, rounded box highlighting some content.
-import { Subheading } from "../typography";
 import styles from "./layout.module.css";
 
 const {
@@ -35,6 +34,6 @@ div.bgImage:before {
 </style>
 
 <div class:list={[styles.bento, { wideBento: wide }, { "customColor": color, "bgImage": image }]}>
-  {title && <Subheading>{title}</Subheading>}
+  {title && <h3>{title}</h3>}
   <slot />
 </div>

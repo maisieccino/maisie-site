@@ -71,3 +71,7 @@
     margin-bottom: 1rem;
   }
 }
+
+.bento p {
+  font-weight: bold;
+}
