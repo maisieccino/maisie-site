@@ -1,33 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
-
 @font-face {
   font-family: "A";
   font-weight: normal;
-  src: url("./fonts/A.otf");
+  src: url("/fonts/A.otf");
 }
 
 @font-face {
   font-family: "A";
   font-weight: bold;
-  src: url("./fonts/A-Bold.otf");
+  src: url("/fonts/A-Bold.otf");
 }
 
 @font-face {
   font-family: "A";
   font-weight: lighter;
-  src: url("./fonts/A-Light.otf");
+  src: url("/fonts/A-Light.otf");
 }
 
 @font-face {
   font-family: "AMono";
   font-weight: normal;
-  src: url("./fonts/A-Mono.otf");
+  src: url("/fonts/A-Mono.otf");
 }
 
 @font-face {
   font-family: "Michroma";
   font-weight: normal;
-  src: url("./fonts/Michroma-Regular.ttf");
+  src: url("/fonts/Michroma-Regular.ttf");
 }
 
 body {

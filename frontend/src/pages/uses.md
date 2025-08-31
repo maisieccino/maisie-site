@@ -1,8 +1,7 @@
 ---
-layout: ../layouts/main.astro
+layout: ../layouts/md.astro
+title: Uses
 ---
-# Uses
-
 This is a list of the things I use.
 
 ## In my rucksack

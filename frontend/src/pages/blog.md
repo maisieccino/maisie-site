@@ -1,9 +1,7 @@
 ---
-layout: ../layouts/main.astro
+layout: ../layouts/md.astro
+title: Blog
 ---
-
-# Blog
-
 Eventually this will show my recent blog posts.
 
 Until that happens, here's a link to it.

@@ -1,9 +1,7 @@
 ---
-layout: ../layouts/main.astro
+layout: ../layouts/md.astro
+title: About me
 ---
-
-# About me
-
 I'm a friendly nerd based in London, UK.
 
 During weekdays, I'm a software engineer at Monzo Bank. I work on building
