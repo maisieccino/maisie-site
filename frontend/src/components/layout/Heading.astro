@@ -4,6 +4,6 @@ import typographyStyles from "../typography/typography.module.css";
 const { title } = Astro.props;
 ---
 <div class={styles.heading}>
-  <h1 class={typographyStyles.title}>{title}</h1>
+  <h1 class={typographyStyles.title}><a href="/">{title}</a></h1>
     <slot />
 </div>
