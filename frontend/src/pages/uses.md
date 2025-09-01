@@ -27,6 +27,12 @@ My desktop runs Linux with a few useful tools!
 * Browser: `qutebrowser`
 * Email: `aerc`
 
+### My configuration files
+
+These all live in the
+[hello-computer](https://github.com/maisieccino/hello-computer) repository. Come
+take a look!
+
 ## On my phone
 
 Some useful apps I use. I'm using an iPhone as it seems to work for what I need.

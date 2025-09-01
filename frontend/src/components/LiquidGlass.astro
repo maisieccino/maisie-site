@@ -1,31 +1,5 @@
 ---
-import Container from "../components/layout/container.astro"
-import Menu from "../components/menu/menu.astro";
-import Heading from "../components/layout/Heading.astro";
-import { ClientRouter } from "astro:transitions";
-import "../index.css";
-import Footer from "../components/layout/Footer.astro";
-
-const { title, frontmatter } = Astro.props
-
-let pageTitle = title;
-if (frontmatter) {
-  pageTitle = frontmatter.title
-}
-
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/x-icon" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <title>{pageTitle} | maisieccino</title>
-    <ClientRouter />
-	</head>
-	<body>
-
 <svg style="display: none">
       <filter
         id="glass-distortion"
@@ -82,20 +56,4 @@ if (frontmatter) {
         />
       </filter>
     </svg>
-
-    <Container>
-      <Heading title="maisieccino" transition:persist>
-        <Menu>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/coffee-map">Coffee Map</a>
-          <a href="/photos">Photos</a>
-          <a href="/blog">Blog</a>
-        </Menu>
-      </Heading>
-      <slot transition:animate="slide"/>
-      <Footer />
-    </Container>
-	</body>
-</html>
 
