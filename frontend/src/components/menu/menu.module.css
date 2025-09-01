@@ -37,7 +37,6 @@
 
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-in-out;
 
-  background-color: rgb(from var(--var-bg) r g b / 70%);
   top: calc(100% + 0.5rem);
   right: 0;
   border-radius: 2rem;
@@ -46,7 +45,21 @@
   align-items: center;
 
   box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
+  z-index: 3;
+  overflow: hidden;
+  outline: 1px solid rgb(from var(--var-bg) r g b / 0.8);
+}
+
+.menuNav::before {
+  content: "";
+  z-index: -1;
+  inset: -10%;
+  position: absolute;
+  pointer-events: none;
+  filter: url(#glass-distortion);
+  isolation: isolate;
+  backdrop-filter: blur(5px);
+  background-color: rgb(from var(--var-bg) r g b / 0.5);
 }
 
 @media (max-width: 70rem) {
