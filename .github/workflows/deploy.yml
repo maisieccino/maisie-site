@@ -11,6 +11,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
@@ -18,7 +20,8 @@ jobs:
         uses: withastro/action@v4
         with:
           path: frontend
-        env: {}
+        env:
+          CONTENT_API_KEY: ${{ secrets.CONTENT_API_KEY }}
   deploy:
     needs: build
     runs-on: ubuntu-latest
