@@ -88,10 +88,6 @@
   }
 }
 
-.bento p {
-  font-weight: bold;
-}
-
 .footer {
   border-top: 1px solid var(--var-grey);
 }
