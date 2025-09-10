@@ -10,11 +10,6 @@
   src: url("/fonts/A-Bold.otf");
 }
 
-@font-face {
-  font-family: "A";
-  font-weight: lighter;
-  src: url("/fonts/A-Light.otf");
-}
 
 @font-face {
   font-family: "AMono";
@@ -38,6 +33,7 @@ body {
   background: url("./assets/img/tile.png"), var(--var-gradient);
   background-size: 15rem, cover;
   background-repeat: repeat, no-repeat;
+  font-weight: normal;
   height: 100%;
 }
 
