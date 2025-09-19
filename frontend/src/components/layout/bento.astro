@@ -4,16 +4,22 @@ import styles from "./layout.module.css";
 
 const {
   wide,
+  tall,
   color,
   title,
-  image = ""
+  image = "",
+  fgImg = "",
+  fgImgAlt = "",
+  noOverlay = false,
 } = Astro.props;
 
 const classList = [
   styles.bento,
   wide ? styles.wideBento : "",
+  tall ? styles.tallBento : "",
   { "customColor": color },
   { "bgImage": image },
+  { "photoBento": noOverlay }
 ];
 
 ---
@@ -28,7 +34,7 @@ div.bgImage {
   position: relative;
   background-position: center;
 }
-div.bgImage:before {
+div.bgImage:not(.photoBento):before {
   z-index: 1;
   position: absolute;
   left: 0;
@@ -42,6 +48,9 @@ div.bgImage:before {
 </style>
 
 <div class:list={classList}>
-  {title && <h3>{title}</h3>}
-  <slot />
+{fgImg && <img src={fgImg} alt={fgImgAlt}/>}
+  <div class={styles.bentoContent}>
+    {title && <h3>{title}</h3>}
+    <slot />
+  </div>
 </div>
