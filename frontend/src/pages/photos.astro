@@ -20,7 +20,8 @@ const results = await rsp.json();
   <p>Here's a quick sample of the photos I've taken.</p>
   <BentoContainer>
     {posts.map(p => (
-      <Bento image={p["image_widget_square"] }></Bento>
+    <Bento tall image={p["image_widget_square"] } noOverlay>
+    </Bento>
     ))}
   </BentoContainer>
 </Main>
