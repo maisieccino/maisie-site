@@ -1,4 +1,5 @@
 ---
+import { SEO } from "astro-seo";
 import Container from "../components/layout/container.astro"
 import Menu from "../components/menu/menu.astro";
 import Heading from "../components/layout/Heading.astro";
@@ -6,6 +7,7 @@ import { ClientRouter } from "astro:transitions";
 import "../index.css";
 import Footer from "../components/layout/Footer.astro";
 import LiquidGlass from "../components/LiquidGlass.astro";
+import maisieImage from "../assets/img/maisie.jpeg";
 
 const { title, frontmatter } = Astro.props
 
@@ -17,15 +19,29 @@ if (frontmatter) {
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/x-icon" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <title>{pageTitle} | maisieccino</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
     <ClientRouter />
-	</head>
-	<body>
+    <SEO
+      title=`${pageTitle} | maisieccino`
+      description="A little corner of the internet where I share what I'm building and things I've taken photos of"
+      openGraph={{
+        basic: {
+          title: pageTitle,
+          type: "website",
+          image: maisieImage.src,
+        }
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.png" }],
+      }}
+    />
+  </head>
+  <body>
 <LiquidGlass />
     <Container>
       <Heading title="maisieccino" transition:persist>
@@ -40,6 +56,6 @@ if (frontmatter) {
       <slot transition:animate="slide"/>
       <Footer />
     </Container>
-	</body>
+  </body>
 </html>
 
