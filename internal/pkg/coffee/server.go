@@ -9,7 +9,9 @@ import (
 	"time"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/google/uuid"
 	"github.com/maisieccino/maisie-site/internal/pkg/types"
+	"github.com/maisieccino/maisie-site/pkg/api"
 	"go.uber.org/zap"
 )
 
@@ -45,6 +47,19 @@ var routeMap = types.RouteMap[*Server]{
 	{Path: "/places/by-area", Method: "PUT"}: handleSearchByArea,
 }
 
+// TODO: Move to a marshalling package
+func itemToJSON(i MapItem) api.Place {
+	return api.Place{
+		Id:        uuid.MustParse(i.ID),
+		ImageUrl:  &i.ImageURL,
+		Latitude:  float32(i.Latitude),
+		Longitude: float32(i.Longitude),
+		Name:      i.Name,
+		ReviewUrl: &i.ReviewURL,
+		Type:      string(i.Type),
+	}
+}
+
 func handleListPlaces(s *Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		innerCtx, cancel := context.WithTimeout(r.Context(), storeTimeout)
@@ -55,9 +70,14 @@ func handleListPlaces(s *Server) http.HandlerFunc {
 			writeError(w, s.logger, err, http.StatusInternalServerError)
 		}
 
+		places := []api.Place{}
+		for _, i := range items {
+			places = append(places, itemToJSON(i))
+		}
+
 		resp := struct {
-			Items []MapItem `json:"items"`
-		}{Items: items}
+			Items []api.Place `json:"items"`
+		}{Items: places}
 		enc := json.NewEncoder(w)
 		if encErr := enc.Encode(resp); encErr != nil {
 			s.logger.Error("error writing body", zap.Error(err))

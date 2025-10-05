@@ -14,22 +14,33 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      format: uuid
-                    name:
-                      type: string
-                    type:
-                      type: string
-                    image_url:
-                      type: string
-                      format: uri
-                    review_url:
-                      type: string
-                      format: uri
-                    latitude:
-                      type: number
-                    longitude:
-                      type: number
+                  $ref: "#/components/schemas/place"
+
+components:
+  schemas:
+    place:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - latitude
+        - longitude
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+        image_url:
+          type: string
+          format: uri
+        review_url:
+          type: string
+          format: uri
+        latitude:
+          type: number
+        longitude:
+          type: number
