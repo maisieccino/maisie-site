@@ -1,6 +1,6 @@
 import type { MapOptions } from "leaflet";
 import React, { useEffect, useState } from "react";
-import { MapContainer, Marker, TileLayer } from "react-leaflet"
+import { MapContainer, TileLayer } from "react-leaflet"
 import { MapItem } from "./Items";
 import type { components } from "../../lib/api";
 

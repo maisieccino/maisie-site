@@ -1,11 +1,18 @@
 import createClient, { type Client } from "openapi-fetch"
 import type { paths, components } from "../lib/api"
 
-const client = (baseURL: string) =>
+type place = components["schemas"]["place"]
+
+export const client = (baseURL: string) =>
   createClient<paths>({ baseUrl: baseURL })
 
-export const getPlaces = async (client: Client<paths>) => {
+type getPlacesResponse = {
+  places?: place[];
+  error?: Error;
+};
+
+export const getPlaces = async (client: Client<paths>): Promise<getPlacesResponse> => {
   const { data, error } = await client.GET("/coffee/places", {
   });
-  return { data, error }
+  return { places: data, error }
 };
