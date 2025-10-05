@@ -15,7 +15,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/place"
-
 components:
   schemas:
     place:

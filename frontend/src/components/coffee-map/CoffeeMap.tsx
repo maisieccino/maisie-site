@@ -1,6 +1,8 @@
 import type { MapOptions } from "leaflet";
 import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer } from "react-leaflet"
+import { MapItem } from "./Items";
+import type { components } from "../../lib/api";
 
 type MapItem = {
   id: string
@@ -10,15 +12,23 @@ type MapItem = {
 }
 
 export const useCoffeeMapAPI = () => {
-  const [items, setItems] = useState<MapItem[]>([])
+  const [items, setItems] = useState<components["schemas"]["place"][]>([])
   useEffect(() => {
     // TODO: Use maisie site API to fetch this.
     setItems([
       {
         id: "lsjdflsfh",
+        type: "coffee-shop",
         name: "WatchHouse Canary Wharf",
-        x: 51.5050643,
-        y: -0.0211773,
+        latitude: 51.5050643,
+        longitude: -0.0211773,
+      },
+      {
+        id: "sldjkfhsdlf",
+        type: "coffee-shop",
+        name: "Prufrock",
+        latitude: 51.5199272,
+        longitude: -0.1120488,
       }
     ])
     return () => { }
@@ -45,7 +55,7 @@ export const CoffeeMap = ({
     {children && children}
 
     {items.map((item, _) => (
-      <Marker key={item.id} position={[item.x, item.y]} title={item.name}></Marker>
+      <MapItem item={item} />
     ))}
   </MapContainer>
 }

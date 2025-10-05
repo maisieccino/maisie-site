@@ -9,7 +9,9 @@ export const CoffeeMap: React.FC<{
   center,
   ...options
 }) => {
-    return <Suspense fallback={<div>Loading</div>}>
+    return <Suspense fallback={<div>
+      <h3>Loading map...</h3>
+    </div>}>
       <LazyCoffeeMap center={center} {...options}>
       </LazyCoffeeMap>
     </Suspense>
