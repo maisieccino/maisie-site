@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check-api": "openapi-typescript ../api/openapi.yaml --check -o src/lib/api.d.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.6",
