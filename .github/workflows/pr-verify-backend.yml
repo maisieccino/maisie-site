@@ -7,7 +7,7 @@ on:
       - internal/**
       - pkg/**
 jobs:
-  frontend-verify-pr:
+  backend-verify-pr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,3 +18,27 @@ jobs:
         uses: golangci/golangci-lint-action@v8
         with:
           version: v2.1
+  backend-verify-apigen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: "go.mod"
+      - name: Check generator output
+        run: |
+          set +e
+          go generate ./pkg/api
+          if ! git diff --exit-code then
+            echo "Files would be changed. Re-run go generate."
+            exit 1
+          fi
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: "go.mod"
+      - name: Go test
+        run: go test -race -count=10 ./..
