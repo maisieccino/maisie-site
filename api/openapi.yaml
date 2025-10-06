@@ -1,0 +1,45 @@
+openapi: 3.1.0
+info:
+  title: Maisie site API
+  version: v0.1.0
+paths:
+  /coffee/places:
+    get:
+      summary: Get a list of coffee places to be shown on the map.
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/place"
+components:
+  schemas:
+    place:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - latitude
+        - longitude
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+        image_url:
+          type: string
+          format: uri
+        review_url:
+          type: string
+          format: uri
+        latitude:
+          type: number
+        longitude:
+          type: number
