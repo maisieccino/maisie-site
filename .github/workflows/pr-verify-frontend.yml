@@ -2,7 +2,7 @@ name: Verify frontend build
 on:
   pull_request:
     paths:
-      - frontend
+      - frontend/**
 jobs:
   build:
     runs-on: ubuntu-latest
