@@ -1,4 +1,4 @@
-import GhostContentAPI, { type GhostContentAPIOptions, type PostsOrPages } from "@tryghost/content-api";
+import GhostContentAPI, { type PostsOrPages } from "@tryghost/content-api";
 const ghostClient = new GhostContentAPI({
   url: 'https://bell-blog.ghost.io',
   key: import.meta.env.CONTENT_API_KEY,

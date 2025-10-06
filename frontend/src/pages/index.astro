@@ -6,10 +6,8 @@ import LinkButton from "../components/button/LinkButton.astro";
 
 import maisieImage from "../assets/img/maisie.jpeg";
 
-const title = "Home"
-
 import { posts } from "../util/ghost";
-const latestPost = posts[0];
+const latestPost = posts ? posts[0] : {title: "", url: ""};
 ---
 
 <Main title="Home">
@@ -25,7 +23,7 @@ const latestPost = posts[0];
      <LinkButton href="/uses">Show me</LinkButton>
     </Bento>
     <Bento wide title="Latest blog post">
-      <p>{latestPost.title}</p>
+      <p>{latestPost?.title}</p>
       <LinkButton href={latestPost.url}>Read it now</LinkButton>
     </Bento>
     <Bento title="Photography">
