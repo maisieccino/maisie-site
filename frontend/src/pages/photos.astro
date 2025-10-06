@@ -6,9 +6,14 @@ import LinkButton from "../components/button/LinkButton.astro";
 
 let posts = Array();
 
+type Photo = {
+  prominent_color?: string
+  image_widget_square?: string
+}
+
 const rsp = await fetch("https://glass.photo/api/v3/users/maisie/posts?limit=10")
 const results = await rsp.json();
-  results.forEach(r => {
+  results.forEach((r: Photo) => {
     posts.push(r);
   })
 

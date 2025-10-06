@@ -2,8 +2,6 @@ import React from "react";
 
 import styles from "./layout.module.css";
 
-export { Heading } from "./heading";
-
 export class ContainerProps {
   children: React.ReactNode;
 }
