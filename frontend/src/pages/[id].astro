@@ -1,0 +1,42 @@
+---
+import {createMarkdownProcessor} from "@astrojs/markdown-remark"
+import type { GetStaticPathsResult } from "astro";
+import Blog from "../layouts/blog.astro"
+import { posts, postToMD } from "../util/ghost"
+import type { PostOrPage } from "@tryghost/content-api";
+
+export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
+  if (posts == null) {
+    return []
+  }
+  return posts.map(post => ({
+    params: { id: post.slug },
+    props: {
+      post,
+    }
+  }));
+};
+const isPost = (p: any): p is PostOrPage => {
+  return p.uuid !== undefined;
+}
+const { post } = Astro.props
+if (!isPost(post)) {
+  return
+}
+
+const proc = await createMarkdownProcessor()
+const md = await postToMD(post)
+
+const render = await proc.render(String(md))
+const {headings } = render.metadata
+
+const frontmatter = {
+  title: post.title,
+  hideTOC: false,
+  ...post,
+}
+---
+
+<Blog title={post.title} headings={headings} frontmatter={frontmatter}>
+  <Fragment set:html={render.code} />
+</Blog>

@@ -13,12 +13,12 @@ import { posts } from "../util/ghost"
   <p>View them all on my <a href="https://blog.mbell.dev" target="_blank">blog</a>. </p>
 
   <BentoContainer>
-    { posts?.map(p => (
+    { (posts||[]).slice(0,5).map(p => (
     <Bento title={p.title} wide fgImg={p.feature_image || ""} fgImgAlt={p.feature_image_alt || ""}>
       <p>Published: {dateFormat(p.published_at || "", "yyyy-MM-dd")}</p>
       <p>{p.custom_excerpt || p.excerpt}</p>
       <p>Reading time: {p.reading_time || 0} minutes</p>
-      <LinkButton href={p.url}>Read</LinkButton>
+      <LinkButton href=`/${p.slug}`>Read</LinkButton>
     </Bento>
     )) }
   </BentoContainer>

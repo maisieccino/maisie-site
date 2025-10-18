@@ -10,6 +10,7 @@
     "check-api": "openapi-typescript ../api/openapi.yaml --check -o src/lib/api.d.ts"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^6.3.8",
     "@astrojs/mdx": "^4.3.6",
     "@astrojs/react": "^4.3.0",
     "@tryghost/content-api": "^1.12.0",
@@ -22,7 +23,11 @@
     "openapi-fetch": "^0.14.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-leaflet": "5.0.0-rc.2"
+    "react-leaflet": "5.0.0-rc.2",
+    "rehype-parse": "^9.0.1",
+    "rehype-remark": "^10.0.1",
+    "remark-stringify": "^11.0.0",
+    "unified": "^11.0.5"
   },
   "packageManager": "yarn@4.9.2+sha512.1fc009bc09d13cfd0e19efa44cbfc2b9cf6ca61482725eb35bbc5e257e093ebf4130db6dfe15d604ff4b79efd8e1e8e99b25fa7d0a6197c9f9826358d4d65c3c",
   "devDependencies": {

@@ -1,0 +1,42 @@
+---
+import type { MarkdownLayoutProps} from "astro"
+import Main from "./main.astro"
+import {format as dateFormat } from "date-fns";
+import sidebarStyles from "../components/sidebar.module.css"
+
+import Sidebar from "../components/Sidebar.astro";
+import type { PostOrPage } from "@tryghost/content-api";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  hideTOC?: boolean;
+} & PostOrPage>
+
+const { title, hideTOC, ...props } = Astro.props.frontmatter || {}
+delete props.html
+
+const date = dateFormat(props.published_at || "", "EEEE, do MMMM yyyy")
+const time = dateFormat(props.published_at || "", "HH:mm")
+
+---
+<Main {...Astro.props}>
+  <h1>{title}</h1>
+  <p>Published: {date} at {time}</p>
+
+  {props.feature_image &&
+<img src={props.feature_image} alt={props.feature_image_alt || ""} />
+  }
+
+  {!hideTOC && <nav class={sidebarStyles.toc}>
+    {Astro.props.headings.map((h) => {
+      const style = {
+      paddingLeft: `${h.depth * 0.5}rem`,
+    }
+return <a href={`#${h.slug}`} style={style}>{h.text}</a>
+    })}
+  </nav>}
+  <slot />
+  {!hideTOC && <Sidebar slot="sidebar" isBlog headings={Astro.props.headings} />}
+</Main>
+
+
