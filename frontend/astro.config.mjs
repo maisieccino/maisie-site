@@ -14,6 +14,7 @@ export default defineConfig({
       allowedHosts: [
         "maisie-desktop",
         "maisie-desktop.local",
+        "macsie.local",
       ]
     }
   }

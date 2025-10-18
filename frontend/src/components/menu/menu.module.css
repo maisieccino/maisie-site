@@ -5,10 +5,15 @@
   font-size: 2rem;
   line-height: 2.5rem;
   padding: 1rem 4rem;
-  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
   background-color: color-mix(in srgb, var(--var-white) 60%, transparent);
   --var-corner-rounding: 3rem;
   color: var(--var-black);
+}
+
+@media screen and not (prefers-reduced-motion: reduce) {
+  .menuButton {
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+  }
 }
 
 .menuButton:active {
@@ -35,8 +40,6 @@
   position: absolute;
   display: flex;
 
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-in-out;
-
   top: calc(100% + 0.5rem);
   right: 0;
   border-radius: 2rem;
@@ -48,6 +51,12 @@
   z-index: 3;
   overflow: hidden;
   outline: 1px solid rgb(from var(--var-bg) r g b / 0.8);
+}
+
+@media screen and not (prefers-reduced-motion: reduce) {
+  .menuNav {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-in-out;
+  }
 }
 
 .menuNav::before {

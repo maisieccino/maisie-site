@@ -1,0 +1,51 @@
+---
+import type {MarkdownHeading} from "astro"
+import styles from "./sidebar.module.css"
+
+const { headings }: {headings?: MarkdownHeading[]} = Astro.props;
+---
+<script>
+window.addEventListener('load', () => {
+  const navLinks = document.querySelectorAll("#sidebar-nav a");
+  const content = document.querySelector("#page-container")
+  const headers = Array.from(content?.querySelectorAll("h1, h2, h3") || [])
+  if (headers.length == 0) {
+    return
+  }
+
+  const visibleHeadings = new Set<Element>();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        visibleHeadings.add(e.target)
+      } else {
+        visibleHeadings.delete(e.target)
+      }
+
+      // Sort descending by appearance.
+      const latestVisible = Array.from(visibleHeadings.values())
+        .sort((a,b) => headers.indexOf(a) - headers.indexOf(b))[0]
+
+      headers?.forEach(h => {
+        const [ _, link ] = navLinks.entries().find(([_, l]) => l.id === `nav-${h.id}`) || []
+        const val = h === latestVisible ? "active" : (
+          visibleHeadings.has(h) ? "visible" : ""
+        )
+        link?.setAttribute("attr-active", val)
+      })
+    })
+  })
+  headers?.forEach(h => observer.observe(h))
+})
+</script>
+<aside class={styles.sidebar} id="sidebar-nav">
+  <h3>Contents</h3>
+  <slot />
+<a href="#top"><b>Top</b></a>
+    {headings && headings.map((h) => {
+      const style = {
+      paddingLeft: `${h.depth * 0.5}rem`,
+    }
+return <a id={`nav-${h.slug}`} href={`#${h.slug}`} style={style}>{h.text}</a>
+    })}
+</aside>

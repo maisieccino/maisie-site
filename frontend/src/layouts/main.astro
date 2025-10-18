@@ -43,8 +43,10 @@ if (frontmatter) {
   </head>
   <body>
 <LiquidGlass />
+<div class="page">
+    <slot name="sidebar"/>
     <Container>
-      <Heading title="maisieccino" transition:persist>
+      <Heading title="maisieccino" transition:persist id="top">
         <Menu>
           <a href="/">Home</a>
           <a href="/about">About</a>
@@ -56,6 +58,7 @@ if (frontmatter) {
       <slot transition:animate="slide"/>
       <Footer />
     </Container>
+  </div>
   </body>
 </html>
 
