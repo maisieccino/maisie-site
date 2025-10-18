@@ -2,35 +2,26 @@ import type { MapOptions } from "leaflet";
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet"
 import { MapItem } from "./Items";
-import type { components } from "../../lib/api";
 
 type MapItem = {
   id: string
   name: string
-  x: number
-  y: number
+  latitude: number
+  longitude: number
+  type: string
+  review_url?: string
+  image_url?: string
 }
 
 export const useCoffeeMapAPI = () => {
-  const [items, setItems] = useState<components["schemas"]["place"][]>([])
+  const [items, setItems] = useState<MapItem[]>([])
   useEffect(() => {
-    // TODO: Use maisie site API to fetch this.
-    setItems([
-      {
-        id: "lsjdflsfh",
-        type: "coffee-shop",
-        name: "WatchHouse Canary Wharf",
-        latitude: 51.5050643,
-        longitude: -0.0211773,
-      },
-      {
-        id: "sldjkfhsdlf",
-        type: "coffee-shop",
-        name: "Prufrock",
-        latitude: 51.5199272,
-        longitude: -0.1120488,
-      }
-    ])
+    const fetcher = async () => {
+      const response = await fetch('/api/coffee-map.json')
+      const data = await response.json() as { places: MapItem[] };
+      setItems(data.places)
+    }
+    fetcher()
     return () => { }
   }, [])
   return items;

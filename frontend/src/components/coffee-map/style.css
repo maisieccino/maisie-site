@@ -1,0 +1,7 @@
+.leaflet-popup-content-wrapper {
+  font-family: var(--var-font-family-body);
+  background-color: color-mix(in srgb, var(--var-white) 50%, transparent);
+  backdrop-filter: blur(20px);
+  box-shadow: none;
+  border: 1px solid white;
+}
