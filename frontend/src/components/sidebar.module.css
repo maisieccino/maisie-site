@@ -1,0 +1,50 @@
+.sidebar {
+  flex-basis: 20%;
+  position: sticky;
+  left: 1rem;
+  top: 2rem;
+  margin-top: 5rem;
+  background-color: rgb(from var(--var-bg) r g b / 80%);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 1rem;
+  z-index: 1;
+  max-height: 40rem;
+  overflow-y: scroll;
+  display: none;
+}
+
+.sidebar h3::after {
+  content: "";
+  display: block;
+  position: relative;
+  bottom: -0.5rem;
+  height: 0.5rem;
+  width: 100%;
+  background: var(--var-gradient);
+  border-radius: 5px;
+  margin: 0.5rem 0 1rem;
+}
+
+.sidebar a,
+.toc a {
+  padding: 0.2rem 0;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.toc {
+  background-color: var(--var-bg);
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+@media (min-width: 70rem) {
+  .toc {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+  }
+}

@@ -1,10 +1,36 @@
 ---
+import type { MarkdownLayoutProps} from "astro"
 import Main from "./main.astro"
+import sidebarStyles from "../components/sidebar.module.css"
 
-const { title } = Astro.props.frontmatter || {}
+import Sidebar from "../components/Sidebar.astro";
+
+type Props = MarkdownLayoutProps<{
+title: string;
+  hideTOC?: boolean;
+}>
+
+const { title, hideTOC } = Astro.props.frontmatter || {}
 ---
-<Main title={title}>
+<Main {...Astro.props}>
   <h1>{title}</h1>
+  {!hideTOC && <nav class={sidebarStyles.toc}>
+    {Astro.props.headings.map((h) => {
+      const style = {
+      paddingLeft: `${h.depth * 0.5}rem`,
+    }
+return <a href={`#${h.slug}`} style={style}>{h.text}</a>
+    })}
+  </nav>}
   <slot />
+  {!hideTOC && <Sidebar slot="sidebar">
+  <a href="#top">Top</a>
+    {Astro.props.headings.map((h) => {
+      const style = {
+      paddingLeft: `${h.depth * 0.5}rem`,
+    }
+return <a href={`#${h.slug}`} style={style}>{h.text}</a>
+    })}
+  </Sidebar>}
 </Main>
 
