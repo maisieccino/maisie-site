@@ -31,6 +31,35 @@
   padding: 0.2rem 0;
   display: block;
   font-size: 1.1rem;
+  position: relative;
+}
+
+.sidebar a::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 0.5rem;
+  height: 0.5rem;
+  top: 0.75rem;
+  left: 0rem;
+  background-color: var(--var-pink);
+  border-radius: 10px;
+  transform: scale(0);
+  transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.sidebar a[attr-active="active"] {
+  color: hsl(from var(--var-pink) h s 60% / alpha);
+}
+
+.sidebar a[attr-active="visible"] {
+  color: hsl(from var(--var-pink) h s 30% / alpha);
+}
+
+.sidebar a[attr-active="active"]::before {
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
 }
 
 .toc {

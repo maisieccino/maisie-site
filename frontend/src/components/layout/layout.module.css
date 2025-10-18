@@ -16,9 +16,8 @@
 
 @media (min-width: 70rem) {
   .container {
-    flex-basis: 50%;
+    flex-basis: 60%;
     transition: all 0.25s ease-in-out;
-    width: 50%;
     padding: 2rem;
   }
 }
