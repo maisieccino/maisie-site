@@ -46,6 +46,10 @@ code {
     monospace;
 }
 
+a {
+  color: #000000;
+}
+
 :root {
   --var-pink-10: #1F1319;
   --var-pink-20: #3B2430;
@@ -107,6 +111,7 @@ code {
   margin-bottom: 1rem;
   /* padding: 1rem; */
 }
+
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,

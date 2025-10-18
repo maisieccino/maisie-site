@@ -9,6 +9,7 @@ const places = defineCollection({
     longitude: z.number(),
     type: z.enum(["coffee-shop"]).default("coffee-shop"),
     url: z.string().optional(),
+    address: z.string().optional(),
   })
 })
 

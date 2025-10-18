@@ -11,7 +11,7 @@ import "./style.css";
 export const MapItem = ({ item }: { item: components["schemas"]["place"] }) => {
   return <Marker key={item.id} position={[item.latitude, item.longitude]}>
     <Popup>
-      {item.name}
+      <a href={`/places/${item.id}`}> {item.name}</a>
     </Popup>
   </Marker>
 }

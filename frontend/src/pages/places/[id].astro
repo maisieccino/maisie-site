@@ -1,0 +1,25 @@
+---
+import Main from "../../layouts/main.astro"
+import { getCollection, render } from 'astro:content'
+export const getStaticPaths = async () => {
+  const places = await getCollection('places');
+  return places.map(place => ({
+    params: { id: place.id },
+    props: { place }
+  }))
+}
+
+const { place } = Astro.props;
+const addressEncoded = encodeURI(place.data.address || "");
+const { Content } = await render(place);
+---
+<Main title={place.data.name}>
+  <h3>‹ <a href="/coffee-map">Coffee Map</a></h3>
+  <h1>{place.data.name}</h1>
+  <p><b>📍 {place.data.latitude}, {place.data.longitude}</b></p>
+  {place.data.address &&
+  <p>{place.data.address}</p>
+  <p><a href={`https://maps.apple.com/place?address=${addressEncoded}`}> Show in Maps</a></p>
+  <Content />
+  }
+</Main>
