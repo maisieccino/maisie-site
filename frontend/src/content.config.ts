@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob, file } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 const places = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/places" }),
@@ -10,6 +10,7 @@ const places = defineCollection({
     type: z.enum(["coffee-shop"]).default("coffee-shop"),
     url: z.string().optional(),
     address: z.string().optional(),
+    image: z.string().optional()
   })
 })
 

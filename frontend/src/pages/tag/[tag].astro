@@ -1,0 +1,50 @@
+---
+import type { Tag } from "@tryghost/content-api";
+import { posts as blogPosts } from "../../util/ghost"
+import Main from "../../layouts/main.astro";
+import Bento from "../../components/layout/bento.astro";
+import BentoContainer from "../../components/layout/bentoContainer.astro";
+import LinkButton from "../../components/button/LinkButton.astro";
+import { format as dateFormat } from "date-fns";
+
+export const getStaticPaths = (() => {
+  if (blogPosts == null || typeof blogPosts !== 'object') {
+    return [];
+  }
+
+  // Create a set from all the tags found.
+  const tags = new Set(
+    blogPosts.map(p => p.tags)
+    .flat(1)
+  )
+  return Array.from(tags)
+    .filter(t => t != null)
+    .map(tag => ({
+      params: { tag: tag.id },
+      props: {
+        ...tag
+      }
+    }))
+}) satisfies GetStaticPaths;import type { GetStaticPaths } from "astro";
+
+const tag = Astro.props
+const posts = (blogPosts || [])
+  .filter(post => post.tags?.find(t => t.id === tag.id))
+---
+<Main title=`Posts tagged "${tag.name}"`>
+  <h1>Posts tagged "{tag.name}"</h1>
+  <p>{posts.length > 1 ? `${posts.length} posts` : `${posts.length} post`} found.</p>
+  <LinkButton href="/tags">All tags</LinkButton>
+  <p>You can subscribe to receive new posts via email <a href="https://blog.mbell.dev">here</a>.</p>
+
+  <BentoContainer>
+    { (posts||[]).map(p => (
+    <Bento title={p.title} wide fgImg={p.feature_image || ""} fgImgAlt={p.feature_image_alt || ""}>
+      <p>Published: {dateFormat(p.published_at || "", "yyyy-MM-dd")}</p>
+      <p>{p.custom_excerpt || p.excerpt}</p>
+      <p>Reading time: {p.reading_time || 0} minutes</p>
+      <LinkButton href=`/post/${p.slug}`>Read</LinkButton>
+    </Bento>
+    )) }
+  </BentoContainer>
+</Main>

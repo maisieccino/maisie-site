@@ -1,0 +1,6 @@
+#page-container>img,
+#page-container>p>img {
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+}

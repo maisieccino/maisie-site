@@ -58,6 +58,9 @@
 }
 
 .bentoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex: 1 1 70%;
 }
 
@@ -85,7 +88,7 @@
   }
 }
 
-.bento a {
+.bento a[class] {
   border: 1px solid #000000;
 }
 
@@ -97,6 +100,14 @@
 .bento :global(*) {
   position: relative;
   z-index: 2;
+}
+
+.bento.compact {
+  min-height: auto;
+}
+
+.bento.compact p {
+  margin: 0.5rem 0;
 }
 
 .bento p {
@@ -111,6 +122,14 @@
 
 .tallBento {
   min-height: 20rem;
+}
+
+.bento.toBottom {
+  align-items: flex-end;
+}
+
+.bento.toRight .bentoContent {
+  align-items: flex-end;
 }
 
 .heading {
