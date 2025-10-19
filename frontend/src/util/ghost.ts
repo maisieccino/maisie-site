@@ -4,6 +4,7 @@ import rehypeRemark from "rehype-remark";
 import remarkStringify from "remark-stringify";
 import { unified } from "unified";
 import astroConfig from "../../astro.config.mjs";
+import remarkGfm from "remark-gfm";
 const ghostClient = new GhostContentAPI({
   url: 'https://bell-blog.ghost.io',
   key: import.meta.env.CONTENT_API_KEY,
@@ -11,7 +12,7 @@ const ghostClient = new GhostContentAPI({
 });
 astroConfig.env
 
-const limit = import.meta.env.MODE === "development" ? 50 : 100
+const limit = import.meta.env.MODE === "development" ? 10 : 100
 
 export const posts: void | PostsOrPages = await ghostClient.posts
   .browse({
@@ -37,5 +38,6 @@ export const postToMD = async (post: PostOrPage) =>
   unified()
     .use(rehypeParse)
     .use(rehypeRemark)
+    .use(remarkGfm)
     .use(remarkStringify)
     .process(post.html || "")
