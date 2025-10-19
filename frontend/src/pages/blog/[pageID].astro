@@ -33,6 +33,7 @@ const pageID = parseInt(Astro.params.pageID, 10)
 
 const prev = pageID - 1
 const next = pageID + 1
+import "./blog.css"
 ---
 <Main title="Blog">
   <h1>My posts</h1>
@@ -49,13 +50,13 @@ const next = pageID + 1
     )) }
   </BentoContainer>
 
-  <nav>
+  <nav class="pagination">
     {prev > 1 && <>
     <a href=`/blog/1`>1</a>
     {prev > 2 && "..."}
     </>}
     {prev > 0 && <a href=`/blog/${prev}`>{prev}</a>}
-    <a>{pageID}</a>
+    <a class="current">{pageID}</a>
     {next <= pageCount && <a href=`/blog/${next}`>{next}</a>}
     {next < pageCount && <>
       {pageCount - next > 1 && "..."}

@@ -53,14 +53,14 @@ import "./page.css";
 <img src={props.feature_image} alt={props.feature_image_alt || ""} />
   }
 
-  <nav class={sidebarStyles.toc}>
+  {Astro.props.headings.length > 0 && <nav class={sidebarStyles.toc}>
     {Astro.props.headings.map((h) => {
       const style = {
       paddingLeft: `${h.depth * 0.5}rem`,
     }
 return <a href={`#${h.slug}`} style={style}>{h.text}</a>
     })}
-  </nav>
+  </nav>}
   <slot />
   <Sidebar slot="sidebar" isBlog headings={Astro.props.headings} />
 </Main>

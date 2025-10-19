@@ -1,0 +1,14 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination * {
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+}
+
+.pagination .current {
+  color: hsl(from var(--var-pink) h s 40% / alpha);
+  font-weight: bold;
+}
