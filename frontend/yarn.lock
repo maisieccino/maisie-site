@@ -2974,6 +2974,7 @@ __metadata:
     react-leaflet: "npm:5.0.0-rc.2"
     rehype-parse: "npm:^9.0.1"
     rehype-remark: "npm:^10.0.1"
+    remark-gfm: "npm:^4.0.1"
     remark-stringify: "npm:^11.0.0"
     typescript: "npm:^5.9.3"
     unified: "npm:^11.0.5"
