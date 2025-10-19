@@ -88,7 +88,7 @@
   }
 }
 
-.bento a {
+.bento a[class] {
   border: 1px solid #000000;
 }
 
@@ -100,6 +100,14 @@
 .bento :global(*) {
   position: relative;
   z-index: 2;
+}
+
+.bento.compact {
+  min-height: auto;
+}
+
+.bento.compact p {
+  margin: 0.5rem 0;
 }
 
 .bento p {

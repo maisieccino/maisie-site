@@ -13,6 +13,7 @@ const {
   noOverlay = false,
   contentToBottom = false,
   contentToRight = false,
+  compact = false,
 } = Astro.props;
 
 const classList = [
@@ -24,11 +25,12 @@ const classList = [
   { "photoBento": noOverlay },
   contentToBottom ? styles.toBottom : "",
   contentToRight ? styles.toRight : "",
+  compact ? styles.compact : "",
 ];
 
 ---
 
-<style define:vars={{ backgroundColor: `#${color}`, image: `url("${image}")` }}>
+<style define:vars={{ backgroundColor: color, image: `url("${image}")` }}>
 div.customColor {
   background: var(--backgroundColor);
 }

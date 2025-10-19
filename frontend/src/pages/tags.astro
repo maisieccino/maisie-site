@@ -1,0 +1,20 @@
+---
+import Main from "../layouts/main.astro";
+import { tags } from "../util/ghost"
+import Bento from "../components/layout/bento.astro";
+import BentoContainer from "../components/layout/bentoContainer.astro";
+import LinkButton from "../components/button/LinkButton.astro";
+
+const tagsByCount = (tags || [])
+.sort((a, b) => (b.count?.posts || 0) - (a.count?.posts || 0))
+---
+
+<Main title="Tags">
+  <h1>All tags</h1>
+  <BentoContainer>
+    {tagsByCount.map(tag => <Bento title={tag.name}>
+      <p>{(tag.count?.posts || 0) > 1 ? `${tag.count?.posts} posts` : `${tag.count?.posts} post`}</p>
+      <LinkButton href=`/tag/${tag.id}`>View</LinkButton>
+    </Bento>)}
+  </BentoContainer>
+</Main>
