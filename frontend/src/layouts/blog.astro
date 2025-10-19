@@ -1,5 +1,5 @@
 ---
-import type { MarkdownLayoutProps} from "astro"
+import type { MarkdownHeading} from "astro"
 import Main from "./main.astro"
 import {format as dateFormat } from "date-fns";
 import sidebarStyles from "../components/sidebar.module.css"
@@ -8,18 +8,18 @@ import Sidebar from "../components/Sidebar.astro";
 import type { PostOrPage } from "@tryghost/content-api";
 import Bento from "../components/layout/bento.astro";
 import BentoContainer from "../components/layout/bentoContainer.astro";
-BentoContainer
 
-type Props = MarkdownLayoutProps<{
-  title: string;
-  hideTOC?: boolean;
-} & PostOrPage>
+type Props = {
+  children: any;
+  frontmatter: PostOrPage;
+  title: string | undefined;
+  headings: MarkdownHeading[];
+}
 
-const { title, hideTOC, ...props } = Astro.props.frontmatter || {}
+const { title, ...props } = Astro.props.frontmatter || {}
 delete props.html
 
 const date = dateFormat(props.published_at || "", "EEEE, do MMMM yyyy")
-const time = dateFormat(props.published_at || "", "HH:mm")
 const tags = new Set([props.primary_tag, ...(props.tags || [])]
   .filter(t => t != null)
   .filter((t, i, ts) => {
@@ -53,16 +53,16 @@ import "./page.css";
 <img src={props.feature_image} alt={props.feature_image_alt || ""} />
   }
 
-  {!hideTOC && <nav class={sidebarStyles.toc}>
+  <nav class={sidebarStyles.toc}>
     {Astro.props.headings.map((h) => {
       const style = {
       paddingLeft: `${h.depth * 0.5}rem`,
     }
 return <a href={`#${h.slug}`} style={style}>{h.text}</a>
     })}
-  </nav>}
+  </nav>
   <slot />
-  {!hideTOC && <Sidebar slot="sidebar" isBlog headings={Astro.props.headings} />}
+  <Sidebar slot="sidebar" isBlog headings={Astro.props.headings} />
 </Main>
 
 

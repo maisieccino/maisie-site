@@ -1,4 +1,4 @@
-import GhostContentAPI, { type PostOrPage, type PostsOrPages, type Tag } from "@tryghost/content-api";
+import GhostContentAPI, { type PostOrPage, type PostsOrPages } from "@tryghost/content-api";
 import rehypeParse from "rehype-parse";
 import rehypeRemark from "rehype-remark";
 import remarkStringify from "remark-stringify";

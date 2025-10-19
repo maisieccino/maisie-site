@@ -30,13 +30,13 @@ const md = await postToMD(post)
 const render = await proc.render(String(md))
 const { headings } = render.metadata
 
-const frontmatter = {
+const props = {
+  frontmatter: post,
   title: post.title,
-  hideTOC: false,
-  ...post,
+  headings,
 }
 ---
 
-<Blog title={post.title} headings={headings} frontmatter={frontmatter}>
+<Blog {...props}>
   <Fragment set:html={render.code} />
 </Blog>
