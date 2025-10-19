@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Main from "../../layouts/main.astro"
 import { getCollection, render } from 'astro:content'
+import type { ImageMetadata } from "astro";
+import { imageMetadata } from "astro/assets/utils";
 export const getStaticPaths = async () => {
   const places = await getCollection('places');
   return places.map(place => ({
@@ -12,6 +15,12 @@ export const getStaticPaths = async () => {
 const { place } = Astro.props;
 const addressEncoded = encodeURI(place.data.address || "");
 const { Content } = await render(place);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{png,jpg,jpeg}')
+let image = null
+if (place.data.image != null) {
+  image = images[place.data.image]
+}
 ---
 <Main title={place.data.name}>
   <h3>‹ <a href="/coffee-map">Coffee Map</a></h3>
@@ -20,6 +29,10 @@ const { Content } = await render(place);
   {place.data.address &&
   <p>{place.data.address}</p>
   <p><a href={`https://maps.apple.com/place?address=${addressEncoded}`}> Show in Maps</a></p>
-  <Content />
   }
+{image != null && <Image
+    src={image()}
+    alt=`A photo of ${place.data.name}`
+  />}
+  <Content />
 </Main>

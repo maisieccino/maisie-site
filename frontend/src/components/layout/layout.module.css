@@ -58,6 +58,9 @@
 }
 
 .bentoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex: 1 1 70%;
 }
 
@@ -111,6 +114,14 @@
 
 .tallBento {
   min-height: 20rem;
+}
+
+.bento.toBottom {
+  align-items: flex-end;
+}
+
+.bento.toRight .bentoContent {
+  align-items: flex-end;
 }
 
 .heading {

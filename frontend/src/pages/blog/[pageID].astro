@@ -1,0 +1,66 @@
+---
+import type { GetStaticPaths } from "astro";
+import { format as dateFormat } from "date-fns";
+import { posts as blogPosts } from "../../util/ghost"
+import Main from "../../layouts/main.astro";
+import BentoContainer from "../../components/layout/bentoContainer.astro";
+import Bento from "../../components/layout/bento.astro";
+import LinkButton from "../../components/button/LinkButton.astro";
+import type { PostOrPage } from "@tryghost/content-api";
+
+export const getStaticPaths = (() => {
+const PostsPerPage = 5
+  if (blogPosts == null) {
+    console.log("hm")
+    return [];
+  }
+  const pageCount = Math.ceil(blogPosts.length / PostsPerPage)
+  // One of those BS javascript things. Array.map() won't iterate on undefined?
+  // You have to fill each value with 0?
+  return (new Array(pageCount))
+    .fill(0)
+    .map((_, i) => (blogPosts||[]).slice(i * PostsPerPage, (i+1) * PostsPerPage))
+    .map((x, i) => ({
+      params: { pageID: `${(i+1)}`},
+      props: {
+        posts: x,
+        pageCount,
+      }
+    }))
+}) satisfies GetStaticPaths;
+
+const { pageCount, posts } = Astro.props
+const pageID = parseInt(Astro.params.pageID, 10)
+
+const prev = pageID - 1
+const next = pageID + 1
+---
+<Main title="Blog">
+  <h1>My posts</h1>
+  <p>You can subscribe to receive new posts via email <a href="https://blog.mbell.dev">here</a>.</p>
+
+  <BentoContainer>
+    { (posts||[]).map(p => (
+    <Bento title={p.title} wide fgImg={p.feature_image || ""} fgImgAlt={p.feature_image_alt || ""}>
+      <p>Published: {dateFormat(p.published_at || "", "yyyy-MM-dd")}</p>
+      <p>{p.custom_excerpt || p.excerpt}</p>
+      <p>Reading time: {p.reading_time || 0} minutes</p>
+      <LinkButton href=`/post/${p.slug}`>Read</LinkButton>
+    </Bento>
+    )) }
+  </BentoContainer>
+
+  <nav>
+    {prev > 1 && <>
+    <a href=`/blog/1`>1</a>
+    {prev > 2 && "..."}
+    </>}
+    {prev > 0 && <a href=`/blog/${prev}`>{prev}</a>}
+    <a>{pageID}</a>
+    {next <= pageCount && <a href=`/blog/${next}`>{next}</a>}
+    {next < pageCount && <>
+      {pageCount - next > 1 && "..."}
+      <a href=`/blog/${pageCount}`>{pageCount}</a>
+    </>}
+  </nav>
+</Main>

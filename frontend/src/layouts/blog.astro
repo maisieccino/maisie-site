@@ -17,11 +17,15 @@ delete props.html
 
 const date = dateFormat(props.published_at || "", "EEEE, do MMMM yyyy")
 const time = dateFormat(props.published_at || "", "HH:mm")
-
+const tags = [props.primary_tag, ...(props.tags || [])]
+  .filter(t => t != null)
+  .map(t => `#${t.name}`)
 ---
 <Main {...Astro.props}>
   <h1>{title}</h1>
   <p>Published: {date} at {time}</p>
+  <p><i>{tags.join(", ")}</i></p>
+  {props.reading_time && <p><i>{props.reading_time} min read</i></p>}
 
   {props.feature_image &&
 <img src={props.feature_image} alt={props.feature_image_alt || ""} />

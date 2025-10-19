@@ -1,8 +1,8 @@
 ---
 import {createMarkdownProcessor} from "@astrojs/markdown-remark"
 import type { GetStaticPathsResult } from "astro";
-import Blog from "../layouts/blog.astro"
-import { posts, postToMD } from "../util/ghost"
+import Blog from "../../layouts/blog.astro"
+import { posts, postToMD } from "../../util/ghost"
 import type { PostOrPage } from "@tryghost/content-api";
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
@@ -10,7 +10,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
     return []
   }
   return posts.map(post => ({
-    params: { id: post.slug },
+    params: { slug: post.slug },
     props: {
       post,
     }
@@ -28,7 +28,7 @@ const proc = await createMarkdownProcessor()
 const md = await postToMD(post)
 
 const render = await proc.render(String(md))
-const {headings } = render.metadata
+const { headings } = render.metadata
 
 const frontmatter = {
   title: post.title,

@@ -11,6 +11,8 @@ const {
   fgImg = "",
   fgImgAlt = "",
   noOverlay = false,
+  contentToBottom = false,
+  contentToRight = false,
 } = Astro.props;
 
 const classList = [
@@ -19,17 +21,25 @@ const classList = [
   tall ? styles.tallBento : "",
   { "customColor": color },
   { "bgImage": image },
-  { "photoBento": noOverlay }
+  { "photoBento": noOverlay },
+  contentToBottom ? styles.toBottom : "",
+  contentToRight ? styles.toRight : "",
 ];
 
 ---
 
-<style define:vars={{ backgroundColor: color, image: `url("${image}")` }}>
+<style define:vars={{ backgroundColor: `#${color}`, image: `url("${image}")` }}>
 div.customColor {
-  background-color: var(--backgroundColor);
+  background: var(--backgroundColor);
 }
 div.bgImage {
   background: var(--image);
+  background-size: cover;
+  position: relative;
+  background-position: center;
+}
+div.bgImage.customColor {
+  background: var(--backgroundColor) var(--image);
   background-size: cover;
   position: relative;
   background-position: center;

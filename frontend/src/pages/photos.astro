@@ -25,7 +25,8 @@ const results = await rsp.json();
   <p>Here's a quick sample of the photos I've taken.</p>
   <BentoContainer>
     {posts.map(p => (
-    <Bento tall color={p["prominent_color"]} image={p["image_widget_square"] } noOverlay>
+    <Bento tall color={p["prominent_color"]} image={p["image_widget_square"] } noOverlay contentToBottom contentToRight>
+      <LinkButton href={p["share_url"]}>🔗</LinkButton>
     </Bento>
     ))}
   </BentoContainer>

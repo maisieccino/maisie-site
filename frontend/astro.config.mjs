@@ -9,6 +9,9 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [react(), mdx()],
   site: "https://mbell.dev",
+  redirects: {
+    "/blog": "/blog/1",
+  },
   vite: {
     server: {
       allowedHosts: [

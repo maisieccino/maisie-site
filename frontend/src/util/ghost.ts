@@ -11,7 +11,7 @@ const ghostClient = new GhostContentAPI({
 });
 astroConfig.env
 
-const limit = import.meta.env.MODE === "development" ? 5 : 100
+const limit = import.meta.env.MODE === "development" ? 50 : 100
 
 export const posts: void | PostsOrPages = await ghostClient.posts
   .browse({
