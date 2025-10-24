@@ -1,4 +1,5 @@
 .menuButton {
+  z-index: 2;
   box-shadow: var(--button-depth) var(--button-depth) var(--button-depth) rgba(0, 0, 0, 0.3);
   font-family: var(--var-font-family-body);
   text-transform: lowercase;
@@ -12,7 +13,8 @@
 
 @media screen and not (prefers-reduced-motion: reduce) {
   .menuButton {
-    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out,
+      all 0.5s ease-in-out;
   }
 }
 
@@ -34,7 +36,7 @@
   transform-origin: 75% top;
 
   flex-direction: column;
-  z-index: 3;
+  z-index: 2;
   width: calc(100% - 1.5rem);
   overflow: hidden;
   position: absolute;
@@ -48,7 +50,6 @@
   align-items: center;
 
   box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
-  z-index: 3;
   overflow: hidden;
   outline: 1px solid rgb(from var(--var-bg) r g b / 0.8);
 }
@@ -69,6 +70,7 @@
   isolation: isolate;
   backdrop-filter: blur(5px);
   background-color: rgb(from var(--var-bg) r g b / 0.5);
+  transition: all 0.5s ease-in-out;
 }
 
 @media (max-width: 70rem) {
@@ -97,4 +99,109 @@
 
 .menu {
   position: relative;
+  align-self: center;
+}
+
+.floatingMenuContainer {
+  /* isolation: isolate; */
+  position: fixed;
+  top: 1rem;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  --height: 3rem;
+  opacity: 0;
+  transform: translateY(-0.5);
+  transition: all 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+@media (min-width: 70rem) {
+  .floatingMenuContainer {
+    top: 3rem;
+  }
+}
+
+.floatingMenuContainer[data-is-visible] {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.floatingMenuBar {
+  display: inline-flex;
+  flex-direction: row;
+  backdrop-filter: blur(20px) saturate(1.1);
+  background: rgb(from var(--var-translucent) r g b / 0.3);
+  border-radius: var(--height);
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid rgb(from white r g b / 0.4);
+  pointer-events: initial;
+}
+
+.floatingMenuBar button {
+  font-size: 1.5rem;
+  padding: 0.75rem 1rem;
+  line-height: 2rem;
+  --button-depth: 0.2rem;
+}
+
+.floatingMenuCircle {
+  height: var(--height);
+  width: var(--height);
+  border-radius: var(--height);
+  background: var(--var-gradient);
+  margin-right: 1rem;
+}
+
+
+.floatingMenuContainer nav {
+  transform-origin: 75% top;
+  z-index: 2;
+  flex-direction: column;
+  position: absolute;
+  display: flex;
+  top: calc(100% + 0.75rem);
+  width: 12rem;
+  /* TODO: figure out why blur isn't working here. */
+  background: rgb(from var(--var-translucent) r g b / 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  align-items: center;
+  pointer-events: initial;
+  border: 1px solid rgb(from white r g b / 0.4);
+
+  padding: 0.5rem;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-in-out;
+  opacity: 0;
+  transform: scale(0, 0);
+}
+
+.floatingMenuContainer nav a {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: font-size 0.5s linear;
+  padding: 0.25rem;
+}
+
+@media (max-width: 70rem) {
+  .floatingMenuContainer nav {
+    /* width: 10rem; */
+  }
+
+  .floatingMenuContainer nav a {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
+
+.floatingMenuContainer nav a:hover {
+  font-size: 1.5rem;
+}
+
+nav.floatingMenuActive {
+  transform: scale(1, 1);
+  opacity: 1;
 }

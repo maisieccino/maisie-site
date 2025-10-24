@@ -18,6 +18,7 @@ export default defineConfig({
         "maisie-desktop",
         "maisie-desktop.local",
         "macsie.local",
+        "macsie.corvus-buri.ts.net"
       ]
     }
   }

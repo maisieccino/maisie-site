@@ -8,6 +8,8 @@ import "../index.css";
 import Footer from "../components/layout/Footer.astro";
 import LiquidGlass from "../components/LiquidGlass.astro";
 import maisieImage from "../assets/img/maisie.jpeg";
+import Menuitems from "../components/menu/menuitems.astro";
+import FloatingMenu from "../components/menu/floatingMenu.astro";
 
 const { title, frontmatter } = Astro.props
 
@@ -43,18 +45,18 @@ if (frontmatter) {
   </head>
   <body>
 <LiquidGlass />
+<FloatingMenu>
+  <Menuitems />
+</FloatingMenu>
 <div class="page">
     <slot name="sidebar"/>
     <Container>
       <Heading title="maisieccino" transition:persist id="top">
         <Menu>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/coffee-map">Coffee Map</a>
-          <a href="/photos">Photos</a>
-          <a href="/blog">Blog</a>
+          <Menuitems/>
         </Menu>
       </Heading>
+      <div id="menu-track-pixel"></div>
       <slot transition:animate="slide"/>
       <Footer />
     </Container>

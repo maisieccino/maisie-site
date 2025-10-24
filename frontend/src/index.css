@@ -96,6 +96,7 @@ a {
   --var-white: #ffffff;
   --var-black: #000000;
   --var-bg: #efefeb;
+  --var-translucent: rgb(from var(--var-bg) r g b / 80%);
   --var-grey: #aaaaaa;
   --var-gradient: linear-gradient(225deg,
       var(--var-yellow) 0%,
@@ -131,4 +132,13 @@ a {
   align-items: flex-start;
   position: relative;
   justify-content: center;
+}
+
+#menu-track-pixel {
+  display: none;
+  width: 0;
+  height: 5rem;
+  position: absolute;
+  display: block;
+  content: '';
 }
