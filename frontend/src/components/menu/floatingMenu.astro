@@ -1,0 +1,28 @@
+---
+import styles from "./menu.module.css"
+import buttonStyles from "../button/button.module.css"
+---
+<floating-menu data-visibility-class={styles.floatingMenuActive} class={styles.floatingMenuContainer} aria-hidden="true" id="floating-menu">
+  <div class={styles.floatingMenuBar}>
+    <span class={styles.floatingMenuCircle}></span>
+    <button class:list={[buttonStyles.buttonShared, styles.menuButton]} id="menu-button">Menu</button>
+  </div>
+  <nav>
+    <slot />
+  </nav>
+</floating-menu>
+<script>
+class FloatingMenu extends HTMLElement {
+  connectedCallback() {
+  const button = this.querySelector("#menu-button")
+  const menu = document.querySelector("nav")
+  if (button == null || menu == null)  {
+    return
+  }
+  button.addEventListener("click", () => {
+    menu.classList.toggle(this.dataset.visibilityClass || "")
+  })
+  }
+}
+customElements.define("floating-menu", FloatingMenu)
+</script>

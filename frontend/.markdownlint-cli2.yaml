@@ -1,3 +1,4 @@
 config:
   MD033: false # Allow inline HTML (MDX)
   MD041: false # First line must be a top-level heading
+  MD013: false # Line length: no-neck-pain.nvim lets us wrap

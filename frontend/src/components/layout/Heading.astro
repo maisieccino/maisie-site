@@ -3,7 +3,29 @@ import styles from "./layout.module.css";
 import typographyStyles from "../typography/typography.module.css";
 const { title } = Astro.props;
 ---
-<div class={styles.heading}>
+<script>
+document.addEventListener('astro:page-load', () => {
+const container = document.querySelector("#menu-track-pixel")
+const header = document.querySelector("#floating-menu");
+if (header != null && container != null) {
+  const observer = new IntersectionObserver(entries => {
+      console.log(entries)
+    if (entries.length !== 1) {
+      return
+    }
+
+      if (!entries[0].isIntersecting) {
+      header.setAttribute("data-is-visible", "yes")
+    } else {
+      header.removeAttribute("data-is-visible")
+    }
+    })
+  observer.observe(container)
+}
+})
+</script>
+<div class={styles.heading} id="page-header">
+<div class={styles.headingCircle} aria-hidden="true"></div>
   <h1 class={typographyStyles.title}><a href="/">{title}</a></h1>
     <slot />
 </div>
