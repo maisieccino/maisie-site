@@ -120,6 +120,11 @@
 @media (min-width: 70rem) {
   .floatingMenuContainer {
     top: 3rem;
+    justify-content: flex-end;
+  }
+
+  .floatingMenuBar {
+    margin-right: 5rem;
   }
 }
 
@@ -155,6 +160,9 @@
   margin-right: 1rem;
 }
 
+.floatingMenuContainer[data-is-visible] nav {
+  pointer-events: initial;
+}
 
 .floatingMenuContainer nav {
   transform-origin: 75% top;
@@ -163,13 +171,12 @@
   position: absolute;
   display: flex;
   top: calc(100% + 0.75rem);
+  right: 4rem;
   width: 12rem;
-  /* TODO: figure out why blur isn't working here. */
   background: rgb(from var(--var-translucent) r g b / 0.4);
   backdrop-filter: blur(20px);
   border-radius: 2rem;
   align-items: center;
-  pointer-events: initial;
   border: 1px solid rgb(from white r g b / 0.4);
 
   padding: 0.5rem;
@@ -189,6 +196,7 @@
 @media (max-width: 70rem) {
   .floatingMenuContainer nav {
     /* width: 10rem; */
+    right: unset;
   }
 
   .floatingMenuContainer nav a {
