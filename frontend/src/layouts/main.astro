@@ -11,11 +11,24 @@ import maisieImage from "../assets/img/maisie.jpeg";
 import Menuitems from "../components/menu/menuitems.astro";
 import FloatingMenu from "../components/menu/floatingMenu.astro";
 
-const { title, frontmatter } = Astro.props
+type Article = {
+      publishedTime?: string;
+      modifiedTime?: string;
+      expirationTime?: string;
+      authors?: string[];
+      section?: string;
+      tags?: string[];
+}
+
+const { title, frontmatter, img } = Astro.props
 
 let pageTitle = title;
 if (frontmatter) {
   pageTitle = frontmatter.title
+}
+let article: Article = {};
+if (Astro.props.article != null) {
+  article = Astro.props.article;
 }
 
 ---
@@ -34,8 +47,10 @@ if (frontmatter) {
         basic: {
           title: pageTitle,
           type: "website",
-          image: maisieImage.src,
-        }
+          image: img || maisieImage.src,
+          url: Astro.url,
+        },
+        article,
       }}
       extend={{
         // extending the default link tags
