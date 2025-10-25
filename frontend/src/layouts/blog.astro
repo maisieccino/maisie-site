@@ -30,10 +30,16 @@ const tags = new Set([props.primary_tag, ...(props.tags || [])]
     return false
   })
 )
+const meta = {
+  publishedTime: props.published_at,
+  modifiedTime: props.updated_at,
+  authors: props.authors?.map(x => x.name),
+  tags: props.tags?.map(x => x.name)
+}
 
 import "./page.css";
 ---
-<Main {...Astro.props}>
+<Main article={meta} img={props.feature_image || ""} {...Astro.props}>
   <h1>{title}</h1>
   <BentoContainer>
   <Bento compact>

@@ -35,8 +35,9 @@ const props = {
   title: post.title,
   headings,
 }
+
 ---
 
 <Blog {...props}>
-  <Fragment set:html={render.code} />
+  <Fragment set:html={post.html || ""} />
 </Blog>

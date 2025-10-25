@@ -6,6 +6,7 @@ import Main from "../../layouts/main.astro";
 import BentoContainer from "../../components/layout/bentoContainer.astro";
 import Bento from "../../components/layout/bento.astro";
 import LinkButton from "../../components/button/LinkButton.astro";
+import "./blog.css";
 
 export const getStaticPaths = (() => {
 const PostsPerPage = 5
@@ -33,7 +34,7 @@ const pageID = parseInt(Astro.params.pageID, 10)
 
 const prev = pageID - 1
 const next = pageID + 1
-import "./blog.css";
+
 ---
 <Main title="Blog">
   <h1>My posts</h1>
