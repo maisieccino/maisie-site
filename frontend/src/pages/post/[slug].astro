@@ -38,5 +38,5 @@ const props = {
 ---
 
 <Blog {...props}>
-  <Fragment set:html={render.code} />
+  <Fragment set:html={post.html || ""} />
 </Blog>

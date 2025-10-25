@@ -1,6 +1,44 @@
 #page-container>img,
-#page-container>p>img {
+#page-container figure>img {
   border-radius: 16px;
   display: block;
   margin: 0 auto;
+  max-height: 70vh;
+  width: auto;
+}
+
+#page-container figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#page-container figcaption {
+  font-size: italic;
+}
+
+#page-container h2 {
+  margin-top: 2rem;
+}
+
+#page-container h3 {
+  margin-top: 0.75rem;
+}
+
+#page-container pre {
+  background-color: hsl(from var(--var-bg) h s 80%);
+  outline: 1px solid hsl(from var(--var-bg) h s 60%);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+#page-container code {
+  font-size: 1rem;
+}
+
+#page-container *:not(pre)>code {
+  background-color: hsl(from var(--var-bg) h s 80%);
+  padding: 0.1rem;
+  font-size: 1rem;
+  outline: 1px solid hsl(from var(--var-bg) h s 60%);
 }
