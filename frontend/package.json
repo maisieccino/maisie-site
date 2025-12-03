@@ -13,6 +13,7 @@
     "@astrojs/markdown-remark": "^6.3.8",
     "@astrojs/mdx": "^4.3.6",
     "@astrojs/react": "^4.3.0",
+    "@astrojs/rss": "^4.0.14",
     "@tryghost/content-api": "^1.12.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
