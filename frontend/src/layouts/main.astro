@@ -38,6 +38,12 @@ if (Astro.props.article != null) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="maisieccino"
+      href={new URL("rss.xml", Astro.site)}
+    />
 
     <ClientRouter />
     <SEO
