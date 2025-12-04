@@ -104,6 +104,7 @@ a {
       var(--var-blue) 100%);
   --var-font-family-header: "Michroma", source-code-pro, Menlo, Monaco, Consolas,
     "Courier New", monospace;
+  /* --var-font-family-header: "Stack Sans Notch"; */
   --var-font-family-body: "A", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
