@@ -1,9 +1,9 @@
-import rss, { pagesGlobToRssItems, type RSSFeedItem } from "@astrojs/rss";
+import rss, { type RSSFeedItem } from "@astrojs/rss";
 import { posts as blogPosts, postToMD } from "../util/ghost"
 import type { APIRoute } from "astro";
 import type { PostOrPage } from "@tryghost/content-api";
 import { createMarkdownProcessor } from "@astrojs/markdown-remark";
-import { parse, parseISO } from "date-fns";
+import { parseISO } from "date-fns";
 
 export const GET: APIRoute = async (context) => {
 
@@ -20,6 +20,10 @@ export const GET: APIRoute = async (context) => {
       link: `/post/${post.slug}`,
       title: post.title || "",
       pubDate: parseISO(post.published_at || ""),
+      customData: `<image>
+        <url>${post.feature_image}</url>
+        <title>${post.feature_image_alt}</title>
+      </image>`
     }
   }
 
