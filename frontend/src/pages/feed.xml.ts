@@ -6,24 +6,25 @@ import { createMarkdownProcessor } from "@astrojs/markdown-remark";
 import { parseISO } from "date-fns";
 
 export const GET: APIRoute = async (context) => {
+  const proc = await createMarkdownProcessor()
 
   const postToFeedItem = async (post: PostOrPage): Promise<RSSFeedItem> => {
-    const proc = await createMarkdownProcessor()
     const md = await postToMD(post)
 
     const render = await proc.render(String(md))
 
     return {
-      author: (post.authors || []).join(","),
+      author: (post.authors || []).map(a => a.name).join(","),
       content: render.code,
       categories: (post.tags || []).map(t => t.name || ""),
       link: `/post/${post.slug}`,
       title: post.title || "",
       pubDate: parseISO(post.published_at || ""),
-      customData: `<image>
-        <url>${post.feature_image}</url>
-        <title>${post.feature_image_alt}</title>
-      </image>`
+      enclosure: {
+        type: "image",
+        url: post.feature_image || "",
+        length: 0,
+      },
     }
   }
 
