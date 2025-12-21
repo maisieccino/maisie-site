@@ -18,9 +18,10 @@ type Article = {
       authors?: string[];
       section?: string;
       tags?: string[];
+      excerpt?: string;
 }
 
-const { title, frontmatter, img } = Astro.props
+const { title, frontmatter, image } = Astro.props
 
 let pageTitle = title;
 if (frontmatter) {
@@ -48,12 +49,12 @@ if (Astro.props.article != null) {
     <ClientRouter />
     <SEO
       title=`${pageTitle} | maisieccino`
-      description="A little corner of the internet where I share what I'm building and things I've taken photos of"
+      description={article.excerpt || "A little corner of the internet where I share what I'm building and things I've taken photos of" }
       openGraph={{
         basic: {
           title: pageTitle,
           type: "website",
-          image: img || maisieImage.src,
+          image: image || maisieImage.src,
           url: Astro.url,
         },
         article,

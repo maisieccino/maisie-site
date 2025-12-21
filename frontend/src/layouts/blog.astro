@@ -34,7 +34,8 @@ const meta = {
   publishedTime: props.published_at,
   modifiedTime: props.updated_at,
   authors: props.authors?.map(x => x.name),
-  tags: props.tags?.map(x => x.name)
+  tags: props.tags?.map(x => x.name),
+  excerpt: props.custom_excerpt || props.excerpt || "",
 }
 
 import "./page.css";
