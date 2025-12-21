@@ -32,6 +32,8 @@ if (Astro.props.article != null) {
   article = Astro.props.article;
 }
 
+const description = Astro.props.description || article.excerpt ||"A little corner of the internet where I share what I'm building and things I've taken photos of"
+
 ---
 
 <html lang="en">
@@ -49,7 +51,7 @@ if (Astro.props.article != null) {
     <ClientRouter />
     <SEO
       title=`${pageTitle} | maisieccino`
-      description={article.excerpt || "A little corner of the internet where I share what I'm building and things I've taken photos of" }
+      description={description}
       openGraph={{
         basic: {
           title: pageTitle,
