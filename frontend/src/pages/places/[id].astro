@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import Main from "../../layouts/main.astro"
 import { getCollection, render } from 'astro:content'
 import type { ImageMetadata } from "astro";
+
+import "../../layouts/page.css";
 export const getStaticPaths = async () => {
   const places = await getCollection('places');
   return places.map(place => ({
