@@ -50,8 +50,10 @@ import "./page.css";
   </Bento>
     <Bento title="Tags" compact color="#fd98ce">
       <p>{Array.from(tags)
-        .map(t => 
-        (<a href=`/tag/${t.id}`>#{t.name}</a>))
+        .map(t =>
+          (<>
+            <a href=`/tag/${t.id}`>#{t.name}</a>{" "}
+          </>))
         }
       </p>
     </Bento>
