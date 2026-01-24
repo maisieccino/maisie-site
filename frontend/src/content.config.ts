@@ -2,7 +2,6 @@ import { defineCollection, z } from "astro:content";
 import { glob, type Loader } from "astro/loaders";
 import { posts as blogPosts, postToMD } from "./util/ghost";
 import { parseISO } from "date-fns";
-import { createMarkdownProcessor } from "@astrojs/markdown-remark";
 
 const globLoader = glob({ pattern: "**/*.md", base: "./src/posts" })
 
@@ -65,7 +64,6 @@ const places = defineCollection({
   })
 })
 const posts = defineCollection({
-  // TODO: https://docs.astro.build/en/guides/content-collections/#building-a-custom-loader
   loader: postLoader,
   schema: z.object({
     title: z.string(),
