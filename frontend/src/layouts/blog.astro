@@ -1,77 +1,64 @@
 ---
 import type { MarkdownHeading} from "astro"
+import type { CollectionEntry } from "astro:content";
 import Main from "./main.astro"
 import {format as dateFormat } from "date-fns";
 import sidebarStyles from "../components/sidebar.module.css"
 
 import Sidebar from "../components/Sidebar.astro";
-import type { PostOrPage } from "@tryghost/content-api";
 import Bento from "../components/layout/bento.astro";
 import BentoContainer from "../components/layout/bentoContainer.astro";
 
 type Props = {
   children: any;
-  frontmatter: PostOrPage;
-  title: string | undefined;
-  headings: MarkdownHeading[];
+  post: CollectionEntry<'posts'>;
 }
 
-const { title, ...props } = Astro.props.frontmatter || {}
-delete props.html
+const { title, ...props } = Astro.props.post.data || {}
 
-const date = dateFormat(props.published_at || "", "EEEE, do MMMM yyyy")
-const tags = new Set([props.primary_tag, ...(props.tags || [])]
-  .filter(t => t != null)
-  .filter((t, i, ts) => {
-    const find = ts.find(x => x.id === t.id)
-    if (find) {
-  return ts.indexOf(find) === i
-    }
-    return false
-  })
-)
+const date = dateFormat(props.publishedTime || "", "EEEE, do MMMM yyyy")
 const meta = {
-  publishedTime: props.published_at,
-  modifiedTime: props.updated_at,
-  authors: props.authors?.map(x => x.name),
-  tags: props.tags?.map(x => x.name),
-  excerpt: props.custom_excerpt || props.excerpt || "",
+  publishedTime: props.publishedTime,
+  modifiedTime: props.modifiedTime,
+  authors: props.authors,
+  tags: props.tags,
+  excerpt: props.excerpt || "",
 }
 
 import "./page.css";
 ---
-<Main article={meta} img={props.feature_image || ""} {...Astro.props}>
+<Main article={meta} img={props.featureImage || ""} {...Astro.props}>
   <h1>{title}</h1>
   <BentoContainer>
   <Bento compact>
 <p>{date}</p>
-{props.reading_time &&
-  <p><b>{props.reading_time} min read</b></p>}
+<!-- {props.reading_time && -->
+<!--   <p><b>{props.reading_time} min read</b></p>} -->
   </Bento>
     <Bento title="Tags" compact color="#fd98ce">
-      <p>{Array.from(tags)
+      <p>{props.tags
         .map(t =>
           (<>
-            <a href=`/tag/${t.id}`>#{t.name}</a>{" "}
+            <a href=`/tag/${t}`>#{t}</a>{" "}
           </>))
         }
       </p>
     </Bento>
 </BentoContainer>
-  {props.feature_image &&
-<img src={props.feature_image} alt={props.feature_image_alt || ""} />
+  {props.featureImage &&
+<img src={props.featureImage} alt={props.featureImageAlt || ""} />
   }
 
-  {Astro.props.headings.length > 0 && <nav class={sidebarStyles.toc}>
-    {Astro.props.headings.map((h) => {
-      const style = {
-      paddingLeft: `${h.depth * 0.5}rem`,
-    }
-return <a href={`#${h.slug}`} style={style}>{h.text}</a>
-    })}
-  </nav>}
+<!--   {Astro.props.post.rendered?.metadata?.headings.length > 0 && <nav class={sidebarStyles.toc}> -->
+<!--     {Astro.props.headings.map((h) => { -->
+<!--       const style = { -->
+<!--       paddingLeft: `${h.depth * 0.5}rem`, -->
+<!--     } -->
+<!-- return <a href={`#${h.slug}`} style={style}>{h.text}</a> -->
+<!--     })} -->
+<!--   </nav>} -->
   <slot />
-  <Sidebar slot="sidebar" isBlog headings={Astro.props.headings} />
+  <!-- <Sidebar slot="sidebar" isBlog headings={Astro.props.headings} /> -->
 </Main>
 
 
