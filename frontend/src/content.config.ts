@@ -41,10 +41,11 @@ const postLoader: Loader = {
           const data = await parseData({ id: post.data.slug, data: post.data })
           logger.debug(`id is ${data.id}`)
           const md = await postToMD(post.post)
+          const rendered = await renderMarkdown(String(md))
           store.set({
             id: post.data.slug,
-            data,
-            rendered: await renderMarkdown(String(md))
+            data: { ...data, headings: rendered.metadata?.headings },
+            rendered: rendered,
           })
         })
     )
@@ -73,7 +74,12 @@ const posts = defineCollection({
     tags: z.array(z.string()),
     excerpt: z.string().optional(),
     featureImage: z.string().optional(),
-    featureImageAlt: z.string().optional()
+    featureImageAlt: z.string().optional(),
+    headings: z.array(z.object({
+      depth: z.number(),
+      slug: z.string(),
+      text: z.string(),
+    }))
   })
 })
 
