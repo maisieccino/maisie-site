@@ -4,10 +4,13 @@ authors:
   - Maisie Bell
 publishedTime: "2025-12-30T16:54:00Z"
 modifiedTime: "2025-12-30T16:54:00Z"
-featureImage: https://blog.mbell.dev/content/images/size/w1600/2025/12/pasted_image_20251230164034.png
+featureImage: /src/assets/img/posts/on-cruising/cover.png
 tags:
   - travel
   - vent
+excerpt: |
+  I went on a cruise ship recently for the first time. I have a lot of thoughts on my experience, mainly that I did not enjoy it and had this eternal sense of discomfort and unease throughout the trip. This is a quick dump of my thoughts on various things that made me feel uncomfortable.
+readingTime: 5
 ---
 
 I went on a cruise ship recently for the first time. I have a lot of thoughts on my experience, mainly that I did not enjoy it and had this eternal sense of discomfort and unease throughout the trip. This is a quick dump of my thoughts on various things that made me feel uncomfortable.

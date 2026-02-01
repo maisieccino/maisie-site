@@ -43,7 +43,7 @@ const next = pageID + 1
     <Bento title={p.data.title} wide fgImg={p.data.featureImage || ""} fgImgAlt={p.data.featureImageAlt || ""}>
       <p>Published: {dateFormat(p.data.publishedTime || "", "yyyy-MM-dd")}</p>
       <p>{p.data.excerpt || ""}</p>
-      <!-- <p>Reading time: {p.reading_time || 0} minutes</p> -->
+      <p>Reading time: {p.data.readingTime || 0} minutes</p>
       <LinkButton href=`/post/${p.id}`>Read</LinkButton>
     </Bento>
     )) }
