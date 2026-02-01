@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
 import mdx from "@astrojs/mdx";
-import rehypeFigure from 'rehype-figure';
+import rehypeFigure from '@microflash/rehype-figure';
 
 // https://astro.build/config
 export default defineConfig({
