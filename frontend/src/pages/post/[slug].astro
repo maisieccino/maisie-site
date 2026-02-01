@@ -8,6 +8,10 @@ import BentoContainer from "../../components/layout/bentoContainer.astro";
 import Bento from "../../components/layout/bento.astro";
 import Sidebar from "../../components/Sidebar.astro";
 import sidebarStyles from "../../components/sidebar.module.css"
+import { isRemoteImage } from "astro/assets/utils";
+import { Image } from "astro:assets";
+
+import "../../layouts/page.css"
 
 export const getStaticPaths = (async () => {
 const posts = await getCollection("posts")
@@ -25,10 +29,6 @@ const { post } = Astro.props
 
 const { Content, headings } = await render(post);
 
-const img = isRemoteImage(post.data.featureImage || "") ?
-  post.data.featureImage
-  : (await getImage({src: post.data.featureImage || "", inferSize: true})).src
-
 const date = dateFormat(post.data.publishedTime || Date.now(), "EEEE, do MMMM yyyy")
 const meta = {
   publishedTime: post.data.publishedTime,
@@ -37,20 +37,28 @@ const meta = {
   tags: post.data.tags,
   excerpt: post.data.excerpt || "",
 }
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**/*.{jpeg,jpg,png,gif}')
 
+const resolvePath = (path: string) => {
+if (!images[path]) {
+  throw new Error(`"${path}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+}
+  return images[path]
+}
 
-import "../../layouts/page.css"
-import { isRemoteImage } from "astro/assets/utils";
-import { getImage } from "astro:assets";
+const featureImage = URL.parse(post.data.featureImage || "")?.host != undefined ?
+(post.data.featureImage || "")
+:   resolvePath(post.data.featureImage||"")()
 ---
 
-<Main article={meta} title={post.data.title} img={img} {...Astro.props}>
+<Main article={meta} title={post.data.title} img={featureImage} {...Astro.props}>
   <h1>{post.data.title}</h1>
   <BentoContainer>
   <Bento compact>
-<p>{date}</p>
-{post.data.readingTime > 0 &&
-  <p><b>{post.data.readingTime} min read</b></p>}
+    <p>{date}</p>
+    {post.data.readingTime > 0 &&
+    <p><b>{post.data.readingTime} min read</b></p>
+    }
   </Bento>
     <Bento title="Tags" compact color="#fd98ce">
       <p>{post.data.tags
@@ -62,8 +70,9 @@ import { getImage } from "astro:assets";
       </p>
     </Bento>
 </BentoContainer>
-  {post.data.featureImage &&
-<img src={img} alt={post.data.featureImageAlt || ""} />
+  {typeof featureImage === "string" ?
+  <Image src={featureImage} alt={post.data.featureImageAlt || ""} inferSize={true} />
+  : <Image src={Promise.resolve(featureImage)} alt={post.data.featureImageAlt || ""} inferSize={true} />
   }
 
 {headings.length > 0 && <nav class={sidebarStyles.toc}>

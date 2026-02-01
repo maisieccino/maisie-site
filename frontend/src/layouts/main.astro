@@ -23,6 +23,8 @@ type Article = {
 
 const { title, frontmatter, image } = Astro.props
 
+const imageSrc = await Promise.resolve(image)
+
 let pageTitle = title;
 if (frontmatter && frontmatter.title) {
   pageTitle = frontmatter.title
@@ -55,7 +57,7 @@ const description = Astro.props.description || article.excerpt ||"A little corne
         basic: {
           title: pageTitle,
           type: "website",
-          image: image ? image : maisieImage.src,
+          image: image ? imageSrc : maisieImage.src,
           url: Astro.url,
         },
         article,

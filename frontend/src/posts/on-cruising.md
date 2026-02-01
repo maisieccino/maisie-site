@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: "2025-12-30T16:54:00Z"
 modifiedTime: "2025-12-30T16:54:00Z"
-featureImage: /src/assets/img/posts/on-cruising/cover.png
+featureImage: "/src/assets/img/posts/on-cruising/cover.png"
 tags:
   - travel
   - vent
