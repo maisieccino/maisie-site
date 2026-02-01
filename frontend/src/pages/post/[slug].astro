@@ -1,43 +1,75 @@
 ---
-import {createMarkdownProcessor} from "@astrojs/markdown-remark"
-import type { GetStaticPathsResult } from "astro";
-import Blog from "../../layouts/blog.astro"
-import { posts, postToMD } from "../../util/ghost"
-import type { PostOrPage } from "@tryghost/content-api";
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import {format as dateFormat } from "date-fns";
+import Main from "../../layouts/main.astro";
+import BentoContainer from "../../components/layout/bentoContainer.astro";
+import Bento from "../../components/layout/bento.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import sidebarStyles from "../../components/sidebar.module.css"
 
-export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
+export const getStaticPaths = (async () => {
+const posts = await getCollection("posts")
   if (posts == null) {
     return []
   }
   return posts.map(post => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: {
       post,
     }
   }));
-};
-const isPost = (p: any): p is PostOrPage => {
-  return p.uuid !== undefined;
-}
+}) satisfies GetStaticPaths;
 const { post } = Astro.props
-if (!isPost(post)) {
-  return
+
+const { Content, headings } = await render(post);
+
+
+const date = dateFormat(post.data.publishedTime || Date.now(), "EEEE, do MMMM yyyy")
+const meta = {
+  publishedTime: post.data.publishedTime,
+  modifiedTime: post.data.modifiedTime,
+  authors: post.data.authors,
+  tags: post.data.tags,
+  excerpt: post.data.excerpt || "",
 }
 
-const proc = await createMarkdownProcessor()
-const md = await postToMD(post)
-
-const render = await proc.render(String(md))
-const { headings } = render.metadata
-
-const props = {
-  frontmatter: post,
-  title: post.title,
-  headings,
-}
-
+import "../../layouts/page.css"
 ---
 
-<Blog {...props}>
-  <Fragment set:html={post.html || ""} />
-</Blog>
+<Main article={meta} title={post.data.title} img={post.data.featureImage || ""} {...Astro.props}>
+  <h1>{post.data.title}</h1>
+  <BentoContainer>
+  <Bento compact>
+<p>{date}</p>
+{post.data.readingTime > 0 &&
+  <p><b>{post.data.readingTime} min read</b></p>}
+  </Bento>
+    <Bento title="Tags" compact color="#fd98ce">
+      <p>{post.data.tags
+        .map(t =>
+          (<>
+            <a href=`/tag/${t}`>#{t}</a>{" "}
+          </>))
+        }
+      </p>
+    </Bento>
+</BentoContainer>
+  {post.data.featureImage &&
+<img src={post.data.featureImage} alt={post.data.featureImageAlt || ""} />
+  }
+
+{headings.length > 0 && <nav class={sidebarStyles.toc}>
+  {headings.map((h) => {
+    const style = {
+    paddingLeft: `${h.depth * 0.5}rem`,
+  }
+ return <a href={`#${h.slug}`} style={style}>{h.text}</a> 
+  })}
+</nav>}
+  <Content />
+  <Sidebar slot="sidebar" isBlog headings={headings} />
+</Main>
+
+

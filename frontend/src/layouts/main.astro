@@ -24,7 +24,7 @@ type Article = {
 const { title, frontmatter, image } = Astro.props
 
 let pageTitle = title;
-if (frontmatter) {
+if (frontmatter && frontmatter.title) {
   pageTitle = frontmatter.title
 }
 let article: Article = {};
@@ -33,12 +33,6 @@ if (Astro.props.article != null) {
 }
 
 const description = Astro.props.description || article.excerpt ||"A little corner of the internet where I share what I'm building and things I've taken photos of"
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{png,jpg,jpeg}')
-let metaImg = null
-if (image != null) {
-  metaImg = images[image]
-}
 ---
 
 <html lang="en">
