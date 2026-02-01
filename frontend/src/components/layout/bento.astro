@@ -1,6 +1,7 @@
 ---
 // A colourful, rounded box highlighting some content.
 import styles from "./layout.module.css";
+import {Image} from "astro:assets"
 
 const {
   wide,
@@ -60,7 +61,11 @@ div.bgImage:not(.photoBento):before {
 </style>
 
 <div class:list={classList}>
-{fgImg && <img src={fgImg} alt={fgImgAlt}/>}
+  {fgImg !== "" &&
+  (typeof fgImg === "string" ?
+  <Image src={fgImg} alt={fgImgAlt || ""} inferSize={true} />
+  : <Image src={Promise.resolve(fgImg)} alt={fgImgAlt || ""} inferSize={true} />
+  )}
   <div class={styles.bentoContent}>
     {title && <h3>{title}</h3>}
     <slot />
