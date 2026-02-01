@@ -7,30 +7,17 @@ import Bento from "../../components/layout/bento.astro";
 import LinkButton from "../../components/button/LinkButton.astro";
 import "./blog.css";
 import { getCollection } from "astro:content";
-import type { ImageMetadata } from "astro";
 import { getImage } from "astro:assets";
 import { isRemoteImage } from "astro/assets/utils";
 
-export const getStaticPaths = (async () => {
-const posts = await getCollection("posts")
-const PostsPerPage = 5
-  const pageCount = Math.ceil(posts.length / PostsPerPage)
-  // One of those BS javascript things. Array.map() won't iterate on undefined?
-  // You have to fill each value with 0?
-  return (new Array(pageCount))
-    .fill(0)
-    .map((_, i) => (posts||[]).slice(i * PostsPerPage, (i+1) * PostsPerPage))
-    .map((x, i) => ({
-      params: { pageID: `${(i+1)}`},
-      props: {
-        posts: x,
-        pageCount,
-      }
-    }))
+export const getStaticPaths = (async ({paginate}) => {
+  const PostsPerPage = 5
+  const posts = (await getCollection("posts")).sort((a,b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
+  return paginate(posts, { pageSize: PostsPerPage})
 }) satisfies GetStaticPaths;
 
-const { pageCount, posts: pagePosts } = Astro.props
-const pageID = parseInt(Astro.params.pageID, 10)
+const { page } = Astro.props
+const pageID = page.currentPage
 
 const prev = pageID - 1
 const next = pageID + 1
@@ -42,7 +29,7 @@ const next = pageID + 1
   <p>You can subscribe to receive new posts via email <a href="https://blog.mbell.dev">here</a>.</p>
 
   <BentoContainer>
-    { (pagePosts||[]).map(async p => {
+    { (page.data||[]).map(async p => {
     const src = isRemoteImage(p.data.featureImage || "") ?
     p.data.featureImage
     : (await getImage({src: p.data.featureImage || "", inferSize: true})).src
@@ -64,10 +51,10 @@ const next = pageID + 1
     </>}
     {prev > 0 && <a href=`/blog/${prev}`>{prev}</a>}
     <a class="current">{pageID}</a>
-    {next <= pageCount && <a href=`/blog/${next}`>{next}</a>}
-    {next < pageCount && <>
-      {pageCount - next > 1 && "..."}
-      <a href=`/blog/${pageCount}`>{pageCount}</a>
+    {next <= page.lastPage && <a href=`/blog/${next}`>{next}</a>}
+    {next < page.lastPage && <>
+      {page.lastPage - next > 1 && "..."}
+      <a href=`/blog/${page.lastPage}`>{page.lastPage}</a>
     </>}
   </nav>
 </Main>
