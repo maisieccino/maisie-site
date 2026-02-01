@@ -2,6 +2,7 @@
 # yaml-language-server: $schema=../../.astro/collections/posts.schema.json
 title: "Crow"
 publishedTime: 2026-02-01T21:23:32Z
+modifiedTime: 2026-02-01T21:23:32Z
 tags:
   - life
 featureImage: /src/assets/img/posts/crow/crows.jpeg

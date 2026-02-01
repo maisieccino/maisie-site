@@ -7,7 +7,9 @@ import Bento from "../../components/layout/bento.astro";
 import LinkButton from "../../components/button/LinkButton.astro";
 import "./blog.css";
 import { getCollection } from "astro:content";
-
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
+import { isRemoteImage } from "astro/assets/utils";
 
 export const getStaticPaths = (async () => {
 const posts = await getCollection("posts")
@@ -33,20 +35,26 @@ const pageID = parseInt(Astro.params.pageID, 10)
 const prev = pageID - 1
 const next = pageID + 1
 
+
 ---
 <Main title="Blog">
   <h1>My posts</h1>
   <p>You can subscribe to receive new posts via email <a href="https://blog.mbell.dev">here</a>.</p>
 
   <BentoContainer>
-    { (pagePosts||[]).map(p => (
-    <Bento title={p.data.title} wide fgImg={p.data.featureImage || ""} fgImgAlt={p.data.featureImageAlt || ""}>
+    { (pagePosts||[]).map(async p => {
+    const src = isRemoteImage(p.data.featureImage || "") ?
+    p.data.featureImage
+    : (await getImage({src: p.data.featureImage || "", inferSize: true})).src
+    return (
+    <Bento title={p.data.title} wide fgImg={src} fgImgAlt={p.data.featureImageAlt || ""}>
       <p>Published: {dateFormat(p.data.publishedTime || "", "yyyy-MM-dd")}</p>
       <p>{p.data.excerpt || ""}</p>
       <p>Reading time: {p.data.readingTime || 0} minutes</p>
       <LinkButton href=`/post/${p.id}`>Read</LinkButton>
     </Bento>
-    )) }
+    )
+    }) }
   </BentoContainer>
 
   <nav class="pagination">
