@@ -25,6 +25,9 @@ const { post } = Astro.props
 
 const { Content, headings } = await render(post);
 
+const img = isRemoteImage(post.data.featureImage || "") ?
+  post.data.featureImage
+  : (await getImage({src: post.data.featureImage || "", inferSize: true})).src
 
 const date = dateFormat(post.data.publishedTime || Date.now(), "EEEE, do MMMM yyyy")
 const meta = {
@@ -35,10 +38,13 @@ const meta = {
   excerpt: post.data.excerpt || "",
 }
 
+
 import "../../layouts/page.css"
+import { isRemoteImage } from "astro/assets/utils";
+import { getImage } from "astro:assets";
 ---
 
-<Main article={meta} title={post.data.title} img={post.data.featureImage || ""} {...Astro.props}>
+<Main article={meta} title={post.data.title} img={img} {...Astro.props}>
   <h1>{post.data.title}</h1>
   <BentoContainer>
   <Bento compact>
@@ -57,7 +63,7 @@ import "../../layouts/page.css"
     </Bento>
 </BentoContainer>
   {post.data.featureImage &&
-<img src={post.data.featureImage} alt={post.data.featureImageAlt || ""} />
+<img src={img} alt={post.data.featureImageAlt || ""} />
   }
 
 {headings.length > 0 && <nav class={sidebarStyles.toc}>

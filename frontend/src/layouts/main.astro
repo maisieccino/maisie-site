@@ -55,7 +55,7 @@ const description = Astro.props.description || article.excerpt ||"A little corne
         basic: {
           title: pageTitle,
           type: "website",
-          image: image ? image() : maisieImage.src,
+          image: image ? image : maisieImage.src,
           url: Astro.url,
         },
         article,

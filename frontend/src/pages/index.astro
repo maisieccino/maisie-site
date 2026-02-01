@@ -6,8 +6,9 @@ import LinkButton from "../components/button/LinkButton.astro";
 
 import maisieImage from "../assets/img/maisie.jpeg";
 
-import { posts } from "../util/ghost";
-const latestPost = posts ? posts[0] : {title: "", slug: ""};
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts")
+const latestPost = posts[0]
 ---
 
 <Main title="Home">
@@ -23,8 +24,8 @@ const latestPost = posts ? posts[0] : {title: "", slug: ""};
      <LinkButton href="/uses">Show me</LinkButton>
     </Bento>
     <Bento wide title="Latest blog post">
-      <p>{latestPost?.title}</p>
-      <LinkButton href=`/post/${latestPost.slug}`>Read it now</LinkButton>
+      <p>{latestPost?.data.title}</p>
+      <LinkButton href=`/post/${latestPost.id}`>Read it now</LinkButton>
     </Bento>
     <Bento title="Photography">
       <p>Recent photos I've taken.</p>
