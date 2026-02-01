@@ -9,6 +9,7 @@ import "./blog.css";
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 import { isRemoteImage } from "astro/assets/utils";
+import { fade } from "astro:transitions";
 
 export const getStaticPaths = (async ({paginate}) => {
   const PostsPerPage = 5
@@ -22,7 +23,20 @@ const pageID = page.currentPage
 const prev = pageID - 1
 const next = pageID + 1
 
+const getFeatureImage = (featureImageURL: string) => {
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**/*.{jpeg,jpg,png,gif}')
 
+const resolvePath = (path: string) => {
+if (!images[path]) {
+  throw new Error(`"${path}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+}
+  return images[path]
+}
+
+return (URL.parse(featureImageURL || "")?.host != undefined || featureImageURL === "") ?
+(featureImageURL || "")
+:   resolvePath(featureImageURL||"")()
+}
 ---
 <Main title="Blog">
   <h1>My posts</h1>
@@ -30,11 +44,9 @@ const next = pageID + 1
 
   <BentoContainer>
     { (page.data||[]).map(async p => {
-    const src = isRemoteImage(p.data.featureImage || "") ?
-    p.data.featureImage
-    : (await getImage({src: p.data.featureImage || "", inferSize: true})).src
+    const img = getFeatureImage(p.data.featureImage || "")
     return (
-    <Bento title={p.data.title} wide fgImg={src} fgImgAlt={p.data.featureImageAlt || ""}>
+    <Bento title={p.data.title} wide fgImg={img} fgImgAlt={p.data.featureImageAlt || ""}>
       <p>Published: {dateFormat(p.data.publishedTime || "", "yyyy-MM-dd")}</p>
       <p>{p.data.excerpt || ""}</p>
       <p>Reading time: {p.data.readingTime || 0} minutes</p>
