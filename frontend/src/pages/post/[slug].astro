@@ -46,7 +46,7 @@ if (!images[path]) {
   return images[path]
 }
 
-const featureImage = URL.parse(post.data.featureImage || "")?.host != undefined ?
+const featureImage = (URL.parse(post.data.featureImage || "")?.host != undefined || post.data.featureImage === "") ?
 (post.data.featureImage || "")
 :   resolvePath(post.data.featureImage||"")()
 ---
@@ -70,10 +70,11 @@ const featureImage = URL.parse(post.data.featureImage || "")?.host != undefined 
       </p>
     </Bento>
 </BentoContainer>
-  {typeof featureImage === "string" ?
+  {featureImage !== "" &&
+  (typeof featureImage === "string" ?
   <Image src={featureImage} alt={post.data.featureImageAlt || ""} inferSize={true} />
   : <Image src={Promise.resolve(featureImage)} alt={post.data.featureImageAlt || ""} inferSize={true} />
-  }
+  )}
 
 {headings.length > 0 && <nav class={sidebarStyles.toc}>
   {headings.map((h) => {
