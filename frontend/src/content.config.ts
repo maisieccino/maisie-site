@@ -66,15 +66,15 @@ const places = defineCollection({
 const posts = defineCollection({
   loader: postLoader,
   schema: z.object({
-    title: z.string(),
-    publishedTime: z.coerce.date(),
-    modifiedTime: z.coerce.date(),
-    authors: z.array(z.string()).default(["Maisie Bell"]),
-    tags: z.array(z.string()),
-    excerpt: z.string().optional(),
-    featureImage: z.string().optional(),
-    featureImageAlt: z.string().optional(),
-    readingTime: z.number().default(0)
+    title: z.string().describe("Title of the post"),
+    publishedTime: z.coerce.date().default(new Date()).describe("Date the post was published"),
+    modifiedTime: z.coerce.date().default(new Date()),
+    authors: z.array(z.string()).default(["Maisie Bell"]).describe("Authors who contributed to the post"),
+    tags: z.array(z.string()).describe("Tags that describe the post"),
+    excerpt: z.string().optional().describe("A paragraph-sized excerpt from the post"),
+    featureImage: z.string().optional().describe("An image to appear at the top of the post"),
+    featureImageAlt: z.string().optional().describe("Description of the post's featured image"),
+    readingTime: z.number().default(0).describe("Approximate time in minutes to read the post")
   })
 })
 
