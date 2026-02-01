@@ -24,7 +24,7 @@ type Article = {
 const { title, frontmatter, image } = Astro.props
 
 let pageTitle = title;
-if (frontmatter) {
+if (frontmatter && frontmatter.title) {
   pageTitle = frontmatter.title
 }
 let article: Article = {};

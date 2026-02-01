@@ -10,7 +10,6 @@ const postLoader: Loader = {
   async load(context) {
     await globLoader.load(context)
     const { store, parseData, logger, renderMarkdown } = context
-
     await Promise.all(
       (blogPosts || [])
         .map(post => (
@@ -28,6 +27,7 @@ const postLoader: Loader = {
               featureImage: post.feature_image || "",
               featureImageAlt: post.feature_image_alt || "",
               rendered: post.html || "",
+              readingTime: post.reading_time || 0,
             }
           }))
         .map(async post => {
@@ -41,11 +41,10 @@ const postLoader: Loader = {
           const data = await parseData({ id: post.data.slug, data: post.data })
           logger.debug(`id is ${data.id}`)
           const md = await postToMD(post.post)
-          const rendered = await renderMarkdown(String(md))
           store.set({
             id: post.data.slug,
-            data: { ...data, headings: rendered.metadata?.headings },
-            rendered: rendered,
+            data,
+            rendered: await renderMarkdown(String(md)),
           })
         })
     )
@@ -68,18 +67,14 @@ const posts = defineCollection({
   loader: postLoader,
   schema: z.object({
     title: z.string(),
-    publishedTime: z.date(),
-    modifiedTime: z.date(),
+    publishedTime: z.coerce.date(),
+    modifiedTime: z.coerce.date(),
     authors: z.array(z.string()).default(["Maisie Bell"]),
     tags: z.array(z.string()),
     excerpt: z.string().optional(),
     featureImage: z.string().optional(),
     featureImageAlt: z.string().optional(),
-    headings: z.array(z.object({
-      depth: z.number(),
-      slug: z.string(),
-      text: z.string(),
-    }))
+    readingTime: z.number().default(0)
   })
 })
 
