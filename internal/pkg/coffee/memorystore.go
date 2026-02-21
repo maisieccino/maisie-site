@@ -57,6 +57,6 @@ func (m *MemoryStore) Delete(_ context.Context, id string) error {
 	return nil
 }
 
-func (s *MemoryStore) SearchByArea(ctx context.Context, params SearchByAreaParams) ([]MapItem, error) {
+func (*MemoryStore) SearchByArea(ctx context.Context, params SearchByAreaParams) ([]MapItem, error) {
 	return nil, nil
 }

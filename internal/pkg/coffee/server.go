@@ -106,7 +106,10 @@ func handleCreatePlace(s *Server) http.HandlerFunc {
 		}
 
 		w.WriteHeader(http.StatusCreated)
-		w.Write([]byte(`{"status":"success"}`))
+		_, err = w.Write([]byte(`{"status":"success"}`))
+		if err != nil {
+			s.logger.Error("writing body", zap.Error(err))
+		}
 	}
 }
 
