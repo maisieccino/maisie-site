@@ -1,1 +1,1 @@
-DELETE EXTENSION postgis;
+DROP EXTENSION postgis;

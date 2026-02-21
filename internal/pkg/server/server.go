@@ -47,9 +47,9 @@ func (s *Server) GetRouter() chi.Router {
 // If "*" is given for method, the handler will match for any HTTP method for
 // the given path.
 var routeMap = types.RouteMap[*Server]{
-	{"/api/coffee", "*"}: handleCoffee,
-	{"/api", "GET"}:      handleAPIIndex,
-	{"/*", "GET"}:        handleStatic,
+	{Path: "/api/coffee", Method: "*"}: handleCoffee,
+	{Path: "/api", Method: "GET"}:      handleAPIIndex,
+	{Path: "/*", Method: "GET"}:        handleStatic,
 }
 
 func NewServer(cfg Config) *Server {
@@ -81,12 +81,16 @@ func (s *Server) Serve() {
 		zap.String("hostname", s.conf.Host),
 		zap.Int("port", s.conf.Port),
 	)
-	http.ListenAndServe(addr, s.router)
+	if err := http.ListenAndServe(addr, s.router); err != nil {
+		s.conf.Logger.Error("serving http", zap.Error(err))
+	}
 }
 
-func handleAPIIndex(_ *Server) http.HandlerFunc {
+func handleAPIIndex(s *Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, _ *http.Request) {
-		w.Write([]byte("{}"))
+		if _, err := w.Write([]byte("{}")); err != nil {
+			s.conf.Logger.Error("writing response", zap.Error(err))
+		}
 	}
 }
 

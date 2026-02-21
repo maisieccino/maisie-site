@@ -46,7 +46,9 @@ var RootCmd = &cobra.Command{
 		}
 		viper.SetEnvPrefix("api")
 		viper.AutomaticEnv()
-		viper.BindPFlags(cmd.Flags())
+		if err = viper.BindPFlags(cmd.Flags()); err != nil {
+			panic("binding flags " + err.Error())
+		}
 		if err = viper.ReadInConfig(); err != nil {
 			if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 				logger.Warn("no config file found, continuing...")
