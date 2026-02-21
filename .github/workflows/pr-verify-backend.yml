@@ -41,4 +41,4 @@ jobs:
         with:
           go-version-file: "go.mod"
       - name: Go test
-        run: go test -race -count=10 ./..
+        run: go test -race -count=10 ./...
