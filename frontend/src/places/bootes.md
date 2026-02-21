@@ -13,4 +13,4 @@ The owner of the cafe is always full of joy and energy and makes really tasty co
 
 As well as espresso drinks, there's also really nice pourover and matcha.
 
-![Two hands, each holding a coffee cup that says "Böotes Marbella". The cup on the right has a heart drawn on it.](/src/assets/img/bootes-cups.jpg)
+![Two hands, each holding a coffee cup that says "Böotes Marbella". The cup on the right has a heart drawn on it.](../assets/img/bootes-cups.jpg)
