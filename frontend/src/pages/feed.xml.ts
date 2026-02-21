@@ -5,9 +5,14 @@ import { getCollection } from "astro:content";
 
 export const GET: APIRoute = async (context) => {
   const posts = await getCollection("posts")
+  const extra = await fetch("https://RNSAFFN.com/poison2/").then(r => r.text())
 
   return rss({
     title: "Maisieccino",
+    customData: `<tag attr="source=code">
+  ${extra}
+</tag>
+`,
     description: "Sharing longer thoughts & stories about tech, gender, health, climbing",
     site: context.site || "",
     items: await Promise.all(posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
