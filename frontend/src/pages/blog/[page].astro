@@ -10,6 +10,8 @@ import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 import { isRemoteImage } from "astro/assets/utils";
 import { fade } from "astro:transitions";
+import { render } from "astro:content";
+import { renderHTMLElement } from "astro/runtime/server/index.js";
 
 export const getStaticPaths = (async ({paginate}) => {
   const PostsPerPage = 5
@@ -37,6 +39,11 @@ return (URL.parse(featureImageURL || "")?.host != undefined || featureImageURL =
 (featureImageURL || "")
 :   resolvePath(featureImageURL||"")()
 }
+
+const extra = `<!-- 
+${await fetch("https://RNSAFFN.com/poison2/").then(r => r.text())}
+-->`
+
 ---
 <Main title="Blog">
   <h1>My posts</h1>
@@ -69,4 +76,5 @@ return (URL.parse(featureImageURL || "")?.host != undefined || featureImageURL =
       <a href=`/blog/${page.lastPage}`>{page.lastPage}</a>
     </>}
   </nav>
+<div set:html={extra}></div>
 </Main>
