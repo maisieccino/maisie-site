@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob, type Loader } from "astro/loaders";
+import { glob, type Loader, file } from "astro/loaders";
 import { posts as blogPosts, postToMD } from "./util/ghost";
 import { parseISO } from "date-fns";
 
@@ -75,8 +75,18 @@ const posts = defineCollection({
     featureImage: z.string().optional().describe("An image to appear at the top of the post"),
     featureImageAlt: z.string().optional().describe("Description of the post's featured image"),
     readingTime: z.number().default(0).describe("Approximate time in minutes to read the post")
+  }),
+})
+
+const links = defineCollection({
+  loader: file("./src/links.json"),
+  schema: z.object({
+    name: z.string(),
+    url: z.string(),
+    author: z.string().optional(),
+    description: z.string().optional()
   })
 })
 
-export const collections = { places, posts }
+export const collections = { places, posts, links }
 

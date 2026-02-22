@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Main from "../layouts/main.astro";
+import BentoContainer from "../components/layout/bentoContainer.astro";
+import Bento from "../components/layout/bento.astro";
+import LinkButton from "../components/button/LinkButton.astro";
+
+const links = await getCollection("links")
+---
+
+<Main title="Links">
+  <h1>Links to cool sites!</h1>
+  <BentoContainer>
+    {links.map((link, idx) => {
+    const wide = (idx % 3 == 1)
+    return <Bento wide={wide}>
+      <h3>{link.data.name}</h3>
+      <p>{link.data.description}</p>
+      <LinkButton href={link.data.url}>Open</LinkButton>
+    </Bento>
+    })}
+  </BentoContainer>
+</Main>
