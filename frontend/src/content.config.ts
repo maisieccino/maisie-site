@@ -82,9 +82,8 @@ const links = defineCollection({
   loader: file("./src/links.json"),
   schema: z.object({
     name: z.string(),
-    url: z.string(),
-    author: z.string().optional(),
-    description: z.string().optional()
+    description: z.string().optional(),
+    type: z.enum(["site", "project", "news", "resource"]).default("site")
   })
 })
 

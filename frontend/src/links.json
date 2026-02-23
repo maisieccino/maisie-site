@@ -1,22 +1,46 @@
 {
-  "maisieccino": {
-    "name": "Maisieccino",
-    "url": "https://mbell.dev"
+  "https://www.bloodinthemachine.com": {
+    "name": "Blood In The Machine",
+    "type": "site"
   },
-  "localghost": {
+  "https://localghost.dev": {
     "name": "localghost",
-    "url": "https://localghost.dev"
+    "type": "site"
   },
-  "lowtechmagazine": {
+  "https://solar.lowtechmagazine.com": {
     "name": "LOW←TECH MAGAZINE",
-    "url": "https://solar.lowtechmagazine.com"
+    "type": "site"
   },
-  "carol": {
+  "https://carol.gg": {
     "name": "Carol Gilabert",
-    "url" :"https://carol.gg"
+    "type": "site"
   },
-  "emfcamp": {
+  "https://www.emfcamp.org": {
     "name": "EMF Camp",
-    "url": "https://www.emfcamp.org"
+    "type": "project"
+  },
+  "https://dog-house.neocities.org": {
+    "name": "DOG-HOUSE",
+    "type": "site"
+  },
+  "https://tonsky.me": {
+    "name": "tonsky.me",
+    "type": "site"
+  },
+  "https://www.404media.co": {
+    "name": "404 Media",
+    "type": "news"
+  },
+  "https://css-tricks.com": {
+    "name": "CSS Tricks",
+    "type": "resource"
+  },
+  "https://www.selfawaresoup.com": {
+    "name": "selfaware soup",
+    "type": "site"
+  },
+  "https://olu.online": {
+    "name": "Olu Online",
+    "type": "site"
   }
 }
