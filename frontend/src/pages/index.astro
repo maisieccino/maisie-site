@@ -3,12 +3,14 @@ import Main from "../layouts/main.astro";
 import Bento from "../components/layout/bento.astro"
 import BentoContainer from "../components/layout/bentoContainer.astro"
 import LinkButton from "../components/button/LinkButton.astro";
+import {compareDesc} from "date-fns"
 
 import maisieImage from "../assets/img/maisie.jpeg";
 
 import { getCollection } from "astro:content";
 const posts = await getCollection("posts")
-const latestPost = posts[0]
+const latestPost = posts
+  .sort((a,b) => compareDesc(a.data.publishedTime, b.data.publishedTime))[0]
 ---
 
 <Main title="Home">
@@ -31,9 +33,17 @@ const latestPost = posts[0]
       <p>Recent photos I've taken.</p>
       <LinkButton href="/photos">See more</LinkButton>
     </Bento>
+    <Bento title="Links">
+      <p>Cool links and cool people</p>
+      <LinkButton href="/links">See 'em</LinkButton>
+    </Bento>
+    <Bento title="Coffee Map">
+      <p>Sip and scroll, babey</p>
+      <LinkButton href="/coffee-map">Find coffee</LinkButton>
+    </Bento>
     <Bento title="AI Policy">
       <p>My use of LLM tools.</p>
-      <LinkButton href="/ai-policy">See more</LinkButton>
+      <LinkButton href="/ai-policy">Read it</LinkButton>
     </Bento>
    </BentoContainer>
 </Main>

@@ -1,0 +1,46 @@
+{
+  "https://www.bloodinthemachine.com": {
+    "name": "Blood In The Machine",
+    "type": "site"
+  },
+  "https://localghost.dev": {
+    "name": "localghost",
+    "type": "site"
+  },
+  "https://solar.lowtechmagazine.com": {
+    "name": "LOW←TECH MAGAZINE",
+    "type": "site"
+  },
+  "https://carol.gg": {
+    "name": "Carol Gilabert",
+    "type": "site"
+  },
+  "https://www.emfcamp.org": {
+    "name": "EMF Camp",
+    "type": "project"
+  },
+  "https://dog-house.neocities.org": {
+    "name": "DOG-HOUSE",
+    "type": "site"
+  },
+  "https://tonsky.me": {
+    "name": "tonsky.me",
+    "type": "site"
+  },
+  "https://www.404media.co": {
+    "name": "404 Media",
+    "type": "news"
+  },
+  "https://css-tricks.com": {
+    "name": "CSS Tricks",
+    "type": "resource"
+  },
+  "https://www.selfawaresoup.com": {
+    "name": "selfaware soup",
+    "type": "site"
+  },
+  "https://olu.online": {
+    "name": "Olu Online",
+    "type": "site"
+  }
+}

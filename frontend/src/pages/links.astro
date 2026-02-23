@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Main from "../layouts/main.astro";
+import BentoContainer from "../components/layout/bentoContainer.astro";
+import Bento from "../components/layout/bento.astro";
+import LinkButton from "../components/button/LinkButton.astro";
+
+const links = await getCollection("links")
+
+const linkTypesDescription: Array<[string, string]> = [
+  ["site", "Sites"],
+  [ "project", "Projects" ],
+  [ "news", "News"],
+  [ "resource", "Resources"],
+]
+---
+
+<Main title="Links">
+  <h1>Links to cool sites!</h1>
+  {linkTypesDescription.map(([linkType, description]) => {
+ const linkComponents = links
+    .filter(link => link.data.type === linkType)
+    .map((link, idx) => {
+    const wide = (idx % 3 == 1)
+    return <Bento wide={wide}>
+      <h3>{link.data.name}</h3>
+      <p>{link.data.description}</p>
+      <LinkButton href={link.id}>Open</LinkButton>
+    </Bento>
+    })
+    return <>
+  <h2>{description}</h2>
+  <BentoContainer>
+    {linkComponents}
+  </BentoContainer>
+    </>
+    })}
+
+</Main>
