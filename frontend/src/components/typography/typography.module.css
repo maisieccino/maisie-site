@@ -9,7 +9,7 @@ h3,
   line-height: var(--size);
   vertical-align: middle;
   font-family: var(--var-font-family-header);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: lowercase;
 }
 
@@ -68,8 +68,13 @@ h1:not(.title)::before {
 
 p,
 .body,
+.pcode,
 li {
   font-family: var(--var-font-family-body);
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.pcode {
+  font-family: var(--var-font-family-code);
 }

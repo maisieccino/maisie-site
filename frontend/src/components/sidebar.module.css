@@ -21,7 +21,7 @@
   bottom: -0.5rem;
   height: 0.5rem;
   width: 100%;
-  background: var(--var-gradient);
+  background: var(--var-green);
   border-radius: 5px;
   margin: 0.5rem 0 1rem;
 }
@@ -43,18 +43,21 @@
   height: 0.5rem;
   top: 0.75rem;
   left: 0rem;
-  background-color: var(--var-pink);
+  background-color: var(--var-purple);
   border-radius: 10px;
   transform: scale(0);
   transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .sidebar a[attr-active="active"] {
-  color: hsl(from var(--var-pink) h s 60% / alpha);
+  color: hsl(from var(--var-purple) h s 60% / alpha);
+  font-weight: bold;
+  font-style: italic;
 }
 
 .sidebar a[attr-active="visible"] {
-  color: hsl(from var(--var-pink) h s 30% / alpha);
+  color: hsl(from var(--var-purple) h s 30% / alpha);
+  font-weight: bold;
 }
 
 .sidebar a[attr-active="active"]::before {
