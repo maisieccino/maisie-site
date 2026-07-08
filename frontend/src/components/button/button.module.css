@@ -15,10 +15,10 @@
 
 .button {
   /**/
-  --color-border: var(--var-pink);
+  --color-border: var(--var-purple);
   color: var(--var-black);
   background-color: var(--var-yellow);
-  font-family: var(--var-font-family-header);
+  font-family: var(--var-font-family-code);
   font-size: 1rem;
   padding: 1rem;
   line-height: 1rem;

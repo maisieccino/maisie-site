@@ -23,6 +23,19 @@
   src: url("/fonts/Michroma-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Instrument Serif";
+  font-weight: normal;
+  src: url("/fonts/InstrumentSerif-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/fonts/InstrumentSerif-Italic.ttf");
+}
+
 body {
   margin: 0;
   font-family: "A", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -30,8 +43,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("./assets/img/tile.png"), var(--var-gradient);
-  background-size: 15rem, cover;
+  background: url("./assets/img/tile.png"), var(--var-mint);
+  background-size: 20rem, cover;
   background-repeat: repeat, no-repeat;
   font-weight: normal;
   height: 100%;
@@ -48,8 +61,7 @@ html {
 }
 
 code {
-  font-family: "AMono", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: var(--var-font-family-code);
 }
 
 a {
@@ -91,10 +103,13 @@ a {
   --var-cyan-100: #DEEDED;
 
   --var-pink: #fd98ce;
-  --var-yellow: #ffc700;
+  --var-yellow: #F3CF50;
   --var-blue: #83eaea;
   --var-white: #ffffff;
   --var-black: #000000;
+  --var-mint: #85BD9B;
+  --var-green: #618566;
+  --var-purple: #A58CB4;
   --var-bg: #efefeb;
   --var-translucent: rgb(from var(--var-bg) r g b / 80%);
   --var-grey: #aaaaaa;
@@ -102,12 +117,14 @@ a {
       var(--var-yellow) 0%,
       var(--var-pink) 51.56%,
       var(--var-blue) 100%);
-  --var-font-family-header: "Michroma", source-code-pro, Menlo, Monaco, Consolas,
+  --var-font-family-header: "Instrument Serif", "Michroma", source-code-pro, Menlo, Monaco, Consolas,
     "Courier New", monospace;
   /* --var-font-family-header: "Stack Sans Notch"; */
   --var-font-family-body: "A", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  --var-font-family-code: "AMono", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 
   --var-corner-rounding: 2rem;
 }

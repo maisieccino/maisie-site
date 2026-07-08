@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Main from "../../layouts/main.astro"
 import { getCollection, render } from 'astro:content'
+import {CodeP} from '../../components/typography'
 import type { ImageMetadata } from "astro";
 
 import "../../layouts/page.css";
@@ -26,7 +27,7 @@ if (place.data.image != null) {
 <Main title={place.data.name}>
   <h3>‹ <a href="/coffee-map">Coffee Map</a></h3>
   <h1>{place.data.name}</h1>
-  <p><b>📍 {place.data.latitude}, {place.data.longitude}</b></p>
+  <CodeP><b>📍 {place.data.latitude}, {place.data.longitude}</b></CodeP>
   {place.data.address &&
   <p>{place.data.address}</p>
   <p><a href={`https://maps.apple.com/place?address=${addressEncoded}`}> Show in Maps</a></p>

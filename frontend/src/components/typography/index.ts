@@ -1,3 +1,3 @@
 export { Title } from "./title";
 export { Heading, Subheading } from "./headings";
-export { P } from "./p"
+export { P, CodeP } from "./p"

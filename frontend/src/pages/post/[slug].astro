@@ -60,7 +60,7 @@ const featureImage = (URL.parse(post.data.featureImage || "")?.host != undefined
     <p><b>{post.data.readingTime} min read</b></p>
     }
   </Bento>
-    <Bento title="Tags" compact color="#fd98ce">
+    <Bento title="Tags" compact color="var(--var-yellow)">
       <p>{post.data.tags
         .map(t =>
           (<>
