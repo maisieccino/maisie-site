@@ -5,6 +5,7 @@ longitude: -4.8867504
 name: Böotes
 type: "coffee-shop"
 image: "/src/assets/img/bootes.jpg"
+country: ES
 ---
 
 Tiny, awesome coffee shop down an alley within Marbella's Old Town.

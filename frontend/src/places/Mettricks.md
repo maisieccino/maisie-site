@@ -5,10 +5,11 @@ aliases:
 tags:
   - place
 address: 1 Guildhall Sq, Southampton, SO14 7DU
-country: United Kingdom
 latitude: 50.90802
 longitude: -1.40412
 name: Mettricks
+region: South England
+country: GB
 type: coffee-shop
 image: "/src/assets/img/mettricks.jpeg"
 ---
