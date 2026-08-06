@@ -3,22 +3,24 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet"
 import { MapItem } from "./Items";
 
-type MapItem = {
+type Place = {
   id: string
   name: string
   latitude: number
   longitude: number
+  region: string
+  country: string
   type: string
   review_url?: string
   image_url?: string
 }
 
 export const useCoffeeMapAPI = () => {
-  const [items, setItems] = useState<MapItem[]>([])
+  const [items, setItems] = useState<Place[]>([])
   useEffect(() => {
     const fetcher = async () => {
       const response = await fetch('/api/coffee-map.json')
-      const data = await response.json() as { places: MapItem[] };
+      const data = await response.json() as { places: Place[] };
       setItems(data.places)
     }
     fetcher()

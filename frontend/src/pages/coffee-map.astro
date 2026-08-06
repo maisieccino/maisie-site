@@ -1,0 +1,41 @@
+---
+import "leaflet/dist/leaflet.css";
+import { CoffeeMap } from "../components/coffee-map/CoffeeMap.lazy.tsx";
+import Main from "../layouts/main.astro";
+import Bento from "../components/layout/bento.astro";
+import BentoContainer from "../components/layout/bentoContainer.astro";
+import { getCollection } from "astro:content";
+import { undefined } from "astro:schema";
+
+const places = await getCollection("places")
+type Place = typeof places[0]
+
+const byCountries = places.reduce((acc, p) => {
+  if (acc[p.data.country] == undefined) {
+    acc[p.data.country] = [p]
+  } else {
+    acc[p.data.country].push(p)
+  }
+  return acc
+}, {})
+const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+
+---
+
+<Main title="Links">
+  <h1>Coffee Map</h1>
+  <p>A map of the coffee places I love around the world!</p>
+  <p>Come recommend me a place to drink coffee by raising a <a href="https://github.com/maisieccino/maisie-site/tree/main/frontend/src/places">pull request</a>.</p>
+  <CoffeeMap client:only="react" center={[51.5099903, -0.1304413]} />
+
+  <h2>Regions</h2>
+  <p>THE MAISIECCINO COFFEE MAP NOW TRANSCENDS BORDERS</p>
+    <BentoContainer>
+    {Object.keys(byCountries).map(country => <Bento>
+      <h3>{regionNames.of(country)}</h3>
+{byCountries[country].map(p => <>
+<p><a href={`/places/${p.id}`}>{p.data.name}</a></p>
+  </>)}
+    </Bento>)}
+    </BentoContainer>
+</Main>

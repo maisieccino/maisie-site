@@ -58,6 +58,8 @@ const places = defineCollection({
     latitude: z.number(),
     longitude: z.number(),
     type: z.enum(["coffee-shop"]).default("coffee-shop"),
+    region: z.string().optional(),
+    country: z.string().default("GB"),
     url: z.string().optional(),
     address: z.string().optional(),
     image: z.string().optional()
