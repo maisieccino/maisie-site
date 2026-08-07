@@ -5,7 +5,6 @@ import Main from "../layouts/main.astro";
 import Bento from "../components/layout/bento.astro";
 import BentoContainer from "../components/layout/bentoContainer.astro";
 import { getCollection } from "astro:content";
-import { undefined } from "astro:schema";
 
 const places = await getCollection("places")
 type Place = typeof places[0]
