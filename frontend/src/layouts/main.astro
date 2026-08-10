@@ -11,7 +11,6 @@ import maisieImage from "../assets/img/maisie.jpeg";
 import Menuitems from "../components/menu/menuitems.astro";
 import FloatingMenu from "../components/menu/floatingMenu.astro";
 import { getImage } from "astro:assets";
-import type { UnresolvedImageTransform } from "astro";
 
 type Article = {
       publishedTime?: string;
@@ -25,7 +24,7 @@ type Article = {
 
 const { title, frontmatter, image } = Astro.props
 
-const imageSrc = (await getImage({src: image})).src
+const imageSrc = (await getImage({src: image || ""})).src
 
 let pageTitle = title;
 if (frontmatter && frontmatter.title) {
