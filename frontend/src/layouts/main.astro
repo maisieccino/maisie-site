@@ -24,7 +24,8 @@ type Article = {
 
 const { title, frontmatter, image } = Astro.props
 
-const imageSrc = (await getImage({src: image || ""})).src
+const isRemote = typeof(image) === "string"
+const imageSrc = image ? (await getImage({src: image, inferSize: isRemote})) : maisieImage
 
 let pageTitle = title;
 if (frontmatter && frontmatter.title) {
@@ -58,8 +59,7 @@ const description = Astro.props.description || article.excerpt ||"A little corne
         basic: {
           title: pageTitle,
           type: "website",
-          // image:" ",
-          image: imageSrc ? imageSrc : maisieImage.src,
+          image: imageSrc ? imageSrc.src : maisieImage.src,
           url: Astro.url,
         },
         article,
