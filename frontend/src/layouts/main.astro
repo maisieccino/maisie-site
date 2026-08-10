@@ -10,6 +10,8 @@ import LiquidGlass from "../components/LiquidGlass.astro";
 import maisieImage from "../assets/img/maisie.jpeg";
 import Menuitems from "../components/menu/menuitems.astro";
 import FloatingMenu from "../components/menu/floatingMenu.astro";
+import { getImage } from "astro:assets";
+import type { UnresolvedImageTransform } from "astro";
 
 type Article = {
       publishedTime?: string;
@@ -23,7 +25,7 @@ type Article = {
 
 const { title, frontmatter, image } = Astro.props
 
-const imageSrc = await Promise.resolve(image)
+const imageSrc = (await getImage({src: image})).src
 
 let pageTitle = title;
 if (frontmatter && frontmatter.title) {
@@ -57,7 +59,8 @@ const description = Astro.props.description || article.excerpt ||"A little corne
         basic: {
           title: pageTitle,
           type: "website",
-          image: image ? imageSrc : maisieImage.src,
+          // image:" ",
+          image: imageSrc ? imageSrc : maisieImage.src,
           url: Astro.url,
         },
         article,

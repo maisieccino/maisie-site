@@ -12,6 +12,7 @@ import { isRemoteImage } from "astro/assets/utils";
 import { Image } from "astro:assets";
 
 import "../../layouts/page.css"
+import { getImage } from "astro:assets";
 
 export const getStaticPaths = (async () => {
 const posts = await getCollection("posts")
@@ -51,7 +52,7 @@ const featureImage = (URL.parse(post.data.featureImage || "")?.host != undefined
 :   resolvePath(post.data.featureImage||"")()
 ---
 
-<Main article={meta} title={post.data.title} img={featureImage} {...Astro.props}>
+<Main article={meta} title={post.data.title} image={featureImage} {...Astro.props}>
   <h1>{post.data.title}</h1>
   <BentoContainer>
   <Bento compact>
@@ -71,9 +72,10 @@ const featureImage = (URL.parse(post.data.featureImage || "")?.host != undefined
     </Bento>
 </BentoContainer>
   {featureImage !== "" &&
+  // In order to please typescript union types...
   (typeof featureImage === "string" ?
   <Image src={featureImage} alt={post.data.featureImageAlt || ""} inferSize={true} />
-  : <Image src={Promise.resolve(featureImage)} alt={post.data.featureImageAlt || ""} inferSize={true} />
+  : <Image src={featureImage} alt={post.data.featureImageAlt || ""} inferSize={true} />
   )}
 
 {headings.length > 0 && <nav class={sidebarStyles.toc}>
