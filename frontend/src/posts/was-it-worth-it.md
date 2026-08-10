@@ -8,7 +8,7 @@ tags:
   - climate
 featureImage: "/src/assets/img/posts/was-it-worth-it/cover.jpeg"
 excerpt: Are you happy now?
-readingTime: 1
+readingTime: 3
 ---
 
 Damn, look at you. You've scored that lucrative job at a trendy AI company. You've upgraded your Claude plan to the max and you're running so many Opus agents and prompting with Fable that you can generate and _build_ faster than you've ever managed in your working life. Finally all those extra data centers are paying off and there's finally capacity for you to really step on the accelerator and iterate quicker than your brain can keep up with!
