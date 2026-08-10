@@ -48,15 +48,16 @@ ${await fetch("https://RNSAFFN.com/poison2/").then(r => r.text())}
 <Main title="Blog">
   <h1>My posts</h1>
   <p>You can subscribe to receive new posts via email <a href="https://blog.mbell.dev">here</a>.</p>
+  <p>Cool cats can subscribe to the <a href="https://mbell.dev/feed.xml">RSS feed</a>.</p>
 
   <BentoContainer>
     { (page.data||[]).map(async p => {
     const img = getFeatureImage(p.data.featureImage || "")
     return (
     <Bento title={p.data.title} wide fgImg={img} fgImgAlt={p.data.featureImageAlt || ""}>
-      <p>Published: {dateFormat(p.data.publishedTime || "", "yyyy-MM-dd")}</p>
       <p>{p.data.excerpt || ""}</p>
-      <p>Reading time: {p.data.readingTime || 0} minutes</p>
+      <p><i>Published: {dateFormat(p.data.publishedTime || "", "yyyy-MM-dd")}.</i></p>
+      <p><i>Reading time: {p.data.readingTime || 0} minutes</i></p>
       <LinkButton href=`/post/${p.id}`>Read</LinkButton>
     </Bento>
     )
