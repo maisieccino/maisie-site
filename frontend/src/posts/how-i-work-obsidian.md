@@ -1,15 +1,15 @@
 ---
-id: how-i-work-obsidian
-aliases:
-  - "How I Work: Obsidian"
-  - "How I work: Obsidian"
+# yaml-language-server: $schema=../../.astro/collections/posts.schema.json
+title: "How I work: Obsidian"
+publishedTime: "2025-09-15T21:16:00Z"
 tags:
   - technology
   - neovim
-published: false
-title: "How I work: Obsidian"
+authors: [Maisie Bell]
 ---
+
 # How I Work: Obsidian
+
 I'm a disorganised mess.
 
 It seems a bit weird to start a blog post off by insulting myself, but it's true! I think it's not really a bad thing. Noticing and accepting it is really useful, because I can find some comfort in knowing that whatever organisational system or notekeeping I use, it's not going to change.
@@ -19,6 +19,7 @@ I'm a disorganised mess and that's okay. I don't have to keep trying to search f
 Anyway, let me tell you about how I use Obsidian to cram together all of my thoughts, ideas, and things I learn. It's messy and chaotic. Importantly though, it's _mine_.
 
 ## What is Obsidian?
+
 [Obsidian](https://obsidian.md) is a free (but closed-source) program for notes. It essentially gives you folders full of text files that you can write thoughts into. Your notes are written in a special format called _Markdown_, which lets you add things like headings, bold/italic/strikethrough text, lists, that kind of thing. The special sauce of Obsidian is how you can use tags and links to start building connections between notes. So instead of just a bunch of random text files, you can quickly end up with an entire knowledge base of ideas and things you learned, and use tags and folders to keep similar things together.
 
 This openness to how the system works means you have a lot of creative freedom in how you organise your collection (they call it a "vault"). A lot of creative freedom... to make absolutely horrendous choices in your structure.
@@ -28,6 +29,7 @@ A bunch of people have come forward with their ideas of how the "perfect second 
 I have kinda chosen to not follow that.
 
 ## My organisational system
+
 Ha.
 
 I have a loose system with a numbered set of top-level folders:
@@ -60,6 +62,7 @@ I have a loose system with a numbered set of top-level folders:
 I try to keep things roughly organised by topic. `Ideas` is the folder for things I want to do at some point. `Projects` for things I'm actually working on. `Knowledge` for the majority of the things I learn along the way. `Mind` is a folder where I keep all of my thoughts on stuff like therapy, who I am, what do I want to be. `Daily notes` is a daily tracker of what I'm up to on a given day and is quite messy. `Inbox` is pretty cool but we'll come back to that later.
 
 ## Cross-device syncing
+
 I read and write to my notes from four places--my phone, my tablet, my laptop and my desktop computer. I want to be able to sync my notes between them in the easiest way.
 
 Obsidian supports syncing via iCloud for free, but this would stop me from being able to sync with my Linux desktop. There's a hosted sync service offered by Obsidian, but it involves paying yet another subscription fee, so I'm not yet keen on that. And using a third party cloud storage system can be a bit dangerous! People have shared cautionary tales of their files disappearing into the ether and not being able to get them back.
@@ -69,6 +72,7 @@ I decided to use Git.
 Since Obsidian is just a pile of text files, I thought why not? Using Git also means that I have version control for free, it works on almost any device, and I have data redundancy. If my computer caught fire, I'd still have all of my notes safely stored on my other devices. This seems like the best way forward for what I want right now.
 
 ### Desktop setup
+
 Once I had my local vault created in Obsidian, I needed to set up Git.
 
 ```sh
@@ -86,6 +90,7 @@ alias syncnotes="git add . && git commit -m \"Sync mac $(date -I)\" && git push"
 If I was feeling especially fancy, I could write a cron job to do this at regular intervals, but I haven't needed to do that yet.
 
 ### iOS
+
 Making Obsidian work with Git on mobile is a bit more fiddly. The Obsidian mobile app _does_ have a Git plugin! But it seemed to have a tendency to start deleting my files randomly and without notice, before committing them to my Git repository. Not ideal.
 
 I ended up paying for Working Copy, a Git app for Apple devices. Firstly, I created a new blank vault in the Obsidian app. Then I opened Working Copy, and pointed it at my new folder. I set up a SSH key so it could write to my remote Git repository, and then reset it to the latest commit from the remote. I opened the Obsidian app and there were all my notes!
@@ -95,14 +100,17 @@ I now needed a way to automate syncing my notes with the remote repository. Work
 ![[Pasted image 20250914111348.png]]
 
 ## Plugins
+
 Obsidian has an extremely strong ecosystem of plugins. For pretty much anything you'd need concerning notes, someone's probably created a plugin for it. I don't use many, but I've included a couple that I find really handy.
 
 ### Calendar
+
 ![[Pasted image 20250914111704.png]]
 
 The calendar plugin presents all of my daily notes as a calendar to let me navigate through them nice and quickly. The dots signify to-do list items: filled in means completed tasks, empty dots mean there's incomplete tasks. Straightforward and does the task nicely.
 
 ### Dataview
+
 Dataview is a plugin that lets you write queries for your vault. Obsidian's since released its [Bases feature](https://help.obsidian.md/bases), which solves a lot of problems Dataview tried to solve. But Dataview is still pretty neat for a few reasons.
 
 ![[Pasted image 20250914112052.png]]
@@ -123,6 +131,7 @@ group by ""
 The nerd in me loves this.
 
 ## Writing notes: Neovim
+
 ![[Pasted image 20250914112453.png]]
 
 As I mentioned earlier, my favourite thing about Obsidian is that it's a bunch of Markdown files. This means that you can use your favourite text editor to write! So naturally, I set up an Obsidian editing system directly in Neovim.
@@ -161,6 +170,7 @@ Here's the key shortcuts I've set up for Obsidian:
 My full configuration is available [on GitHub](https://github.com/maisieccino/hello-computer/blob/master/vim/.config/nvim/lua/plugins/obsidian.lua).
 
 ## Shortcuts
+
 I use a small set of shortcuts to add some extra smart to my Vault.
 
 Firstly, newer iPhones come with a programmable "action button" on the side of the device. I've set this to open the url `obsidian://daily`, which jumps straight to today's note. This makes it really easy to jot things down and check on my to-do list as I'm out and about!
