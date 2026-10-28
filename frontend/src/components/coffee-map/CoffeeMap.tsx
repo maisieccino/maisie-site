@@ -1,56 +1,56 @@
 import type { MapOptions } from "leaflet";
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet"
+import { MapContainer, TileLayer } from "react-leaflet";
 import { MapItem } from "./Items";
 
 type Place = {
-  id: string
-  name: string
-  latitude: number
-  longitude: number
-  region: string
-  country: string
-  type: string
-  review_url?: string
-  image_url?: string
-}
+  id: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+  region: string;
+  country: string;
+  type: string;
+  review_url?: string;
+  image_url?: string;
+};
 
 export const useCoffeeMapAPI = () => {
-  const [items, setItems] = useState<Place[]>([])
+  const [items, setItems] = useState<Place[]>([]);
   useEffect(() => {
     const fetcher = async () => {
-      const response = await fetch('/api/coffee-map.json')
-      const data = await response.json() as { places: Place[] };
-      setItems(data.places)
-    }
-    fetcher()
-    return () => { }
-  }, [])
+      const response = await fetch("/api/coffee-map.json");
+      const data = (await response.json()) as { places: Place[] };
+      setItems(data.places);
+    };
+    fetcher();
+    return () => {};
+  }, []);
   return items;
-}
+};
 
 export const CoffeeMap = ({
   center,
-  children
+  children,
 }: {
-  center?: [number, number],
-  children?: React.ReactNode
-  & MapOptions
+  center?: [number, number];
+  children?: React.ReactNode & MapOptions;
 }) => {
+  const items = useCoffeeMapAPI();
 
-  const items = useCoffeeMapAPI()
+  return (
+    <MapContainer zoom={13} className="map" center={center}>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+      />
+      {children && children}
 
-  return <MapContainer zoom={13} className="map" center={center}>
-    <TileLayer
-      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-      url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-    />
-    {children && children}
-
-    {items.map((item, _) => (
-      <MapItem item={item} />
-    ))}
-  </MapContainer>
-}
+      {items.map((item, _) => (
+        <MapItem item={item} />
+      ))}
+    </MapContainer>
+  );
+};
 
 export default CoffeeMap;
