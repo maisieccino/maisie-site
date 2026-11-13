@@ -4,7 +4,7 @@ publishedTime: "2025-09-19T20:14:00.000Z"
 excerpt: Chronic illness sufferers are constantly exposed to harmful or unhelpful misinformation from grifters trying to take our money.
 authors:
   - Maisie Bell
-featureImage: https://blog.mbell.dev/content/images/2025/09/pasted_image_20250919210506.png
+featureImage: /src/assets/img/pasted_image_20250919210506.png
 tags:
   - mental-health
   - internet

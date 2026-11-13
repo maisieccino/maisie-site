@@ -1,14 +1,15 @@
 ---
 title: You're in love with the future, I don't know why.
+publishedTime: 2025-09-26T00:00:00Z
 status: draft
 tiers:
-    - Free
-    - Default Product
+  - Free
+  - Default Product
 authors:
-    - Maisie Bell
-feature_image: https://blog.mbell.dev/content/images/2025/09/ai_ingestion.jpg
+  - Maisie Bell
+featureImage: /src/assets/img/ai_ingestion.jpg
 tags:
-    - tech
+  - tech
 post_id: 68d6f6703adb720001640375
 hash: 6ce0dedadcc697cee034bff76c66de29532e3042ab2f322009aac8e154e335e2
 ---

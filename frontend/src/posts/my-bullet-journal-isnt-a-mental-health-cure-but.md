@@ -5,6 +5,7 @@ aliases:
 tags:
   - mental-health
 published: true
+publishedTime: "2025-08-13T00:00:00Z"
 title: My bullet journal isn't a mental health cure. But...
 ---
 
