@@ -17,7 +17,7 @@ for file in $_files; do
 
   for img in $_images; do
     filename="${img##*/}"
-    curl -o "${_static_dir}/${filename}" "${img}"
+    curl -Lo "${_static_dir}/${filename}" "${img}"
     echo "$_files" | xargs -I % -n1 sed -i '' "s,${img},/src/assets/img/${filename}," '%'
   done
 done
