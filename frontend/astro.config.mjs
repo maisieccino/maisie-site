@@ -1,18 +1,19 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
 import mdx from "@astrojs/mdx";
-import rehypeFigure from '@microflash/rehype-figure';
+import rehypeFigure from "@microflash/rehype-figure";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), mdx()],
+  image: {
+    domains: ["storage.ghost.io", "blog.mbell.dev"],
+  },
   markdown: {
-    rehypePlugins: [
-      rehypeFigure
-    ]
+    rehypePlugins: [rehypeFigure],
   },
   site: "https://mbell.dev",
   redirects: {
@@ -24,8 +25,8 @@ export default defineConfig({
         "maisie-desktop",
         "maisie-desktop.local",
         "macsie.local",
-        "macsie.corvus-buri.ts.net"
-      ]
-    }
-  }
+        "macsie.corvus-buri.ts.net",
+      ],
+    },
+  },
 });

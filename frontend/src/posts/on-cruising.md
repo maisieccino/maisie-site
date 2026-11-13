@@ -23,7 +23,7 @@ There's something that feels so overly fake and opulent about cruises. You're st
 
 Your time ashore is very limited and sanitised, often just as guided "shore experiences" where your route and activities are extremely selective and brief. You're not there long enough to learn about the area or even get to speak the local language or explore the culture. You're essentially appropriating the destination, while cosplaying the vicious imperialist past of Maritime Britain. You descend on the port town like locusts, get the rushed highlights of fanciful things the guides select for you, and then you're whisked away to your next port to do it all over again.
 
-![One of the many "ornate" bars onboard Aurora](https://blog.mbell.dev/content/images/2025/12/pasted_image_20251230164228.png)
+![One of the many "ornate" bars onboard Aurora](/src/assets/img/pasted_image_20251230164228.png)
 
 ## The vibe
 
@@ -31,7 +31,7 @@ The ship is designed to reflect the "prestigious" past of the seagoing British e
 
 Bars, restaurants and common areas are designed and furnished to exude opulence. However, they more often just ooze sleaze. It reminds me very much of a floating Trump Tower, with strange flourishes and art work scattered around, like the 35-foot statue in the main atrium. Every day, the "upmarket" shop onboard the ship had events to talk about and try to sell watches that cost multiple thousands of pounds. It felt garish.
 
-![The Atrium of Aurora. Featuring a 34 foot, nippleless sculpture.](https://blog.mbell.dev/content/images/2025/12/pasted_image_20251230163800.png)
+![The Atrium of Aurora. Featuring a 34 foot, nippleless sculpture.](/src/assets/img/pasted_image_20251230163800.png)
 
 ## The passengers
 
@@ -45,7 +45,7 @@ In _Shipping Out_, David Foster Wallace discusses the lengths that cruise compan
 
 On a cruise, you are there "to relax". You are seldom allowed to do things for yourself. Staff will bring you wine and do that silly dance of letting you "test" the bottle to make sure it's not off before pouring a glass out. Bar service doesn't happen, the staff come to you. You mustn't tidy away after yourself, return empty glasses, anything like that, because someone's supposed to do it for you. I absolutely _hated_ this loss of independence. I really enjoy being able to do things for myself and have some amount of control over the situation. I don't like that shore visits are limited by someone else's schedule and not my own. This whole situation is my hell.
 
-![Every time the cabin was cleaned they'd leave behind a "towel animal". Apparently people expect these and will complain if they don't appear.](https://blog.mbell.dev/content/images/2025/12/pasted_image_20251230164122.png)
+![Every time the cabin was cleaned they'd leave behind a "towel animal". Apparently people expect these and will complain if they don't appear.](/src/assets/img/pasted_image_20251230164122.png)
 
 ## The exploitation
 

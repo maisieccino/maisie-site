@@ -33,7 +33,7 @@ const { Content, headings } = await render(post);
 const date = dateFormat(post.data.publishedTime || Date.now(), "EEEE, do MMMM yyyy")
 const meta = {
   publishedTime: post.data.publishedTime,
-  modifiedTime: post.data.modifiedTime,
+  modifiedTime: post.data.modifiedTime || post.data.publishedTime,
   authors: post.data.authors,
   tags: post.data.tags,
   excerpt: post.data.excerpt || "",
@@ -41,6 +41,9 @@ const meta = {
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**/*.{jpeg,jpg,png,gif}')
 
 const resolvePath = (path: string) => {
+  if (path === "") {
+    return () => ""
+  }
 if (!images[path]) {
   throw new Error(`"${path}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 }
