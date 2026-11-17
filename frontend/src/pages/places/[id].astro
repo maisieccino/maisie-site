@@ -26,7 +26,7 @@ if (place.data.image != null) {
 ---
 <Main title={place.data.name}>
   <h3>‹ <a href="/coffee-map">Coffee Map</a></h3>
-  <h1>{place.data.name}</h1>
+  <h1 data-type='coffee'>{place.data.name}</h1>
   <CodeP><b>📍 {place.data.latitude}, {place.data.longitude}</b></CodeP>
   {place.data.address &&
   <p>{place.data.address}</p>
