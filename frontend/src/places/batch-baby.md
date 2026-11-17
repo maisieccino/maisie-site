@@ -9,7 +9,7 @@ latitude: 51.53909
 longitude: -0.0815
 name: Batch Baby
 region: London
-image: "/src/assets/img/batch-baby.jpg"
+image: "/src/assets/img/batch-baby.jpeg"
 country: GB
 ---
 

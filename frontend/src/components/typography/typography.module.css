@@ -63,6 +63,12 @@ h1:not(.title)::before {
   content: "";
   vertical-align: middle;
 }
+h1:not(.title)[data-type="coffee"]::before {
+  background-image: url("/static/leaflet/marker-icon-2x.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 p,
 .body,
