@@ -10,7 +10,7 @@ import rehypeFigure from "@microflash/rehype-figure";
 export default defineConfig({
   integrations: [react(), mdx()],
   image: {
-    domains: ["storage.ghost.io", "blog.mbell.dev"],
+    domains: ["storage.ghost.io", "blog.mbell.dev", "images.unsplash.com"],
   },
   markdown: {
     rehypePlugins: [rehypeFigure],

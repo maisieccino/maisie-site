@@ -97,7 +97,7 @@ I ended up paying for Working Copy, a Git app for Apple devices. Firstly, I crea
 
 I now needed a way to automate syncing my notes with the remote repository. Working Copy supports the Shortcuts app, which is exactly what I needed. I have one shortcut that runs whenever I open the Obsidian app, that tells Working Copy to pull down the latest changes. I have another one I use that will commit any local changes and push them up. Really straightforward and seems to do the trick nicely.
 
-![[Pasted image 20250914111348.png]]
+![](../assets/img/Pasted_image_20250914111348.png)
 
 ## Plugins
 
@@ -105,7 +105,7 @@ Obsidian has an extremely strong ecosystem of plugins. For pretty much anything 
 
 ### Calendar
 
-![[Pasted image 20250914111704.png]]
+![](../assets/img/Pasted_image_20250914111704.png)
 
 The calendar plugin presents all of my daily notes as a calendar to let me navigate through them nice and quickly. The dots signify to-do list items: filled in means completed tasks, empty dots mean there's incomplete tasks. Straightforward and does the task nicely.
 
@@ -113,7 +113,7 @@ The calendar plugin presents all of my daily notes as a calendar to let me navig
 
 Dataview is a plugin that lets you write queries for your vault. Obsidian's since released its [Bases feature](https://help.obsidian.md/bases), which solves a lot of problems Dataview tried to solve. But Dataview is still pretty neat for a few reasons.
 
-![[Pasted image 20250914112052.png]]
+![](../assets/img/Pasted_image_20250914112052.png)
 
 You can write queries that perform maths and other cool stuff on your notes and properties. If you've ever written SQL for querying a database, it's really similar!
 
@@ -132,7 +132,7 @@ The nerd in me loves this.
 
 ## Writing notes: Neovim
 
-![[Pasted image 20250914112453.png]]
+![](../assets/img/Pasted_image_20250914112453.png)
 
 As I mentioned earlier, my favourite thing about Obsidian is that it's a bunch of Markdown files. This means that you can use your favourite text editor to write! So naturally, I set up an Obsidian editing system directly in Neovim.
 
@@ -142,7 +142,7 @@ It's not perfect for sure, but writing notes in Neovim is really fun and makes m
 
 I use [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) as the main way to format and render markdown in the editor. It will make bullet points, headings and even hyperlinks look a lot more tidy. Code blocks get the syntax highlighting for the language you specify.
 
-![[Pasted image 20250914113302.png]]
+![](../assets/img/Pasted_image_20250914113302.png)
 
 [snacks.nvim](https://github.com/folke/snacks.nvim) is a huge plugin with so many different features. I use it as my file picker and explorer mainly. It also comes with image support. This means that if I include an image in my note, it'll show up embedded in the terminal. Which is absolutely delightful.
 
@@ -179,7 +179,7 @@ The "update today's note" runs in the morning and the evening. It will search my
 
 "My newsletters" runs first thing in the morning too. I've recorded a list of RSS feeds I want to follow. When the shortcut runs, it will go through each feed, filter to any article written in the previous day, before converting it to Markdown and saving it into my vault, in the `Inbox` folder. I filter through using the `read: false` property to give myself a cheap, janky feed reader that I can read anywhere!
 
-![[Pasted image 20250914132817.png]]
+![](../assets/img/Pasted_image_20250914132817.png)
 
 Finally, I'm building smaller shortcuts which should help me with summarising what I've been up to in a week, shortcuts to capture links, and also ways to store places I've visited and ideas I have. Watch this space.
 

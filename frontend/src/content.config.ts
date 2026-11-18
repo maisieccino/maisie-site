@@ -35,6 +35,7 @@ const postLoader: Loader = {
             return;
           }
           if (store.has(post.data.slug)) {
+            console.log(`skipping ${post.data.slug} (already exists)`);
             return;
           }
           const data = await parseData({ id: post.data.slug, data: post.data });

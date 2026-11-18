@@ -68,7 +68,7 @@ Just as a result of what we deal with on a daily basis, chronically unwell peopl
 
 [^3]: [ALSUntangled No. 8: Low dose naltrexone for ALS](https://www.tandfonline.com/doi/pdf/10.3109/17482968.2010.544386)
 
-[^4] [The puzzling Virus that infects almost everyone - The Atlantic](https://www.theatlantic.com/science/archive/2022/03/epstein-barr-virus-mono-cancer-research/623881/)
+[^4]: [The puzzling Virus that infects almost everyone - The Atlantic](https://www.theatlantic.com/science/archive/2022/03/epstein-barr-virus-mono-cancer-research/623881/)
 
 [^5]: [Chronic Active Epstein–Barr Virus Disease](https://pmc.ncbi.nlm.nih.gov/articles/PMC5770746/)
 
