@@ -7,7 +7,8 @@
 # 4. replace every occurence with local path
 
 _files=$(fd -tf --extension=md)
-_capture='https:\/\/blog\.mbell\.dev\/(\w|\d|_|\/)+\.\w+'
+# _capture='https:\/\/blog\.mbell\.dev\/(\w|\d|_|\/)+\.\w+'
+_capture='https:\/\/storage\.ghost\.io\/(\w|\d|_|-|\/)+\.\w+'
 _static_dir='src/assets/img'
 
 echo "$_files"
