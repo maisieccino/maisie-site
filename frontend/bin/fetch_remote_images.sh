@@ -9,7 +9,7 @@
 _files=$(fd -tf --extension=md)
 # _capture='https:\/\/blog\.mbell\.dev\/(\w|\d|_|\/)+\.\w+'
 _capture='https:\/\/storage\.ghost\.io\/(\w|\d|_|-|\/)+\.\w+'
-_static_dir='src/assets/img'
+_static_dir='src/assets/img/posts/imported'
 
 echo "$_files"
 
@@ -19,6 +19,6 @@ for file in $_files; do
   for img in $_images; do
     filename="${img##*/}"
     curl -Lo "${_static_dir}/${filename}" "${img}"
-    echo "$_files" | xargs -I % -n1 sed -i '' "s,${img},/src/assets/img/${filename}," '%'
+    echo "$_files" | xargs -I % -n1 sed -i '' "s,${img},/src/assets/img/posts/imported/${filename}," '%'
   done
 done
