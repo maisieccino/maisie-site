@@ -18,7 +18,7 @@ const ghostClient = new GhostContentAPI({
 });
 
 const postsPath = join(cwd(), "src", "posts");
-const LIMIT = 1;
+const LIMIT = 100;
 
 const setFrontmatter = (post: PostOrPage) => () => (ast) => {
   const frontmatter = new Document({
@@ -26,10 +26,10 @@ const setFrontmatter = (post: PostOrPage) => () => (ast) => {
     authors: post.authors?.map((a) => a.name),
     publishedTime: post.published_at,
     modifiedTime: post.updated_at,
-    featureImage: post.feature_image || null,
-    featureImageAlt: post.feature_image_alt || null,
+    featureImage: post.feature_image || "",
+    featureImageAlt: post.feature_image_alt || "",
     tags: post.tags?.map((t) => t.name),
-    excerpt: post.custom_excerpt || null,
+    excerpt: post.custom_excerpt || "",
     readingTime: post.reading_time || 0,
   });
   ast.children.unshift({
@@ -63,6 +63,7 @@ if (posts.length == 0) {
 const results = (await Promise.all(posts.map(postToMD))).forEach(
   async (f, i) => {
     const post = posts[i];
+    f.path = join(postsPath, post.slug + ".md");
     try {
       await access(f.path);
       console.error("file exists, skipping");
