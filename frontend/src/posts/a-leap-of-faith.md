@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2025-02-02T20:34:26.000+00:00
 modifiedTime: 2025-02-16T13:27:17.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/E72AB116-63D6-4FDB-B39A-F784882069D3-1-1-1.jpeg
+featureImage: /src/assets/img/posts/imported/E72AB116-63D6-4FDB-B39A-F784882069D3-1-1-1.jpeg
 featureImageAlt: ""
 tags:
   - lgbtq+
@@ -20,19 +20,19 @@ Yeah, uh, this is a post about my upcoming Facial Feminisation Surgery…
 
 In about a week’s time I’ll be going under the knife with FacialTeam in Spain. They’ll be burring down and refining my forehead down, popping out some hair follicles and using it to fill in my hair line, and then trimming down my trachea a little too. Nothing too extreme, just enough to tone down the dysphoria to a much more gentle level.
 
-![Portrait photo of my face before FFS.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/DraggedImage.jpeg)
+![Portrait photo of my face before FFS.](/src/assets/img/posts/imported/DraggedImage.jpeg)
 
 Portrait photo of my face before FFS.
 
-![Portrait visualisation of what my face could look like after FFS.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/DraggedImage-1.jpeg)
+![Portrait visualisation of what my face could look like after FFS.](/src/assets/img/posts/imported/DraggedImage-1.jpeg)
 
 Portrait visualisation of what my face could look like after FFS.
 
-![Profile photo of my face before FFS](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/DraggedImage-2.jpeg)
+![Profile photo of my face before FFS](/src/assets/img/posts/imported/DraggedImage-2.jpeg)
 
 Profile photo of my face before FFS
 
-![Profile visualisation of FFS, showing a reduced forehead profile, reduced trachea, and hair coverage on the temples.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/DraggedImage-3.jpeg)
+![Profile visualisation of FFS, showing a reduced forehead profile, reduced trachea, and hair coverage on the temples.](/src/assets/img/posts/imported/DraggedImage-3.jpeg)
 
 Profile visualisation of FFS, showing a reduced forehead profile, reduced trachea, and hair coverage on the temples.
 

@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2023-06-12T15:51:47.000+00:00
 modifiedTime: 2023-06-12T15:51:47.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/1F355BEC-19A2-484E-BE85-FE382F31A03F_1_105_c.jpeg
+featureImage: /src/assets/img/posts/imported/1F355BEC-19A2-484E-BE85-FE382F31A03F_1_105_c.jpeg
 featureImageAlt: ""
 tags:
   - mental health

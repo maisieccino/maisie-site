@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2025-02-16T13:26:50.000+00:00
 modifiedTime: 2025-02-16T13:56:37.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/36E264FF-EC3A-4D4C-A131-63AB3E6B4712_1_201_a-1-1.jpeg
+featureImage: /src/assets/img/posts/imported/36E264FF-EC3A-4D4C-A131-63AB3E6B4712_1_201_a-1-1.jpeg
 featureImageAlt: ""
 tags:
   - climbing
@@ -32,7 +32,7 @@ If you’ve never used one before, a kilter board is a climbing wall filled with
 
 You tilt the board to the angle you want (40º is where I’m at right now), pick a route from the massive list of user-uploaded problems, and give it a go. The holds are really tough on your fingers and it helps you build up better body tension on overhangs as well as confidence and technique, really really quickly. It also is really really hard. I fall off really often but it’s part of the process!
 
-![Maisie absolutely crushing it on the kilter board.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/02/ED05DFE6-8BBB-4A91-A58B-A3C05ECCA52A_1_201_a.jpeg)
+![Maisie absolutely crushing it on the kilter board.](/src/assets/img/posts/imported/ED05DFE6-8BBB-4A91-A58B-A3C05ECCA52A_1_201_a.jpeg)
 
 Maisie absolutely crushing it on the kilter board.
 

@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2017-12-29T22:15:00.000+00:00
 modifiedTime: 2020-10-04T12:30:50.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/now-playing-1.png
+featureImage: /src/assets/img/posts/imported/now-playing-1.png
 featureImageAlt: ""
 tags:
   - tech
@@ -46,7 +46,7 @@ This guide assumes that you have some knowledge of Javacript, the browser develo
 
 The first step is to create your project. If you're doing this locally, I recommend using the `create-react-app` to get started (learn more [here](https://reactjs.org/blog/2016/07/22/create-apps-with-no-configuration.html?ref=blog.mbell.dev)). Otherwise, if you're following along using Glitch, you can simply remix [this example React app](https://glitch.com/edit/?ref=blog.mbell.dev#!/create-react-app-sample) and you're good to go (follow the instructions in the `README` file though!)
 
-![The app created by create-react-app](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/create-react-app-1.png)
+![The app created by create-react-app](/src/assets/img/posts/imported/create-react-app-1.png)
 
 We'll then start editing the app so that we can store all the information that we need:
 
@@ -177,7 +177,7 @@ handleLogin() {
 }
 ```
 
-![The login form, showing the text input and a button to log in.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/login-form.png)
+![The login form, showing the text input and a button to log in.](/src/assets/img/posts/imported/login-form.png)
 
 # Connecting the Spotify API
 
@@ -305,19 +305,19 @@ this.createEventHandlers();
 
 Now, let's give this a try. Go to the Spotify [documentation page](https://beta.developer.spotify.com/documentation/web-playback-sdk/quick-start/?ref=blog.mbell.dev#authenticating-with-spotify), and click the button to "get your web playback SDK access token". Sign in with your Spotify account and you'll get your access token:
 
-![Spotify SDK access token screen, with the actual token blurred out for security reasons.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/token.png)
+![Spotify SDK access token screen, with the actual token blurred out for security reasons.](/src/assets/img/posts/imported/token.png)
 
 Now go to your app, and press F12 (or equivalent) to show the developer console. Pop the token you just received into the text box and press go. Hopefully you will then see your success message appear!
 
-![Message in the console indicated a successful connection](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/success.png)
+![Message in the console indicated a successful connection](/src/assets/img/posts/imported/success.png)
 
 Now, if you open a Spotify app on any of your devices and start playing some music, you should be able to click on the "devices" menu, and see your app there. Give it a click and you should then be hearing the music come from your browser!
 
-![List of Spotify devices, showinng my new app!](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/device-list.png)
+![List of Spotify devices, showinng my new app!](/src/assets/img/posts/imported/device-list.png)
 
 You'll also get some interesting information in the console.
 
-![Debugging information appearing in the console, showing the current state of the player.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/console-state.png)
+![Debugging information appearing in the console, showing the current state of the player.](/src/assets/img/posts/imported/console-state.png)
 
 This is the Spotify player's "state", which shows information like the current track, tracks coming up, current volume, whether shuffle and repeat modes are on, and more. We'll now use this to set our app component's state variables.
 
@@ -368,7 +368,7 @@ createEventHandlers() {
 
 Now, if you log in again with your token, and switch your player to your app using another Spotify app, you should now be able to see information about the currently playing song!
 
-![A screenshot of our app, showing the currently playing song](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/now-playing.png)
+![A screenshot of our app, showing the currently playing song](/src/assets/img/posts/imported/now-playing.png)
 
 # Adding Player Controls
 

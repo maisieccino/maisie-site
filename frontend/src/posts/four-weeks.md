@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2022-09-10T21:06:04.000+00:00
 modifiedTime: 2022-09-10T21:06:04.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/09/IMG_0598.jpeg
+featureImage: /src/assets/img/posts/imported/IMG_0598.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""
@@ -58,4 +58,4 @@ I realise this took a tangent, but the key takeaway is that I’m finally gettin
 
 🎥 TikTok: [@maisieccino](https://tiktok.com/@maisieccino?ref=blog.mbell.dev)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/09/8DA93EC4-0D5F-4DFB-BE8F-6F68BFD16D32.jpeg)
+![](/src/assets/img/posts/imported/8DA93EC4-0D5F-4DFB-BE8F-6F68BFD16D32.jpeg)

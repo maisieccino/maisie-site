@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2017-07-14T00:12:00.000+00:00
 modifiedTime: 2020-10-04T12:26:15.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/hacktop-2.png
+featureImage: /src/assets/img/posts/imported/hacktop-2.png
 featureImageAlt: ""
 tags:
   - tech
@@ -22,11 +22,11 @@ The end has finally come for my long-suffering laptop. It's about to get replace
 
 Introducing: the Stickerdex. By accessing the [stickers page](https://mbell.me/stickers?ref=blog.mbell.dev) on my website, you'll be able to find a list of my bestickered devices and see it from a bunch of different views:
 
-![A screenshot of the stickerdex](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/stickerdex-1.png)
+![A screenshot of the stickerdex](/src/assets/img/posts/imported/stickerdex-1.png)
 
 From here, you can click on the stickers shown to find out more information about that sticker's origins:
 
-![A screenshot of the stickerdex detail page](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/detail.png)
+![A screenshot of the stickerdex detail page](/src/assets/img/posts/imported/detail.png)
 
 It was something that I haven't seen done before, and I also kinda thought it was a fun project to get stuck into. I hope you all enjoy looking through it, and the stickerdex is *far* from complete! Read on to learn about the build process.
 
@@ -54,7 +54,7 @@ The solution I ended up going for was to create an SVG image with each sticker d
 * Start drawing shapes/ellipses over the image, using a fill to keep track of what stickers have been captured. It's also important to remember to set the`id` attribute of the image in the object properties sidebar; this is so that we can reference it later.
 * Once done, save the SVG file in a sensible place. Now we can get on to the coding bit.
 
-![A screenshot of overlays being added to the stickers in Inkscape.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/inkscape.png)
+![A screenshot of overlays being added to the stickers in Inkscape.](/src/assets/img/posts/imported/inkscape.png)
 
 ## Jekyll Templating FTW
 

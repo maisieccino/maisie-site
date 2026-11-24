@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2021-03-29T21:59:00.000+00:00
 modifiedTime: 2021-03-31T10:15:33.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/03/EF98C85F-CFD4-4356-BB52-F3334E3A420A_1_105_c.jpeg
+featureImage: /src/assets/img/posts/imported/EF98C85F-CFD4-4356-BB52-F3334E3A420A_1_105_c.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""
@@ -32,7 +32,7 @@ To the future,
 
 Maisie
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/03/IMG_1421.jpeg)
+![](/src/assets/img/posts/imported/IMG_1421.jpeg)
 
 ***
 
@@ -70,7 +70,7 @@ She/her pronouns right now, they seem the most comfortable to me.
 
 Kindly read the first couple of paragraphs of this article again.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/03/tempImage3XZyG1.gif)
+![](/src/assets/img/posts/imported/tempImage3XZyG1.gif)
 
 ***
 

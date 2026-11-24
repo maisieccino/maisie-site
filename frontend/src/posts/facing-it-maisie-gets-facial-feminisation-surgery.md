@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2025-09-08T19:54:39.000+00:00
 modifiedTime: 2025-09-08T19:54:39.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/39FA80BB-B22A-4275-9D78-A9FF62FB1EC2_1_105_c.jpeg
+featureImage: /src/assets/img/posts/imported/39FA80BB-B22A-4275-9D78-A9FF62FB1EC2_1_105_c.jpeg
 featureImageAlt: ""
 tags:
   - trans
@@ -31,7 +31,7 @@ So it was mainly for my own self comfort instead of feelings or wanting to pass 
 
 I used the online chat and booked in with Facial Team for an in-person consultation at their offices in Marbella, Spain. I’m glad I did, as I don’t think a video call would have done things justice. And seeing the staff and facilities helped me with trying to reduce my anxiety a little bit.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/IMG_0926.jpeg)
+![](/src/assets/img/posts/imported/IMG_0926.jpeg)
 
 Once we flew in, we were taken straight to the hospital. They performed a CT scan of my head and took a bunch of photos from various angles. I then got ushered into a meeting room where one of the sales people and one of the surgeons had a chat with me. They opened up a dossier with giant A4 photos of my head and 3D renderings of my skull. This did wonders for my dysphoria as you can imagine.
 
@@ -41,7 +41,7 @@ And those photos they took? They were sent over to a digital artist who works wi
 
 I think as soon as I saw those simulations I was set on getting this done. Pretty much as soon as I returned home I arranged an appointment for February 2025 (this was October, so four months’ lead time) and sent over the deposit.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/8675D732-7721-4034-AE8D-58531789FC9E_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/8675D732-7721-4034-AE8D-58531789FC9E_1_105_c.jpeg)
 
 My reference photo (left) with the simulated result (right).
 
@@ -51,7 +51,7 @@ Surgery time rolled around far quicker than I was expecting honestly. Before lon
 
 And then it was time to fly.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/700B4783-387B-4C60-852E-A02F25852BDD_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/700B4783-387B-4C60-852E-A02F25852BDD_1_105_c.jpeg)
 
 The view of the south Spanish coast on approach to Malaga airport.
 
@@ -59,7 +59,7 @@ I flew out with my partner, Jon. Leading up to the day, I was feeling super pani
 
 The hotel room was absolutely giant for two people. It came with a whole extra bedroom for some reason? But it was nice and peaceful and comfy and had a balcony looking over the street opposite a taberna. It was maybe a little pricey for what it was, but it was nice and really convenient.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/E2C83D6C-D6D2-4FE4-A00F-3EE48BDD8A16_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/E2C83D6C-D6D2-4FE4-A00F-3EE48BDD8A16_1_105_c.jpeg)
 
 Poster bed inside La Villa Marbella
 
@@ -69,7 +69,7 @@ They took even more photos of me, recorded a video of my face moving as I talked
 
 I then had a weekend where I walked around the city, took photos, ate a lot of delicious food, and cried a lot. The big day rolled around faster than I had expected.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/3EF79C05-FCC5-4BB0-80E2-39D318A602C0_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/3EF79C05-FCC5-4BB0-80E2-39D318A602C0_1_105_c.jpeg)
 
 A bunch of turtles sunbathing in the park.
 
@@ -77,13 +77,13 @@ A bunch of turtles sunbathing in the park.
 
 My alarm was set for an antisocial 6:45 AM and somehow I managed to sleep really well. After a quick shower and removing all my piercings, me and my partner headed out onto the street and into a waiting taxi. We were swiftly brought to the hospital, serenaded by 70s soft rock.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/F3239DCF-BF40-44DB-96F4-63724AE792D0_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/F3239DCF-BF40-44DB-96F4-63724AE792D0_1_105_c.jpeg)
 
 HC Marbella Hospital in the early dark hours of the morning.
 
 We arrived and then a nurse was waiting to take us up to my room. It was maybe the most modern hospital room I’ve ever seen, but as soon as I was given the mini tour, the nurse already had a paper gown, surgical stockings and grippy socks waiting for me. With nothing underneath. 😳
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/1270CBF7-9813-4126-9886-6CC8D4F7DFFA_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/1270CBF7-9813-4126-9886-6CC8D4F7DFFA_1_105_c.jpeg)
 
 Maisie in her flattering hospital gown. It looks like I'm wearing a bin bag.
 
@@ -99,7 +99,7 @@ They set me down on the operating table with various bits of foam supports, set 
 
 I was woken up by (I think) one of the hair transplant techs, telling me that they were about to start their work. They wake you up for this to limit the time you’re under anaesthesia. I think I fell asleep again quite quickly, woke up a few times but missed most of it. They moved me to a different room at one point, had to get a footstool as I was too tall for the bed, and I felt a bit sick but they loaded me up with some kind of antiemetic to sort me out. Then eventually I asked how long left, and they replied “just 20 minutes and we’re done”. Finally, I was wheeled back upstairs to my room, where my partner was waiting for me. I promptly fell back asleep.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/CC8ED71D-D59D-4144-AC95-804959EB32AA_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/CC8ED71D-D59D-4144-AC95-804959EB32AA_1_105_c.jpeg)
 
 Maisie, immediately post-op in a hospital bed. She's got a bandage on her face and a water cooling mask
 
@@ -109,7 +109,7 @@ I was in hospital for one night and most of the next day. Not too late in the mo
 
 They also removed my catheter at this point. Thankfully I’ve had experience of this before (bottom surgery) so I knew what to expect. A little uncomfortable but it was over nice and quickly. I was set down in a wheelchair and wheeled downstairs to have my skull scanned inside the radiation doughnut (the CT scanner). I was told that it all looks good!
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/0ED1AC71-1963-485E-A997-07847FD7B1E1_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/0ED1AC71-1963-485E-A997-07847FD7B1E1_1_105_c.jpeg)
 
 Big thumbs up from Maisie.
 
@@ -117,7 +117,7 @@ I got some breakfast and I was able to gently take myself for a walk outside. Ge
 
 Pro-tip if you have a companion with you: the fold out bed in the hospital room is not great. Bring some pillows from your hotel room!
 
-![The hospital room with the balcony. Really pretty room.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/55BC6904-B243-4534-B9FA-AB207DED7A31_1_105_c.jpeg)
+![The hospital room with the balcony. Really pretty room.](/src/assets/img/posts/imported/55BC6904-B243-4534-B9FA-AB207DED7A31_1_105_c.jpeg)
 
 The hospital room with the balcony. Really pretty room.
 
@@ -125,7 +125,7 @@ The hospital room with the balcony. Really pretty room.
 
 Because I “only” had forehead reconstruction and a tracheal shave, I was able to return back to the hotel the next day after surgery. This was great as all my stuff was here, was a bit more comfortable than the hospital, and the environment is a bit calmer. I was feeling exhausted, but I was able to at least go for the short walk down the hill to a little coffee shop. As a caffeine enthusiast, this was a huge boost to my morale.
 
-![Maisie and her partner, Jon, grinning while walking down a street in the Old Town. Con Cafe. :)](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/87863764-4BF4-4725-8101-83DF43E48F28_1_105_c.jpeg)
+![Maisie and her partner, Jon, grinning while walking down a street in the Old Town. Con Cafe. :)](/src/assets/img/posts/imported/87863764-4BF4-4725-8101-83DF43E48F28_1_105_c.jpeg)
 
 Maisie and her partner, Jon, grinning while walking down a street in the Old Town. Con Cafe. :)
 
@@ -141,7 +141,7 @@ I needed to keep my transplants moist and healthy. Which involved spraying them 
 
 Marbella is a gorgeous town with so many sights to see, little streets to walk down, and fantastic food. I highly recommend trying to get out if you’re able to. I needed to use an umbrella to keep the sun off my head at all times—my hair was clipped back so that my transplants were able to have space to breathe or something I guess. I was a bit of a sight with my red transplants, big bandage on my neck, and a bruised and sore face. I had a couple of quizzical stares from people but I never really had any issue and didn’t feel *too* self conscious. Some Finnish guy in a bar asked if I was okay but it was very much in an inquisitive way, rather than a judging way.
 
-![Maisie sitting outside post-op. She has a bandage on her neck and her hair is clipped back to ensure that the hair transplants heal unimpeded. She is looking bruised and swollen.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/C340E516-1CFE-4E40-B630-179B178BB28E_1_105_c.jpeg)
+![Maisie sitting outside post-op. She has a bandage on her neck and her hair is clipped back to ensure that the hair transplants heal unimpeded. She is looking bruised and swollen.](/src/assets/img/posts/imported/C340E516-1CFE-4E40-B630-179B178BB28E_1_105_c.jpeg)
 
 Maisie sitting outside post-op. She has a bandage on her neck and her hair is clipped back to ensure that the hair transplants heal unimpeded. She is looking bruised and swollen.
 
@@ -151,7 +151,7 @@ However, when they finally gave it a wash and a scalp massage—it felt angelic.
 
 Sleeping was also a bit of a challenge in the week. I was required to sleep on my back, with my head at a 45º angle. I am a side sleeper. I was not prepared for how rough this would be. Thankfully the sleeping tablets helped, and the hospital had stronger stuff in case it wasn’t helping enough. I ended up a throne of pillows. Stacking them up behind my head, on my sides, and a pillow under my knees to stop me from rolling over. Jon told me I looked like an upside down turtle trying to roll onto my side while I slept… the plan worked and I was able to keep my transplants mostly clear.
 
-![Maisie eyes up a big bowl of paella con pollo in a Marbella town square](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/DCD12E76-BFBD-4D2E-BE61-894605F0236E_1_105_c.jpeg)
+![Maisie eyes up a big bowl of paella con pollo in a Marbella town square](/src/assets/img/posts/imported/DCD12E76-BFBD-4D2E-BE61-894605F0236E_1_105_c.jpeg)
 
 Maisie eyes up a big bowl of paella con pollo in a Marbella town square
 
@@ -159,21 +159,21 @@ Maisie eyes up a big bowl of paella con pollo in a Marbella town square
 
 The day before I had my post op consultation with the surgeons, I got the most cryptic message from my FT coordinator:
 
-![a text that reads: “Maisie, would you like to have make up tomorrow?”](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/5DA35B58-9EB3-4D2F-8C27-5675BFC60C73_4_5005_c.jpeg)
+![a text that reads: “Maisie, would you like to have make up tomorrow?”](/src/assets/img/posts/imported/5DA35B58-9EB3-4D2F-8C27-5675BFC60C73_4_5005_c.jpeg)
 
 a text that reads: “Maisie, would you like to have make up tomorrow?”
 
 As well as my surgeon consultation, I’d be having my post-op photos taken for my case file. Facial Team offered to do a set without makeup and a set with makeup. They just so happen to have a makeup artist on retainer it seems??? I had a great time being taught Spanish words for the various bits of makeup (blush = colorete). Anyway, here’s the comparison of my before and after photos (without makeup):
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/C5388486-205B-44C7-9F72-561B223DC986_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/C5388486-205B-44C7-9F72-561B223DC986_1_105_c.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/A36386B3-8408-4800-A206-0549C307A73B_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/A36386B3-8408-4800-A206-0549C307A73B_1_105_c.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/A36386B3-8408-4800-A206-0549C307A73B_1_105_c-1.jpeg)
+![](/src/assets/img/posts/imported/A36386B3-8408-4800-A206-0549C307A73B_1_105_c-1.jpeg)
 
 It’s a complete night and day difference. Absolutely astounding. And “just” (I keep saying this!!) by removing a few millimetres of bone from my brow? Anyway this is what I looked like with the makeup artist’s work:
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/804DF64D-7021-49E9-BE3A-9DA92E4D7685_1_102.jpeg)
+![](/src/assets/img/posts/imported/804DF64D-7021-49E9-BE3A-9DA92E4D7685_1_102.jpeg)
 
 Not my usual style at all. But gosh it looks absolutely incredible. I was blown away by just how much EYELID that’s visible now??? That was never the case before. My face seemed more harmonious. I weirdly felt more comfortable with my nose (I guess because there was never anything about it that made me dysphoric). Feeling the reduced bump on my neck made me cry. And seeing where the hair transplants would end up filling in? This was all simply magical.
 
@@ -187,7 +187,7 @@ The first couple of months were hard, I have to admit. Once I arrived home the h
 
 As I started focusing on returning to my life stuff, I stopped fixating so much on my recovery day-to-day, and my attention drifted to more pressing things. Work. Social life. My appalling mental health situation. This distance, as it turned out, helped a lot. At some point I caught myself in the mirror and noticed that the swelling had receded a lot. I started to feel gorgeous. Extremely comfortable with my face.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2025/09/4B24BEE8-2F14-44B8-A786-63E6EE430EB9_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/4B24BEE8-2F14-44B8-A786-63E6EE430EB9_1_105_c.jpeg)
 
 Ultimately, the results from my FFS is not a huge deviation from how my face was before. This is a good thing for me. Because I still look like *me*. My brow area is less pronounced. My eyelids are a bit more visible, allowing me to be a bit more experimental with my makeup. My face seems brighter, more open in general. It seems a bit rounder and less angular? I can actually hold my head up high and not feel ashamed about my pronounced trachea!
 

@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2020-04-25T13:30:00.000+00:00
 modifiedTime: 2020-10-04T12:40:31.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/Untitled_Artwork-2.png
+featureImage: /src/assets/img/posts/imported/Untitled_Artwork-2.png
 featureImageAlt: ""
 tags: []
 excerpt: I want it all. The terrifying lows, the dizzying highs. Here's what
@@ -23,7 +23,7 @@ One of the first things to think about when using Terraform is where to store yo
 
 Fortunately, Hashicorp offer a hosted version of Terraform which is free for invididuals. As well as looking after your Terraform state, it can perform Terraform runs remotely, meaning that you can just push code to Git and they will generate the "plan" (a bit like a dry run, updates the state with what the infrastructure is like right now, and calculates what changes will be made), and with one click, actually applies the plan too.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/image--1-.png)
+![](/src/assets/img/posts/imported/image--1-.png)
 
 The Terraform development lifecycle. The "backend" is where the Terraform state is stored, be this a local file, a cloud storage bucket, or a hosted service.
 

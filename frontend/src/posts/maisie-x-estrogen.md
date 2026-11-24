@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2022-05-03T12:06:47.000+00:00
 modifiedTime: 2023-06-05T12:01:49.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/957CCA5A-BF5A-48C7-92B1-8C7588CEBB33.jpeg
+featureImage: /src/assets/img/posts/imported/957CCA5A-BF5A-48C7-92B1-8C7588CEBB33.jpeg
 featureImageAlt: ""
 tags:
   - trans
@@ -30,11 +30,11 @@ To this effect, I hope that this guide helps to provide an objective overview of
 
 ### 0 months, June 2021
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/DraggedImage.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/05/DraggedImage-1.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-1.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/05/DraggedImage-2.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-2.jpeg)
 
 Day zero was absolutely terrifying. I’d just gone through a process to access a “bridging” prescription through the NHS and had to be brave and get my first ever blood tests. Having my first estrogen patch in my hand filled me with *so much* anxiety and doubt. All in all I think took me about three to four hours to put it on?
 
@@ -44,7 +44,7 @@ After coming out and before starting hormones, I had a lot of better days and my
 
 ### 1-2 months, July/August 2021
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/DraggedImage-3.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-3.jpeg)
 
 In July, I had my first appointment with my private endocrinologist, which means that I have a good account of how I felt things were going at the time.
 
@@ -58,9 +58,9 @@ I think around this time I mentioned that it felt like, “I could see the world
 
 ### 3-4 months, September 2021
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/DraggedImage-4.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-4.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/05/DraggedImage-5.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-5.jpeg)
 
 At the end of August I had my first set of monitoring blood tests which showed results that, while not in my endocrinologist’s target ranges, were promising and on the right path. My GP responded by increasing my estrogen dosage. This did not have a noticeable effect for me.
 
@@ -72,7 +72,7 @@ Throughout this period I continued to have breast tenderness and soreness as the
 
 ### \~6 months, November/December 2021
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/05/DraggedImage-6.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-6.jpeg)
 
 I was sent for another blood test at the end of November and the results seemed to show no progress despite the higher dose, which made my emotions spiral downwards really significantly for about a week. Until this point, I felt like things were going pretty well and was enjoying the changes, but this felt like a punch to the gut.
 
@@ -85,9 +85,9 @@ I was also struggling with Seasonal Affective Disorder around this time which di
 
 ### \~7-8 months, January 2022
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/DraggedImage-7.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-7.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/DraggedImage-8.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage-8.jpeg)
 
 During this month I noticed the very subtle changes in my face, it seems a little bit rounded out and fuller than it did before.
 
@@ -101,9 +101,9 @@ The first week has brought incredible tiredness, anger and irritability, giganti
 
 ### 8 Months, February 2022
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/Image-12-02-2022--17-35.jpeg)
+![](/src/assets/img/posts/imported/Image-12-02-2022--17-35.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/Image-12-02-2022--17-39.jpeg)
+![](/src/assets/img/posts/imported/Image-12-02-2022--17-39.jpeg)
 
 The Decapeptyl-triggered testosterone spike wore off towards the end of January 2022, which I noticed while out for a walk in the afternoon. It was an incredibly wonderful feeling, I think both being outside and having fresh air to help with my depressive spell, as well as the weather being great and me buying bubble tea, coincided with the *t-spike* lifting and enhancing how it felt. Although anecdotal reports from other people on the same class of medicine (GnRH agonists) match up with this.
 
@@ -119,11 +119,11 @@ I shall continue tracking my changes now that I have mostly recovered from COVID
 
 ### 11 months, May 2022
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/Image-03-05-2022--12-54.jpeg)
+![](/src/assets/img/posts/imported/Image-03-05-2022--12-54.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/Image-03-05-2022--12-54-1.jpeg)
+![](/src/assets/img/posts/imported/Image-03-05-2022--12-54-1.jpeg)
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/Image-03-05-2022--12-54-2.jpeg)
+![](/src/assets/img/posts/imported/Image-03-05-2022--12-54-2.jpeg)
 
 As of early May 2022, I have been on continuous Estrogen medication for eleven months, and I have been on a full testosterone blocker for four months, and had received my second blocker injection in April.
 
@@ -135,7 +135,7 @@ During March I was struggling with some random mood swings, body temperature/hot
 
 ### 2 years, June 2023
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/06/3B6E0B66-9DC3-43EA-9501-F40A875F9A44_1_105_c.jpeg)
+![](/src/assets/img/posts/imported/3B6E0B66-9DC3-43EA-9501-F40A875F9A44_1_105_c.jpeg)
 
 CW: Talk about depression/SI
 

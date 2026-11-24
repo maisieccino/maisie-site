@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2021-10-01T17:34:23.000+00:00
 modifiedTime: 2021-10-01T17:34:23.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/IMG_0925.jpeg
+featureImage: /src/assets/img/posts/imported/IMG_0925.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""
@@ -16,7 +16,7 @@ It's been six short months since I changed my name and reintroduced myself, alth
 
 It is quite strange how *comfortable* it all feels now that the dust has settled? Like, just considering my mental state alone, I feel far less anxious about everything all the time. Not to say that I walk around with a permanent grin on my face, but definitely I feel a lot more grounded and emotional. I can't tell if it's placebo or not, but colours seem brighter and more vibrant.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/IMG_0940.jpeg)
+![](/src/assets/img/posts/imported/IMG_0940.jpeg)
 
 Just vibing
 
@@ -30,4 +30,4 @@ Don't be a stranger, I love catching up with everyone and finding out what they'
 
 ***
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/IMG_6033.jpeg)
+![](/src/assets/img/posts/imported/IMG_6033.jpeg)

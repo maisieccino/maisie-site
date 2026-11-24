@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2022-07-25T21:40:09.000+00:00
 modifiedTime: 2022-07-25T21:40:09.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/07/Image-25-07-2022--22-26-1.png
+featureImage: /src/assets/img/posts/imported/Image-25-07-2022--22-26-1.png
 featureImageAlt: ""
 tags:
   - lgbtq+
@@ -23,7 +23,7 @@ You see, two years ago, I was cooped up in my family home during the first Covid
 
 Today I’m doing a lot better.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/07/DraggedImage.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage.jpeg)
 
 So much of the things I read online about people coming out as trans were so overwhelmingly negative. I saw stories and articles about how I was about to lose my family, my friends, my relationships, my job and my home, and be this unhappy husk of a human, pushing onwards in search of *gender* despite so many barriers. And this broke me at the time. Looking back, this should have been a moment of joy, of euphoria, that I’d finally started to work things out and start a journey of self discovery and body acceptance. But instead I was overwhelmed with all the terrible things that would absolutely definitely happen to me if I continued down this path.
 

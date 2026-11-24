@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2021-10-15T17:44:48.000+00:00
 modifiedTime: 2021-10-15T18:29:35.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/B5A75C12-C856-49B9-A7D8-86A9988C60BA-1.jpeg
+featureImage: /src/assets/img/posts/imported/B5A75C12-C856-49B9-A7D8-86A9988C60BA-1.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""
@@ -18,7 +18,7 @@ This post is a very long winded walkthrough of mine and my partner’s home espr
 
 We have been using the *Rocket Appartamento* for the last few months.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/A0A887D2-AAD4-4C09-98EB-BD98EFA47082.jpeg)
+![](/src/assets/img/posts/imported/A0A887D2-AAD4-4C09-98EB-BD98EFA47082.jpeg)
 
 There’s definitely better options out there at the price I paid but... come on. Look at it! The machine is such a gorgeous, well built centrepiece in our kitchen. I personally love the huge steam wand knob with the giant “R” embossed onto it (makes me feel like I’m on Team Rocket), and the lever for activating the water flow. It’s very cathartic, very mechanical, I love it so much. The machine showed up in a shipping crate. It is bloody heavy but luckily I don’t need to move it!
 
@@ -28,7 +28,7 @@ The E61 group is quite standard on espresso machines around this price range. It
 
 ## The Grinder
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/1A9BAB43-C9FE-43CA-BAE9-83D11305CA31.jpeg)
+![](/src/assets/img/posts/imported/1A9BAB43-C9FE-43CA-BAE9-83D11305CA31.jpeg)
 
 We recently upgraded from a Sage Smart Grinder Pro to the Niche Zero, which in my opinion is a bit of a meme coffee grinder.
 
@@ -40,13 +40,13 @@ I really love the design of the machine, the wood and coated metal aesthetic mak
 
 It feels quite extra talking about the water, but it is a big ingredient in brewing coffee. *Rocket* recommends against using a descaling agent on the machine as it can mess with the pipes, so I have to use soft water with the machine. Tap water is a no-go. Living in London, our water is hard as nails, so it would quickly petrify the delicate innards of our espresso machine. Bottled water is just environmentally irresponsible, and using reverse osmosis water uses a lot of energy to run. So the best tradeoff for us was to use a water filter jug. We opted for Peak Water, which isn’t the cheapest option, but seemed to do a good job of tackling our hard London water.
 
-![A used Peak Water filter on top of a fresh filter, showing the silt and minerals filtered out of the water.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/Image-11-10-2021--15-42.jpeg)
+![A used Peak Water filter on top of a fresh filter, showing the silt and minerals filtered out of the water.](/src/assets/img/posts/imported/Image-11-10-2021--15-42.jpeg)
 
 A used Peak Water filter on top of a fresh filter, showing the silt and minerals filtered out of the water.
 
 ## The Tools
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/Image-11-10-2021--15-45.jpeg)
+![](/src/assets/img/posts/imported/Image-11-10-2021--15-45.jpeg)
 
 Before upgrading to the *Appartamento*, we had a rubber tamping mat that sat on the edge of the counter. This was perfectly fine, except if it was the second or third shot pulled, it would be dripping coffee all over the floor. Which is just messy! We’ve since upgraded to a *Motta* tamping station, a rubber mat with a raised surface above it for tamping. This is far tidier.
 
@@ -56,11 +56,11 @@ To weigh coffee and shots, we use a basic set of electronic scales. It has a bui
 
 Finally, for steaming milk, we’ve recently switched to using a Rhino Stealth milk pitcher. It has got a gorgeous matte white finish, a precision spout to make pouring art easier, and fits in really nicely with the rest of my equipment.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/Image-11-10-2021--15-45-1.jpeg)
+![](/src/assets/img/posts/imported/Image-11-10-2021--15-45-1.jpeg)
 
 ## The Drip
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/Image-11-10-2021--15-53.jpeg)
+![](/src/assets/img/posts/imported/Image-11-10-2021--15-53.jpeg)
 
 I don’t always have espresso! And I’m saying *I* not *we* here, since Izzy does pretty much stick to espresso. When I want to have a filter coffee, I use my trusty V60 filter. I’m using a ceramic blue one, for no functional reason other than it looks really pretty. It’s actually a bit harder to use since it takes more time to warm up than the plastic or copper models.
 
@@ -68,7 +68,7 @@ A basic gooseneck kettle works perfectly for us, you get much finer control over
 
 ## The Beans
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/896BAFB3-1618-4E11-8192-D8DF44996677.jpeg)
+![](/src/assets/img/posts/imported/896BAFB3-1618-4E11-8192-D8DF44996677.jpeg)
 
 We normally go to [https://www.15grams.co.uk](https://www.15grams.co.uk/?ref=blog.mbell.dev) for our coffee beans since they’re local and always really lovely. Other places we’ve had great experiences with:
 
@@ -80,7 +80,7 @@ A lot of these places have in-person stores in London. I recommend just going to
 
 ## The Travel Edition
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/10/297EB240-0FE9-4DDA-9657-FBCFC1E833CD.jpeg)
+![](/src/assets/img/posts/imported/297EB240-0FE9-4DDA-9657-FBCFC1E833CD.jpeg)
 
 This is the meme part of the guide. Of course when travelling, you never know when you’re going to have another great cup of coffee. So this is my travel kit. I have a *plastic* V60 for travel, although it’s not very portable. I pair this with some pre-weighed beans, and the Hario Mini Mill+ grinder. This is a really lovely, light, compact and importantly *cheap* manual burr grinder. It uses ceramic burrs which help keep it light. It takes a lot of work to grind coffee by hand! It makes the resulting drink that much more rewarding, IMO. 😎
 

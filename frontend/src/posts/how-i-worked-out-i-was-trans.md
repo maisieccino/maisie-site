@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2022-02-24T23:58:04.000+00:00
 modifiedTime: 2022-02-24T23:59:25.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/02/0A5ED271-29AC-43BF-8936-3989F490F94D-1.jpeg
+featureImage: /src/assets/img/posts/imported/0A5ED271-29AC-43BF-8936-3989F490F94D-1.jpeg
 featureImageAlt: ""
 tags:
   - trans

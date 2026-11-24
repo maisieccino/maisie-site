@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2020-12-26T15:31:19.000+00:00
 modifiedTime: 2020-12-26T15:31:19.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/12/91797444-85EB-4890-91EA-9E7D4764244D.jpeg
+featureImage: /src/assets/img/posts/imported/91797444-85EB-4890-91EA-9E7D4764244D.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""
@@ -14,7 +14,7 @@ readingTime: 4
 
 This is the recipe I follow to make my own sourdough bread. It came about through a lot of trial and error, as well as experimenting with various amounts of water and flours, so I'd recommend using this as a starting point to create your own recipe!
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/12/EC1A6118-20D3-4ABA-B693-341D9DBFBEB7.jpeg)
+![](/src/assets/img/posts/imported/EC1A6118-20D3-4ABA-B693-341D9DBFBEB7.jpeg)
 
 ## Equipment
 
@@ -52,7 +52,7 @@ This is the recipe I follow to make my own sourdough bread. It came about throug
 14. Bake for about 50 minutes, then reduce the temperate to 180 ºC and remove the lid of your cloche or pot, if you are using one.
 15. Bake for about 10 more minutes, then remove from the oven. Remove your bread from the pot or tray and place onto a wire rack to cool. Marvel and take some pictures of your pretty loaf! And then, you should wrap it in a slightly dampened tea cloth to stop it from becoming *too* crusty that you can't slice it!
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/12/2444090B-A8B0-4379-B725-0FDA055ACC0E.jpeg)
+![](/src/assets/img/posts/imported/2444090B-A8B0-4379-B725-0FDA055ACC0E.jpeg)
 
 ## Things to experiment with
 

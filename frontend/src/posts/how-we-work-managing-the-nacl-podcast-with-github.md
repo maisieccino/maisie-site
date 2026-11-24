@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2019-08-11T21:02:37.000+00:00
 modifiedTime: 2020-10-04T12:35:56.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/photo_2019-07-04_21-00-55.jpg
+featureImage: /src/assets/img/posts/imported/photo_2019-07-04_21-00-55.jpg
 featureImageAlt: ""
 tags: []
 excerpt: We’re probably the first webscale podcast. Let us guide you through our story.
@@ -18,7 +18,7 @@ As (probably) the world's first webscale, devops podcast, the creators of [NaCl]
 
 ## The podcast feed
 
-The podcast feed file (`feed.xml`) is statically generated for [GitHub Pages](https://blog.mbell.dev/how-we-work-managing-the-nacl-podcast-with-github/pages.github.com) (our publishing platform) using vanilla Jekyll.
+The podcast feed file (`feed.xml`) is statically generated for [GitHub Pages](/src/assets/img/posts/imported/pages.github.com) (our publishing platform) using vanilla Jekyll.
 
 The [feed](https://github.com/mbellgb/nacl/blob/master/feed.xml?ref=blog.mbell.dev) template iterates over every episode file we've stored and formats it into an XML file that matches the iTunes podcast feed format. This file contains information like the list of episodes, where each audio file is stored, if the episode features naughty words, and when it was released. The feed file is the minimum amount of data to describe an entire podcast.
 
@@ -61,7 +61,7 @@ You might be wondering why we store our episodes like this?
 
 The lifecycle of a NaCl episode looks like this:
 
-![A flowchart demonstrating the episode lifecycle. Suggestion goes to Github issue, which goes to episode recorded, then episode.md, then pull request is created and then merged. Github builds and deploys to the Internet, when we geed feedback. Amendments are fed back into the episode.md.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/IMG_0072-1.jpeg)
+![A flowchart demonstrating the episode lifecycle. Suggestion goes to Github issue, which goes to episode recorded, then episode.md, then pull request is created and then merged. Github builds and deploys to the Internet, when we geed feedback. Amendments are fed back into the episode.md.](/src/assets/img/posts/imported/IMG_0072-1.jpeg)
 
 
 
@@ -69,13 +69,13 @@ The lifecycle of a NaCl episode looks like this:
 
 We begin with an idea for an episode. This is either created by us, the podcast makers, or suggested by a listener through our [suggestions](https://nacl.bell.wtf/suggest/?ref=blog.mbell.dev) form. Both methods result in a GitHub issue created, that follows a predefined template, including a checklist of things we need to do to create the episode.
 
-![Screenshot of our GitHub issue template.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/Screenshot-2019-08-09-at-15.41.59.png)
+![Screenshot of our GitHub issue template.](/src/assets/img/posts/imported/Screenshot-2019-08-09-at-15.41.59.png)
 
 Screenshot of our GitHub issue template.
 
 At the same time, we add this issue to our project board of episodes. This allows us to track progress from inception to release. Is this overkill? Yes it probably is. We can even tag in guests into the issue so that they can follow the progress of the episode.
 
-![Screenshot of our projects board, showing columns: ideas, selected. recorded, mixed.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/image.png)
+![Screenshot of our projects board, showing columns: ideas, selected. recorded, mixed.](/src/assets/img/posts/imported/image.png)
 
 ### Record and prepare release
 
@@ -83,7 +83,7 @@ The next thing to do is to actually go and record the damn episode. This happens
 
 The only downside to this is that me and Abdul need to share a pair of AirPods.
 
-![A photo of our laptop in the recording studio, and a microphone in the foreground. The laptop has a webpage up that says, "how to make a good podcast."](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/image-1.png)
+![A photo of our laptop in the recording studio, and a microphone in the foreground. The laptop has a webpage up that says, "how to make a good podcast."](/src/assets/img/posts/imported/image-1.png)
 
 In the studio
 
@@ -93,7 +93,7 @@ The next couple of steps need to be automated really badly. The file is uploaded
 
 ### PR and release
 
-![Photo of Abdul and myself at the Spotify offices](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/image-2.png)
+![Photo of Abdul and myself at the Spotify offices](/src/assets/img/posts/imported/image-2.png)
 
 We are not sponsored by any streaming service
 

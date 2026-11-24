@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2023-04-17T12:49:31.000+00:00
 modifiedTime: 2023-04-17T12:49:31.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/04/A8EF265A-8EF1-42A0-8BCC-13ED26E5440E.jpeg
+featureImage: /src/assets/img/posts/imported/A8EF265A-8EF1-42A0-8BCC-13ED26E5440E.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""

@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2021-12-27T00:18:27.000+00:00
 modifiedTime: 2021-12-27T00:18:27.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/12/2573819F-81F7-4AF8-B521-9066D43A5E67-1.jpeg
+featureImage: /src/assets/img/posts/imported/2573819F-81F7-4AF8-B521-9066D43A5E67-1.jpeg
 featureImageAlt: ""
 tags:
   - lgbtq+
@@ -28,4 +28,4 @@ A lot of my own dysphoria begins to creep back in when I look at things like blo
 
 I think that’s the most important message I’d give to myself a year ago. Stop trying to focus and fixate on other peoples’ journeys and stop trying to replicate them. Draw from the experience and anecdotes of others without me obsessing. Celebrate and lift up my peers without despairing that I have not had the same experience or results. My journey has had so many highs and lows and will continue to have them for years to come. And I’ve found out that it’s impossible to enjoy those high points when I’m comparing myself to others.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2021/12/DraggedImage.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage.jpeg)

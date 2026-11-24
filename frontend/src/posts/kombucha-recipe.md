@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2020-02-03T12:32:01.000+00:00
 modifiedTime: 2020-10-04T12:39:40.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/4C3C1927-5199-43BB-8B4E-A2784DF94C09.jpeg
+featureImage: /src/assets/img/posts/imported/4C3C1927-5199-43BB-8B4E-A2784DF94C09.jpeg
 featureImageAlt: ""
 tags:
   - fermentation
@@ -14,7 +14,7 @@ readingTime: 1
 
 ---
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2020/10/940522C9-68E8-4FC7-B61B-A7DF7E66D9A5.jpeg)
+![](/src/assets/img/posts/imported/940522C9-68E8-4FC7-B61B-A7DF7E66D9A5.jpeg)
 
 Kombucha in progress.
 

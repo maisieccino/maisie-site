@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2022-02-14T13:32:48.000+00:00
 modifiedTime: 2022-02-14T14:45:45.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/02/09610FF1-9515-40C6-B980-87E9F997F628-1.jpeg
+featureImage: /src/assets/img/posts/imported/09610FF1-9515-40C6-B980-87E9F997F628-1.jpeg
 featureImageAlt: ""
 tags:
   - lgbtq+
@@ -21,7 +21,7 @@ Our story has always been far from any regular relationship, and I love how wond
 
 Our relationship is ours, we share and show our love for each other in our own ways. Why should we limit that to the one day that the card companies tell us to? We put a lot more emphasis on our anniversary as that’s a much more special day and personal to us. Last year, I recreated the meal we had on our first date (Phở), while Izzy made some fancy cocktails.
 
-![](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2022/02/DraggedImage.jpeg)
+![](/src/assets/img/posts/imported/DraggedImage.jpeg)
 
 And throughout the year, we constantly reaffirm our love for each other, whether that be by saying it, caring for each other, or even buying little gifts or showing that we’re thinking of each other. I think what we have is really special and I love not being bound to an arbitrary day.
 

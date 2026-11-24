@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2021-12-05T00:11:23.000+00:00
 modifiedTime: 2021-12-05T00:11:23.000+00:00
-featureImage: https://blog.mbell.dev/content/images/2021/12/2FAFC6A2-7A98-47EC-9F06-3617A3154C88.jpeg
+featureImage: /src/assets/img/posts/imported/2FAFC6A2-7A98-47EC-9F06-3617A3154C88.jpeg
 featureImageAlt: ""
 tags: []
 excerpt: ""

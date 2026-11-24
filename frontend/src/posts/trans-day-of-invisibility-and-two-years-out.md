@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2023-03-31T11:20:01.000+00:00
 modifiedTime: 2023-03-31T11:20:33.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/03/DSC03159-Edited-1.jpeg
+featureImage: /src/assets/img/posts/imported/DSC03159-Edited-1.jpeg
 featureImageAlt: ""
 tags:
   - lgbtq+

@@ -4,7 +4,7 @@ authors:
   - Maisie Bell
 publishedTime: 2023-04-28T18:57:24.000+00:00
 modifiedTime: 2023-04-28T18:57:24.000+00:00
-featureImage: https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/04/48740B33-9B95-488A-9038-4934AD3D88AC_1_105_c-1-1-1.jpeg
+featureImage: /src/assets/img/posts/imported/48740B33-9B95-488A-9038-4934AD3D88AC_1_105_c-1-1-1.jpeg
 featureImageAlt: ""
 tags:
   - food
@@ -17,7 +17,7 @@ Call it the Maisie hater arc if you want. But lately, I’ve had this constant f
 
 At its heart, pizza is a base of bread topped with a sauce, cheese (sometimes the cheese is the sauce!) and perhaps some kind of topping. It’s great because there isn’t that much more to it, and it’s really hard to make bad pizza. Sure, there’s mediocre pizza. Greasy pizza. Pizza that’s not super exciting or interesting. But at the end of the day, it’s still pizza and it combines salt, fat and carbs in a wonderful tour de force.
 
-![This is what I’m talking about.](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/04/44B999E2-550F-478B-8BB5-13C09E3445E3_1_105_c.jpeg)
+![This is what I’m talking about.](/src/assets/img/posts/imported/44B999E2-550F-478B-8BB5-13C09E3445E3_1_105_c.jpeg)
 
 This is what I’m talking about.
 
@@ -25,7 +25,7 @@ The penny dropped for me when I got pizza delivered from a local restaurant, tha
 
 A few pizza restaurants do this now. They give you the pizza unsliced because it apparently keeps everything together better and improves taste or whatever. But, what these charlatans have done is drastically increase the time and effort needed for me to eat and enjoy the pizza. It’s now a chore, some places will also strongly suggest heating the pizza again in your oven for the optimal experience. When’s the last time Domino’s played tricks on us like this?
 
-![Again with the spanking paddles?!](https://storage.ghost.io/c/b8/38/b8387400-0111-40f7-ba76-7e7292e1107b/content/images/2023/04/B13AABF0-4DBB-4290-B6FC-C81E5AC37EB0_1_105_c.jpeg)
+![Again with the spanking paddles?!](/src/assets/img/posts/imported/B13AABF0-4DBB-4290-B6FC-C81E5AC37EB0_1_105_c.jpeg)
 
 Again with the spanking paddles?!
 
